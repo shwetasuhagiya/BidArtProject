@@ -1,73 +1,82 @@
-import {moderateScale} from '../common/constants';
+import { responsiveFontSize } from "react-native-responsive-dimensions";
 
 // App Font-Family:
 const fontWeights = {
-  Regular: {
-    fontFamily: 'Nunito-Regular',
+  Black: {
+    fontFamily: 'Urbanist-Black',
   },
   Medium: {
     fontFamily: 'Nunito-Medium',
   },
   SemiBold: {
-    fontFamily: 'Nunito-SemiBold',
+    fontFamily: 'Urbanist-SemiBold',
   },
   Bold: {
-    fontFamily: 'Nunito-Bold',
+    fontFamily: 'Urbanist-Bold',
+  },
+  ExtraBold: {
+    fontFamily: 'Urbanist-ExtraBold',
+  },
+  Thin: {
+    fontFamily: 'Urbanist-Thin',
   },
 };
 
 // App font sizes:
 const fontSizes = {
-  f12: {
-    fontSize: moderateScale(12),
+  f2: {
+    fontSize: responsiveFontSize(2),
   },
-  f14: {
-    fontSize: moderateScale(14),
+  f3: {
+    fontSize: responsiveFontSize(3),
+  },
+  f4: {
+    fontSize: responsiveFontSize(4),
   },
   f16: {
-    fontSize: moderateScale(16),
+    fontSize: 16,
   },
   f18: {
-    fontSize: moderateScale(18),
+    fontSize: 18,
   },
   f20: {
-    fontSize: moderateScale(20),
+    fontSize: 20,
   },
   f22: {
-    fontSize: moderateScale(20),
+    fontSize: 20,
   },
   f24: {
-    fontSize: moderateScale(24),
+    fontSize: 24,
   },
   f26: {
-    fontSize: moderateScale(26),
+    fontSize: 26,
   },
   f28: {
-    fontSize: moderateScale(28),
+    fontSize: 28,
   },
   f30: {
-    fontSize: moderateScale(30),
+    fontSize: 30,
   },
   f32: {
-    fontSize: moderateScale(32),
+    fontSize: 32,
   },
   f34: {
-    fontSize: moderateScale(34),
+    fontSize: 34,
   },
   f35: {
-    fontSize: moderateScale(35),
+    fontSize: 35,
   },
   f36: {
-    fontSize: moderateScale(36),
+    fontSize: 36,
   },
   f40: {
-    fontSize: moderateScale(40),
+    fontSize: 40,
   },
   f46: {
-    fontSize: moderateScale(46),
+    fontSize: 46,
   },
   f66: {
-    fontSize: moderateScale(66),
+    fontSize: 66,
   },
 };
 

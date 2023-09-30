@@ -1,116 +1,116 @@
 import {StyleSheet} from 'react-native';
-import {moderateScale} from '../common/constants';
+
 
 export default StyleSheet.create({
   p10: {
-    padding: moderateScale(10),
+    padding: 10,
   },
   p15: {
-    padding: moderateScale(15),
+    padding: 15,
   },
   p20: {
-    padding: moderateScale(20),
+    padding: 20,
   },
   p25: {
-    padding: moderateScale(25),
+    padding: 25,
   },
   p30: {
-    padding: moderateScale(30),
+    padding: 30,
   },
   p8: {
-    padding: moderateScale(8),
+    padding: 8,
   },
   p5: {
-    padding: moderateScale(5),
+    padding: 5,
   },
   pb0: {
     paddingBottom: 0,
   },
   pb10: {
-    paddingBottom: moderateScale(10),
+    paddingBottom: 10,
   },
   pb15: {
-    paddingBottom: moderateScale(15),
+    paddingBottom: 15,
   },
   pb20: {
-    paddingBottom: moderateScale(20),
+    paddingBottom:20,
   },
   pb30: {
-    paddingBottom: moderateScale(30),
+    paddingBottom: 30,
   },
   pb5: {
-    paddingBottom: moderateScale(5),
+    paddingBottom: 5,
   },
   pb50: {
-    paddingBottom: moderateScale(50),
+    paddingBottom: 50,
   },
   ph0: {
     paddingHorizontal: 0,
   },
   ph10: {
-    paddingHorizontal: moderateScale(10),
+    paddingHorizontal: 10,
   },
   ph15: {
-    paddingHorizontal: moderateScale(15),
+    paddingHorizontal: 15,
   },
   ph20: {
-    paddingHorizontal: moderateScale(20),
+    paddingHorizontal: 20,
   },
   ph25: {
-    paddingHorizontal: moderateScale(25),
+    paddingHorizontal: 25,
   },
   ph30: {
-    paddingHorizontal: moderateScale(30),
+    paddingHorizontal: 30,
   },
   ph35: {
-    paddingHorizontal: moderateScale(35),
+    paddingHorizontal: 35,
   },
   ph5: {
-    paddingHorizontal: moderateScale(5),
+    paddingHorizontal: 5,
   },
   pl10: {
-    paddingLeft: moderateScale(10),
+    paddingLeft: 10,
   },
   pr10: {
-    paddingRight: moderateScale(10),
+    paddingRight: 10,
   },
   pl25: {
-    paddingLeft: moderateScale(25),
+    paddingLeft: 25,
   },
   pt10: {
-    paddingTop: moderateScale(10),
+    paddingTop: 10,
   },
   pt15: {
-    paddingTop: moderateScale(15),
+    paddingTop: 15,
   },
   pt20: {
-    paddingTop: moderateScale(20),
+    paddingTop: 20,
   },
   pt25: {
-    paddingTop: moderateScale(25),
+    paddingTop: 25,
   },
   pt30: {
-    paddingTop: moderateScale(30),
+    paddingTop: 30,
   },
   pt40: {
-    paddingTop: moderateScale(40),
+    paddingTop: 40,
   },
   pv10: {
-    paddingVertical: moderateScale(10),
+    paddingVertical: 10,
   },
   pv15: {
-    paddingVertical: moderateScale(15),
+    paddingVertical: 15,
   },
   pv20: {
-    paddingVertical: moderateScale(20),
+    paddingVertical: 20,
   },
   pv25: {
-    paddingVertical: moderateScale(25),
+    paddingVertical: 25,
   },
   pv30: {
-    paddingVertical: moderateScale(30),
+    paddingVertical:30,
   },
   pv5: {
-    paddingVertical: moderateScale(5),
+    paddingVertical: 5,
   },
 });
