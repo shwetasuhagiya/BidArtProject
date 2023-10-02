@@ -105,7 +105,7 @@ export default StyleSheet.create({
   wrap: {
     flexWrap: 'wrap',
   },
-  centers:{
-    textAlign:'center'
+  aligncenter:{
+    alignItems:'center'
   }
 });

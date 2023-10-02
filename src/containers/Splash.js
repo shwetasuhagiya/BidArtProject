@@ -1,31 +1,40 @@
 import {View, Text, Image, StyleSheet, SafeAreaView} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {styles} from '../themes';
 import images from '../assets/images';
 import {StorageGetValue} from '../utils/asyncstorage';
+import {moderateScale} from '../common/constants';
 
-const Splash = (props) => {
-  setTimeout(() => {
-    props.navigation.replace('Onboarding');
-  },3000);
+const Splash = ({navigation}) => {
+  // setTimeout(() => {
+  //   // props.navigation.replace('Onboarding');
+  // }, 3000);
 
-  // const asyncProcess = async () => {
-  //   try {
-  //     let asyncData = await StorageGetValue();
-  //     if (asyncData) {
-  //       let {onBoardingValue, Loginvalue} = asyncData;
-  //      if (!!Loginvalue) {
-  //        props.navigation.replace('Home');
-  //      } else if (!!onBoardingValue) {
-  //        props.navigation.replace('Login');
-  //      } else {
-  //        props.navigation.replace('Onboarding');
-  //      }
-  //     }
-  //   } catch (e) {
-  //     console.log('error ', e);
-  //   }
-  // };
+  useEffect(() => {
+    setTimeout(() => {
+      asyncProcess();
+    }, 2000);
+  }, []);
+
+  const asyncProcess = async () => {
+    try {
+      console.log('func called');
+      let asyncData = await StorageGetValue();
+      if (asyncData) {
+        // cl
+        let {onBoardingValue, Loginvalue} = asyncData;
+        if (!!Loginvalue) {
+          navigation.replace('Home');
+        } else if (!!onBoardingValue) {
+          navigation.replace('AuthNavigation');
+        } else {
+          navigation.replace('Onboarding');
+        }
+      }
+    } catch (e) {
+      console.log('error ', e);
+    }
+  };
   return (
     <SafeAreaView style={localstyles.imagestyle}>
       <View>
@@ -41,7 +50,7 @@ const localstyles = StyleSheet.create({
     ...styles.center,
   },
   loaderStyle: {
-    ...styles.t35,
+    top: moderateScale(300),
   },
 });
 export default Splash;

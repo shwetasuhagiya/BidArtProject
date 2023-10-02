@@ -19,11 +19,10 @@ import {
 import {colors, styles} from '../themes';
 import typography from '../themes/typography';
 import images from '../assets/images';
-import {deviceWidth, moderateScale} from '../common/constants';
-import { StoreOnbardingData } from '../utils/asyncstorage';
+import {deviceHeight, deviceWidth, moderateScale} from '../common/constants';
+import {StoreOnbardingData} from '../utils/asyncstorage';
 
 const OnBoarding = props => {
-  const [Index, setIndex] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   let slideRef = useRef(null);
 
@@ -33,84 +32,90 @@ const OnBoarding = props => {
 
   const onPressRightArrow = () => {
     if (currentIndex === 2) {
-      //  StoreOnbardingData(true)
-      props.navigation.replace('Login');
+       StoreOnbardingData(true)
+      props.navigation.replace('AuthNavigation');
     } else {
-      slideRef.goToSlide(currentIndex + 1);
+      slideRef.current._listRef._scrollRef.scrollTo({
+        x: deviceWidth * (currentIndex + 1),
+      });
     }
   };
-  const renderNextButton = () => {
-    return (
-      <TouchableOpacity
-        onPress={onPressRightArrow}
-        style={localstyle.bottomBtn}>
-        {currentIndex === 1 ? (
-          <Image source={images.Next2} style={localstyle.NextImgStyle} />
-        ) : (
-          <Image source={images.Next1} style={localstyle.NextImgStyle} />
-        )}
-      </TouchableOpacity>
-    );
+  const RenderItemData = useCallback(
+    ({item, index}) => {
+      return (
+        <View style={localstyle.renderItemcontainer}>
+          <Image source={item.image} style={localstyle.OnBoardingImageStyle} />
+
+          <Text style={localstyle.titleTextStyle}>{item.titleText}</Text>
+          <Text style={localstyle.descriptionTextStyle}>
+            {item.descriptionText}
+          </Text>
+        </View>
+      );
+    },
+    [OnBoardingSlideData],
+  );
+
+  const SwitchImage = () => {
+    switch (currentIndex) {
+      case 1:
+        return <Image source={images.Next1} style={localstyle.imageStyle} />;
+      case 2:
+        return <Image source={images.Start} style={localstyle.imageStyle} />;
+      default:
+        return <Image source={images.Next2} style={localstyle.imageStyle} />;
+    }
   };
 
-  const renderDoneButton = () => {
-    return (
-      <TouchableOpacity
-        onPress={onPressRightArrow}
-        style={localstyle.bottomBtn}>
-        <Image source={images.Start} style={localstyle.NextImgStyle} />
+  return (
+    <SafeAreaView>
+      <FlatList
+        data={OnBoardingSlideData}
+        renderItem={({item, index}) => <RenderItemData item={item} />}
+        onViewableItemsChanged={_onViewableItemsChanged}
+        ref={slideRef}
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+      />
+      <View>
+        <View style={styles.rowCenter} >
+          {OnBoardingSlideData.map((_, index) => (
+            <View
+              key={index.toString()}
+              style={[
+                localstyle.bottomIndicatorStyle,
+                {
+                  width:
+                    index !== currentIndex
+                      ? moderateScale(4)
+                      : moderateScale(20),
+                  backgroundColor:
+                    index !== currentIndex
+                      ? colors.grayText
+                      : colors.black
+                },
+              ]}
+            />
+          ))}
+        </View>
+      </View>
+      <TouchableOpacity onPress={onPressRightArrow} style={localstyle.NextImg}>
+        <SwitchImage />
       </TouchableOpacity>
-    );
-  };
-
-  if (!Index) {
-    return (
-      <SafeAreaView style={{flex: 1}}>
-        <AppIntroSlider
-          data={OnBoardingSlideData}
-          renderItem={({item, index}) => {
-            return (
-              <View key={index}>
-                <Image
-                  source={item.image}
-                  style={localstyle.OnBoardingImageStyle}
-                />
-
-                <Text style={localstyle.titleTextStyle}>{item.titleText}</Text>
-                <Text style={localstyle.descriptionTextStyle}>
-                  {item.descriptionText}
-                </Text>
-              </View>
-            );
-          }}
-          activeDotStyle={{
-            backgroundColor: colors.black,
-            width: responsiveWidth(8),
-          }}
-          dotStyle={{
-            backgroundColor: colors.lightGray,
-            width: responsiveWidth(2),
-          }}
-          bottomButton={true}
-          renderDoneButton={renderDoneButton}
-          renderNextButton={renderNextButton}
-          onViewableItemsChanged={_onViewableItemsChanged}
-          ref={ref => (slideRef = ref)}
-        />
-      </SafeAreaView>
-    );
-  }
+    </SafeAreaView>
+  );
 };
 const localstyle = StyleSheet.create({
-  OnBoardingImageStyle: {
-    width: responsiveWidth(100),
-    height: responsiveHeight(45),
-    resizeMode: 'contain',
-    ...styles.mt2,
+  renderItemcontainer: {
+    // width: deviceWidth,
+    ...styles.center,
+    ...styles.aligncenter,
   },
-  NextImgStyle: {
-    width: responsiveWidth(23),
-    height: responsiveWidth(23),
+  OnBoardingImageStyle: {
+    width: deviceWidth,
+    height: deviceHeight * 0.45,
+    resizeMode:'contain'
   },
   bottomBtn: {
     ...styles.selfCenter,
@@ -118,18 +123,35 @@ const localstyle = StyleSheet.create({
     ...styles.mt40,
   },
   titleTextStyle: {
-    ...typography.fontSizes.f4,
+    ...typography.fontSizes.f24,
     ...typography.fontWeights.Bold,
-    ...styles.centers,
-    ...styles.mv2,
-    ...styles.mt3,
+    ...styles.itemsCenter,
+    width: moderateScale(320),
+    textAlign: 'center',
+    ...styles.mt25,
+    ...styles.mb15,
   },
   descriptionTextStyle: {
-    ...typography.fontSizes.f2,
+    ...typography.fontSizes.f16,
     color: colors.grayText,
-    ...styles.centers,
-    width: responsiveWidth(90),
-    ...styles.ml3,
+    ...styles.itemsCenter,
+    width: moderateScale(327),
+    height: moderateScale(48),
+    textAlign: 'center',
   },
+  bottomIndicatorStyle: {
+    height: moderateScale(4),
+    borderRadius: moderateScale(10),
+    ...styles.mh5,
+    ...styles.mt10
+  },
+  NextImg: {
+    ...styles.aligncenter,
+    ...styles.mt50,
+  },
+  imageStyle:{
+    width:moderateScale(100),
+    height:moderateScale(100)
+  }
 });
 export default OnBoarding;

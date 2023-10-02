@@ -1,21 +1,24 @@
-import { responsiveFontSize } from "react-native-responsive-dimensions";
+import {moderateScale} from '../common/constants';
 
 // App Font-Family:
 const fontWeights = {
-  Black: {
-    fontFamily: 'Urbanist-Black',
+  Bold: {
+    fontFamily: 'Urbanist-Bold',
   },
   Medium: {
-    fontFamily: 'Nunito-Medium',
+    fontFamily: 'Urbanist-Medium',
   },
   SemiBold: {
     fontFamily: 'Urbanist-SemiBold',
   },
-  Bold: {
-    fontFamily: 'Urbanist-Bold',
+  Balck: {
+    fontFamily: 'Urbanist-Balck',
   },
   ExtraBold: {
     fontFamily: 'Urbanist-ExtraBold',
+  },
+  light: {
+    fontFamily: 'Urbanist-Light',
   },
   Thin: {
     fontFamily: 'Urbanist-Thin',
@@ -24,59 +27,56 @@ const fontWeights = {
 
 // App font sizes:
 const fontSizes = {
-  f2: {
-    fontSize: responsiveFontSize(2),
+  f12: {
+    fontSize: moderateScale(12),
   },
-  f3: {
-    fontSize: responsiveFontSize(3),
-  },
-  f4: {
-    fontSize: responsiveFontSize(4),
+  f14: {
+    fontSize: moderateScale(14),
   },
   f16: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
   },
   f18: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
   },
   f20: {
-    fontSize: 20,
+    fontSize: moderateScale(20),
   },
   f22: {
-    fontSize: 20,
+    fontSize: moderateScale(20),
   },
   f24: {
-    fontSize: 24,
+    fontSize: moderateScale(24),
   },
   f26: {
-    fontSize: 26,
+    fontSize: moderateScale(26),
   },
   f28: {
-    fontSize: 28,
+    fontSize: moderateScale(28),
   },
   f30: {
-    fontSize: 30,
+    fontSize: moderateScale(30),
   },
   f32: {
-    fontSize: 32,
+    fontSize: moderateScale(32),
   },
   f34: {
-    fontSize: 34,
+    fontSize: moderateScale(34),
   },
   f35: {
-    fontSize: 35,
+    fontSize: moderateScale(35),
   },
   f36: {
-    fontSize: 36,
+    fontSize: moderateScale(36),
   },
   f40: {
-    fontSize: 40,
+    fontSize: moderateScale(40),
   },
   f46: {
-    fontSize: 46,
+    fontSize: moderateScale(46),
   },
   f66: {
-    fontSize: 66,
+    fontSize: moderateScale(66),
   },
 };
 
