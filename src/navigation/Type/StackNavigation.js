@@ -1,9 +1,7 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Splash from '../../containers/Splash';
-import OnBoarding from '../../containers/OnBoarding';
-import LoginScreen from '../../containers/auth/LoginScreen';
-import AuthNavigation from './AuthNavigation';
+import { StackNav } from '../NavigationKeys';
+import { StackRoute } from '../NavigationRoute';
 
 
 const Stack = createNativeStackNavigator();
@@ -13,10 +11,12 @@ export default function StackNavigation() {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-      }}>
-      <Stack.Screen name="Splash" component={Splash} />
-      <Stack.Screen name="Onboarding" component={OnBoarding} />
-      <Stack.Screen name="AuthNavigation" component={AuthNavigation} />
+      }}
+      initialRouteName={StackNav.Splash}
+      >
+      <Stack.Screen name={StackNav.Splash} component={StackRoute.Splash} />
+      <Stack.Screen name={StackNav.Onboarding} component={StackRoute.OnBoarding} />
+      <Stack.Screen name={StackNav.AuthNavigation} component={StackRoute.AuthNavigation} />
     </Stack.Navigator>
   );
 }

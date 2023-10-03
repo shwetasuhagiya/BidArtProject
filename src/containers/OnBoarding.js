@@ -11,11 +11,6 @@ import {
 } from 'react-native';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import OnBoardingSlideData from '../api/constant';
-import AppIntroSlider from 'react-native-app-intro-slider';
-import {
-  responsiveHeight,
-  responsiveWidth,
-} from 'react-native-responsive-dimensions';
 import {colors, styles} from '../themes';
 import typography from '../themes/typography';
 import images from '../assets/images';

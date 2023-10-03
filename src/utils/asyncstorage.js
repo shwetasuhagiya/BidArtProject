@@ -7,7 +7,7 @@ const StorageGetValue = async () => {
   // console.warn(asyncData)
   console.log('!!asyncData[0][1]', !!asyncData[0][1]);
   const onBoardingValue = !!asyncData[0][1] ? asyncData[0][1] : false;
-  const Loginvalue = !!asyncData[1][1] ? json.parse(asyncData[1][1]) : false;
+  const Loginvalue = !!asyncData[1][1] ? JSON.parse(asyncData[1][1]) : false;
   return {onBoardingValue, Loginvalue};
 };
 

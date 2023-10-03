@@ -14,7 +14,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-BidArtProjects-BidArtProjectsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-BidArtProjects-BidArtProjectsTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		B0F91B9A2AC69C1200A97E03 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = B0F91B992AC69C1200A97E03 /* fonts */; };
+		B05B39B32ACAF07800E7C557 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = B05B39B22ACAF07800E7C557 /* fonts */; };
+		B05B39B52ACAF44D00E7C557 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = B05B39B42ACAF44C00E7C557 /* Fonts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +45,8 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-BidArtProjects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BidArtProjects.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = BidArtProjects/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-BidArtProjects-BidArtProjectsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BidArtProjects-BidArtProjectsTests.release.xcconfig"; path = "Target Support Files/Pods-BidArtProjects-BidArtProjectsTests/Pods-BidArtProjects-BidArtProjectsTests.release.xcconfig"; sourceTree = "<group>"; };
-		B0F91B992AC69C1200A97E03 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		B05B39B22ACAF07800E7C557 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		B05B39B42ACAF44C00E7C557 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -118,7 +120,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				B0F91B992AC69C1200A97E03 /* fonts */,
+				B05B39B42ACAF44C00E7C557 /* Fonts */,
+				B05B39B22ACAF07800E7C557 /* fonts */,
 				13B07FAE1A68108700A75B9A /* BidArtProjects */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* BidArtProjectsTests */,
@@ -245,9 +248,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0F91B9A2AC69C1200A97E03 /* fonts in Resources */,
+				B05B39B32ACAF07800E7C557 /* fonts in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				B05B39B52ACAF44D00E7C557 /* Fonts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

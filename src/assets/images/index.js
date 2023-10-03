@@ -6,5 +6,9 @@ export default {
   onBoardingImg3: require('../images/Onboarding3.png'),
   Next1: require('../images/Next.png'),
   Next2: require('../images/Next1.png'),
-  Start:require('../images/Start.png')
+  Start:require('../images/Start.png'),
+  Google:require('../images/Google.png'),
+  Facebook:require('../images/Facebook.png'),
+  Apple:require('../images/Apple.png'),
+
 };

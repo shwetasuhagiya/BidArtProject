@@ -2,9 +2,9 @@ import {Dimensions, Platform} from 'react-native';
 
 //Device dimensions
 const {width: viewportWidth, height: viewportHeight} = Dimensions.get('window');
+
 export const deviceWidth = viewportWidth;
 export const deviceHeight = viewportHeight;
-
 const scale = viewportWidth / 375;
 
 //Device type check
