@@ -9,92 +9,69 @@ import CButton from '../../components/common/CButton';
 import images from '../../assets/images';
 import {AuthNav} from '../../navigation/NavigationKeys';
 import CText from '../../components/common/CText';
+import StepIndicator from '../../components/StepIndicator';
+import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper';
 
-const LoginScreen = props => {
-  const data = [1, 2, 3, 4, 5];
+const LoginScreen = ({navigation}) => {
   const [Email, SetEmail] = useState('');
 
   const onPressNext = () => {
-    props.navigation.navigate(AuthNav.CreatePasswordScreen);
+    navigation.navigate(AuthNav.CreatePasswordScreen);
   };
   const onChangeEmail = item => {
-    SetEmail(item)
+    SetEmail(item);
+  };
+
+  const SocialButtonComponent = ({img, text}) => {
+    return (
+      <View style={localstyle.googleStyle}>
+        <Image source={img} style={localstyle.googleImageStyle} />
+        <CText type={'S16'}>{text}</CText>
+      </View>
+    );
   };
 
   return (
-    <SafeAreaView>
-      <View style={localstyle.viewStyle}>
-        {data.map(item => (
-          <View
-            style={
-              item <= 1 ? localstyle.HeaderActiveStyle : localstyle.HeaderStyle
-            }
-          />
-        ))}
-      </View>
-      <View style={localstyle.container}>
-        <CText style={localstyle.EmailTitleStyle} type={'B24'}>
-          {strings.EmailTitle}
-        </CText>
-        <CText style={localstyle.EmailDesStyle} type={'M16'}>
-          {strings.EmailDes}
-        </CText>
-        <CText type={'M14'}>{strings.YourEmail}</CText>
-        <CTextInput
-          placeholderText={strings.EmailPlaceHolderText}
-          value={Email}
-          onChangeText={onChangeEmail}
-        />
-        <CButton
-          Title={strings.Next}
-          ChangeBtnStyle={localstyle.btnstyle}
-          onPress={onPressNext}
-        />
-        <View style={localstyle.LineContainer}>
-          <View style={localstyle.randomLine}></View>
-          <CText style={localstyle.ORstyle} type={'M12'}>
-            {strings.or}
+    <View style={styles.mainContainerSurface}>
+      <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
+        <StepIndicator step={1} />
+        <View style={localstyle.container}>
+          <CText style={localstyle.EmailTitleStyle} type={'B24'}>
+            {strings.EmailTitle}
           </CText>
-          <View style={localstyle.randomLine}></View>
+          <CText style={localstyle.EmailDesStyle} type={'M16'}>
+            {strings.EmailDes}
+          </CText>
+          <CText type={'M14'}>{strings.YourEmail}</CText>
+          <CTextInput
+            placeholderText={strings.EmailPlaceHolderText}
+            value={Email}
+            onChangeText={onChangeEmail}
+          />
+          <CButton
+            Title={strings.Next}
+            ChangeBtnStyle={localstyle.btnstyle}
+            onPress={onPressNext}
+          />
+          <View style={localstyle.LineContainer}>
+            <View style={localstyle.randomLine}></View>
+            <CText style={localstyle.ORstyle} type={'M12'}>
+              {strings.or}
+            </CText>
+            <View style={localstyle.randomLine}></View>
+          </View>
+          <SocialButtonComponent img={images.Google} text={strings.Google} />
+          <SocialButtonComponent
+            img={images.Facebook}
+            text={strings.Facebook}
+          />
+          <SocialButtonComponent img={images.Apple} text={strings.Apple} />
         </View>
-        <View style={localstyle.googleStyle}>
-          <Image source={images.Google} style={localstyle.googleImageStyle} />
-          <CText type={'S16'}>{strings.Google}</CText>
-        </View>
-        <View style={localstyle.googleStyle}>
-          <Image source={images.Facebook} style={localstyle.googleImageStyle} />
-          <CText type={'S16'}>{strings.Facebook}</CText>
-        </View>
-        <View style={localstyle.googleStyle}>
-          <Image source={images.Apple} style={localstyle.googleImageStyle} />
-          <CText type={'S16'}>{strings.Apple}</CText>
-        </View>
-      </View>
-    </SafeAreaView>
+      </KeyBoardAvoidWrapper>
+    </View>
   );
 };
 const localstyle = StyleSheet.create({
-  viewStyle: {
-    ...styles.flexRow,
-    width: deviceWidth,
-    ...styles.mh10,
-    ...styles.mt20,
-    ...styles.mb30,
-  },
-  HeaderActiveStyle: {
-    width: moderateScale(60),
-    height: moderateScale(4),
-    borderRadius: moderateScale(4),
-    backgroundColor: colors.black,
-    ...styles.mh5,
-  },
-  HeaderStyle: {
-    width: moderateScale(60),
-    height: moderateScale(4),
-    borderRadius: moderateScale(4),
-    backgroundColor: colors.borderColor,
-    ...styles.mh5,
-  },
   container: {
     ...styles.mh15,
   },

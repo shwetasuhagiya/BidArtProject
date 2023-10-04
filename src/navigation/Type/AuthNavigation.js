@@ -1,9 +1,8 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import { AuthNav } from '../NavigationKeys';
-import { AuthRoute } from '../NavigationRoute';
+import {AuthNav} from '../NavigationKeys';
+import {AuthRoute} from '../NavigationRoute';
 
 const Stack = createNativeStackNavigator();
-
 
 const AuthNavigation = () => {
   return (
@@ -18,8 +17,16 @@ const AuthNavigation = () => {
         name={AuthNav.CreatePasswordScreen}
         component={AuthRoute.CreatePasswordScreen}
       />
+      <Stack.Screen
+        name={AuthNav.FullNameScreen}
+        component={AuthRoute.FullNameScreen}
+      />
+      <Stack.Screen
+        name={AuthNav.FollowArtistScreen}
+        component={AuthRoute.FollowArtistScreen}
+      />
     </Stack.Navigator>
   );
-}
+};
 
-export default AuthNavigation
+export default AuthNavigation;

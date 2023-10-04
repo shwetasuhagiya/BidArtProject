@@ -150,8 +150,14 @@ export default StyleSheet.create({
   mt50: {
     marginTop: moderateScale(50),
   },
+  mt80: {
+    marginTop: moderateScale(80),
+  },
   mt100: {
     marginTop: moderateScale(100),
+  },
+  mt150: {
+    marginTop: moderateScale(150),
   },
   mv10: {
     marginVertical: moderateScale(10),

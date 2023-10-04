@@ -3,7 +3,7 @@ import {Text} from 'react-native';
 import {colors} from '../../themes/colors';
 import Typography from '../../themes/typography';
 
-const CText = ({type, style, align, color, children, ...props}) => {
+const CText = ({type, style, align, color,onPress, children, ...props}) => {
   const fontWeights = () => {
     switch (type.charAt(0).toUpperCase()) {
       case 'R':
@@ -72,6 +72,7 @@ const CText = ({type, style, align, color, children, ...props}) => {
         align && {textAlign: align},
         style,
       ]}
+      onPress={onPress}
       {...props}>
       {children}
     </Text>

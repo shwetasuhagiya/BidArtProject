@@ -14,4 +14,17 @@ export default {
   ConfirmPassword: 'Confirm New Password',
   EmailPlaceHolderText: 'youremail@email.xyz',
   PasswordPlaceHolderText: '********',
+  temrsAndCondition:
+    'Please agree to Bidart ',
+  TermofUse :'Term of Use ',
+  PrivacyPolicy:'Privacy Policy,',
+  and :'and ',
+  otherdes:'and to receive emails from Bidart.',
+  Agree: 'I agree',
+  AlreadyAccount: 'Already have an account?',
+  GoBack: 'Go Back',
+  FullNameTitle: 'What’s Your Full Name ?',
+  FullNameDes: 'This is used to build profile and collection on BidArt',
+  FullName: 'Full Name',
+  FullNamePlaceHolderText: 'Alvin Elian',
 };

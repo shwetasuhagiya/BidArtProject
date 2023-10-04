@@ -1,31 +1,68 @@
-import {View, Text, TextInput, StyleSheet} from 'react-native';
-import React from 'react';
+import {View, Text, TextInput, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import React, { useState } from 'react';
 import {colors, styles} from '../../themes';
 import {moderateScale} from '../../common/constants';
 import typography from '../../themes/typography';
+import images from '../../assets/images';
 
 const CTextInput = props => {
-  const {placeholderText, ChangeStyle, value, onChangeText, secureTextEntry} =
-    props;
+  const {
+    placeholderText,
+    ChangeStyle,
+    value,
+    onChangeText,
+    secureTextEntry,
+    RightIcon,
+    isSecure
+  } = props;
+  const [isSecurepass,SetisSecurePass]= useState(true)
+  const onPressSecureIcon=()=>{
+    SetisSecurePass(!isSecurepass)
+  }
   return (
-    <TextInput
-      placeholder={placeholderText}
-      style={[localstyle.TextInputStyle, ChangeStyle]}
-      placeholderTextColor={colors.grayText}
-      value={value}
-      onChangeText={onChangeText}
-      secureTextEntry={secureTextEntry}
-    />
+    <View style={localstyle.flexinput}>
+      <TextInput
+        placeholder={placeholderText}
+        style={[localstyle.TextInputStyle, ChangeStyle]}
+        placeholderTextColor={colors.grayText}
+        value={value}
+        onChangeText={onChangeText}
+        secureTextEntry={isSecurepass}
+      />
+      {!!RightIcon && <RightIcon />}
+      {isSecure && (
+        <TouchableOpacity onPress={onPressSecureIcon}>
+          {!isSecurepass ? (
+            <Image source={images.Eye1} style={localstyle.securetextStyle} />
+          ) : (
+            <Image source={images.Eye} style={localstyle.securetextStyle} />
+          )}
+        </TouchableOpacity>
+      )}
+    </View>
   );
 };
 const localstyle = StyleSheet.create({
-  TextInputStyle: {
+  flexinput: {
+    ...styles.rowCenter,
+    ...styles.mt5,
+    width: '100%',
     borderColor: colors.borderColor,
     borderWidth: moderateScale(1.5),
-    height: moderateScale(52),
-    ...styles.pl10,
-    ...styles.mv15,
+    ...styles.mb10
+  },
+  TextInputStyle: {
     ...typography.fontSizes.f14,
+    ...typography.fontWeights.Regular,
+    ...styles.ph10,
+    ...styles.flex,
+    height: moderateScale(52),
+  },
+  securetextStyle: {
+    ...styles.center,
+    ...styles.mr10,
+    height: moderateScale(24),
+    width: moderateScale(24),
   },
 });
 export default CTextInput;

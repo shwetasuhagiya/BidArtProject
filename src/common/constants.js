@@ -12,6 +12,9 @@ export const isIOS = Platform.OS === 'ios';
 export const isAndroid = Platform.OS === 'android';
 export const isTablet = viewportHeight / viewportWidth < 1.6;
 
+const sampleWidth = 375;
+const sampleHeight = 812;
+
 //Responsive height and width function
 export function wp(percentage) {
   const value = (percentage * viewportWidth) / 100;
@@ -21,6 +24,15 @@ export function hp(percentage) {
   const value = (percentage * viewportHeight) / 100;
   return Math.round(value);
 }
+
+// // Get width of screen
+// export function getWidth(value) {
+//   return (value / sampleWidth) * screenWidth;
+// }
+// //Get Height of Screen
+// export function getHeight(value) {
+//   return (value / sampleHeight) * screenHeight;
+// }
 
 //Responsive size function
 export function moderateScale(size) {

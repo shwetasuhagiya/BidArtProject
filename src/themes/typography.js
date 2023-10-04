@@ -11,17 +11,8 @@ const fontWeights = {
   SemiBold: {
     fontFamily: 'Urbanist-SemiBold',
   },
-  Balck: {
-    fontFamily: 'Urbanist-Balck',
-  },
-  ExtraBold: {
-    fontFamily: 'Urbanist-ExtraBold',
-  },
-  light: {
-    fontFamily: 'Urbanist-Light',
-  },
-  Thin: {
-    fontFamily: 'Urbanist-Thin',
+  Regular: {
+    fontFamily: 'Urbanist-Regular',
   },
 };
 

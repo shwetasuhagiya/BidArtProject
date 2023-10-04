@@ -7,4 +7,6 @@ export const StackNav = {
 export const AuthNav = {
   LoginScreen: 'LoginScreen',
   CreatePasswordScreen: 'CreatePasswordScreen',
+  FullNameScreen:'FullNameScreen',
+  FollowArtistScreen:'FollowArtistScreen'
 };
