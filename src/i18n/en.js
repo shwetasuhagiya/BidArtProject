@@ -14,12 +14,11 @@ export default {
   ConfirmPassword: 'Confirm New Password',
   EmailPlaceHolderText: 'youremail@email.xyz',
   PasswordPlaceHolderText: '********',
-  temrsAndCondition:
-    'Please agree to Bidart ',
-  TermofUse :'Term of Use ',
-  PrivacyPolicy:'Privacy Policy,',
-  and :'and ',
-  otherdes:'and to receive emails from Bidart.',
+  temrsAndCondition: 'Please agree to Bidart ',
+  TermofUse: 'Term of Use ',
+  PrivacyPolicy: 'Privacy Policy,',
+  and: 'and ',
+  otherdes: 'and to receive emails from Bidart.',
   Agree: 'I agree',
   AlreadyAccount: 'Already have an account?',
   GoBack: 'Go Back',
@@ -27,4 +26,10 @@ export default {
   FullNameDes: 'This is used to build profile and collection on BidArt',
   FullName: 'Full Name',
   FullNamePlaceHolderText: 'Alvin Elian',
+  FollowArtistTitle: 'Follow artists that most interest you',
+  FollowArtistPlaceholderText: 'Search Artist',
+  TopArtistonBidart: 'Top Artist on Bidart',
+  categoriesTitle: 'Follow categories of art that most interest you',
+  categoriesPlaceholderText: 'Search Style',
+  PopularCategories :'Popular Categories Of Art on Bidart'
 };

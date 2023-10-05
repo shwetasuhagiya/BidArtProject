@@ -8,7 +8,7 @@ const AuthNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{headerShown: false}}
-      initialRouteName={AuthNav.LoginScreen}>
+      initialRouteName={AuthNav.FollowCategoriesScreen}>
       <Stack.Screen
         name={AuthNav.LoginScreen}
         component={AuthRoute.LoginScreen}
@@ -24,6 +24,10 @@ const AuthNavigation = () => {
       <Stack.Screen
         name={AuthNav.FollowArtistScreen}
         component={AuthRoute.FollowArtistScreen}
+      />
+      <Stack.Screen
+        name={AuthNav.FollowCategoriesScreen}
+        component={AuthRoute.FollowCategoriesScreen}
       />
     </Stack.Navigator>
   );

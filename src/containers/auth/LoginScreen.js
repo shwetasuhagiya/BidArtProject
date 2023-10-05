@@ -1,6 +1,7 @@
 import {View, Text, StyleSheet, Image, Alert} from 'react-native';
 import React, {useState} from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
+
+//custom imports
 import {colors, styles} from '../../themes';
 import {deviceWidth, moderateScale} from '../../common/constants';
 import strings from '../../i18n/strings';
@@ -47,6 +48,7 @@ const LoginScreen = ({navigation}) => {
             placeholderText={strings.EmailPlaceHolderText}
             value={Email}
             onChangeText={onChangeEmail}
+            
           />
           <CButton
             Title={strings.Next}

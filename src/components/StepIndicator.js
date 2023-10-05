@@ -6,7 +6,7 @@ import {deviceWidth, moderateScale} from '../common/constants';
 import {colors} from '../themes';
 import {styles} from '../themes';
 
-export default function StepIndicator({step}) {
+export default function StepIndicator({step, style}) {
   const renderItem = ({item}) => {
     return (
       <View
@@ -20,15 +20,15 @@ export default function StepIndicator({step}) {
     );
   };
   return (
-    <SafeAreaView style={localstyle.viewStyle}>
-        <FlatList
-          data={[1, 2, 3, 4, 5]}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          scrollEnabled={false}
-        />
+    <SafeAreaView style={[localstyle.viewStyle, style]}>
+      <FlatList
+        data={[1, 2, 3, 4, 5]}
+        renderItem={renderItem}
+        keyExtractor={(item, index) => index.toString()}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        scrollEnabled={false}
+      />
     </SafeAreaView>
   );
 }

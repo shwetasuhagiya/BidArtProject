@@ -4,6 +4,7 @@ import {styles} from '../themes';
 import images from '../assets/images';
 import {StorageGetValue} from '../utils/asyncstorage';
 import {moderateScale} from '../common/constants';
+import { StackNav } from '../navigation/NavigationKeys';
 
 const Splash = ({navigation}) => {
   // setTimeout(() => {
@@ -18,17 +19,16 @@ const Splash = ({navigation}) => {
 
   const asyncProcess = async () => {
     try {
-      console.log('func called');
       let asyncData = await StorageGetValue();
       if (asyncData) {
         // cl
         let {onBoardingValue, Loginvalue} = asyncData;
         if (!!Loginvalue) {
-          navigation.replace('Home');
+          navigation.replace();
         } else if (!!onBoardingValue) {
-          navigation.replace('AuthNavigation');
+          navigation.replace(StackNav.AuthNavigation);
         } else {
-          navigation.replace('Onboarding');
+          navigation.replace(StackNav.OnBoarding);
         }
       }
     } catch (e) {

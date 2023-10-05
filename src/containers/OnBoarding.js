@@ -6,11 +6,9 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  Alert,
-  Button,
 } from 'react-native';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import OnBoardingSlideData from '../api/constant';
+import {OnBoardingSlideData} from '../api/constant';
 import {colors, styles} from '../themes';
 import typography from '../themes/typography';
 import images from '../assets/images';
@@ -27,7 +25,7 @@ const OnBoarding = props => {
 
   const onPressRightArrow = () => {
     if (currentIndex === 2) {
-       StoreOnbardingData(true)
+      StoreOnbardingData(true);
       props.navigation.replace('AuthNavigation');
     } else {
       slideRef.current._listRef._scrollRef.scrollTo({
@@ -74,8 +72,8 @@ const OnBoarding = props => {
         showsHorizontalScrollIndicator={false}
       />
       <View>
-        <View style={styles.rowCenter} >
-          {OnBoardingSlideData.map((_, index) => (
+        <View style={styles.rowCenter}>
+          {OnBoardingSlideData?.map((_, index) => (
             <View
               key={index.toString()}
               style={[
@@ -86,9 +84,7 @@ const OnBoarding = props => {
                       ? moderateScale(4)
                       : moderateScale(20),
                   backgroundColor:
-                    index !== currentIndex
-                      ? colors.grayText
-                      : colors.black
+                    index !== currentIndex ? colors.grayText : colors.black,
                 },
               ]}
             />
@@ -110,7 +106,7 @@ const localstyle = StyleSheet.create({
   OnBoardingImageStyle: {
     width: deviceWidth,
     height: deviceHeight * 0.45,
-    resizeMode:'contain'
+    resizeMode: 'contain',
   },
   bottomBtn: {
     ...styles.selfCenter,
@@ -138,15 +134,15 @@ const localstyle = StyleSheet.create({
     height: moderateScale(4),
     borderRadius: moderateScale(10),
     ...styles.mh5,
-    ...styles.mt10
+    ...styles.mt10,
   },
   NextImg: {
     ...styles.aligncenter,
     ...styles.mt50,
   },
-  imageStyle:{
-    width:moderateScale(100),
-    height:moderateScale(100)
-  }
+  imageStyle: {
+    width: moderateScale(100),
+    height: moderateScale(100),
+  },
 });
 export default OnBoarding;

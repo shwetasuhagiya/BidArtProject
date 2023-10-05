@@ -10,12 +10,10 @@
 		00E356F31AD99517003FC87E /* BidArtProjectsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BidArtProjectsTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-BidArtProjects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-BidArtProjects.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
-		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-BidArtProjects-BidArtProjectsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-BidArtProjects-BidArtProjectsTests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		B05B39B32ACAF07800E7C557 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = B05B39B22ACAF07800E7C557 /* fonts */; };
-		B05B39B52ACAF44D00E7C557 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = B05B39B42ACAF44C00E7C557 /* Fonts */; };
+		B039519B2ACD89C10024EC3C /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = B05B39B22ACAF07800E7C557 /* fonts */; };
+		B039519C2ACD89CA0024EC3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,10 +41,13 @@
 		5709B34CF0A7D63546082F79 /* Pods-BidArtProjects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BidArtProjects.release.xcconfig"; path = "Target Support Files/Pods-BidArtProjects/Pods-BidArtProjects.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-BidArtProjects-BidArtProjectsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BidArtProjects-BidArtProjectsTests.debug.xcconfig"; path = "Target Support Files/Pods-BidArtProjects-BidArtProjectsTests/Pods-BidArtProjects-BidArtProjectsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-BidArtProjects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BidArtProjects.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EBEE67422A74EAF9DD30216 /* Urbanist-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Urbanist-Regular.ttf"; path = "../src/assets/fonts/Urbanist-Regular.ttf"; sourceTree = "<group>"; };
+		779BA15BC4F649339478DADA /* Urbanist-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Urbanist-SemiBold.ttf"; path = "../src/assets/fonts/Urbanist-SemiBold.ttf"; sourceTree = "<group>"; };
+		7DDD1425B79040B6A721FE67 /* Urbanist-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Urbanist-Medium.ttf"; path = "../src/assets/fonts/Urbanist-Medium.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = BidArtProjects/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-BidArtProjects-BidArtProjectsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BidArtProjects-BidArtProjectsTests.release.xcconfig"; path = "Target Support Files/Pods-BidArtProjects-BidArtProjectsTests/Pods-BidArtProjects-BidArtProjectsTests.release.xcconfig"; sourceTree = "<group>"; };
 		B05B39B22ACAF07800E7C557 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
-		B05B39B42ACAF44C00E7C557 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
+		E2C8321A209C491BB72818FE /* Urbanist-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Urbanist-Bold.ttf"; path = "../src/assets/fonts/Urbanist-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -120,7 +121,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				B05B39B42ACAF44C00E7C557 /* Fonts */,
 				B05B39B22ACAF07800E7C557 /* fonts */,
 				13B07FAE1A68108700A75B9A /* BidArtProjects */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -128,6 +128,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				D99306936EA44D35835DE855 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -152,6 +153,17 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-BidArtProjects-BidArtProjectsTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D99306936EA44D35835DE855 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E2C8321A209C491BB72818FE /* Urbanist-Bold.ttf */,
+				7DDD1425B79040B6A721FE67 /* Urbanist-Medium.ttf */,
+				6EBEE67422A74EAF9DD30216 /* Urbanist-Regular.ttf */,
+				779BA15BC4F649339478DADA /* Urbanist-SemiBold.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,10 +198,10 @@
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
-				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				B039519A2ACD89B80024EC3C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -245,14 +257,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		13B07F8E1A680F5B00A75B9A /* Resources */ = {
+		B039519A2ACD89B80024EC3C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B05B39B32ACAF07800E7C557 /* fonts in Resources */,
-				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
-				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				B05B39B52ACAF44D00E7C557 /* Fonts in Resources */,
+				B039519C2ACD89CA0024EC3C /* LaunchScreen.storyboard in Resources */,
+				B039519B2ACD89C10024EC3C /* fonts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,8 @@ import {
   Image,
 } from 'react-native';
 import React, {useState} from 'react';
+
+//custom imports
 import {colors, styles} from '../../themes';
 import {deviceWidth, moderateScale} from '../../common/constants';
 import strings from '../../i18n/strings';
@@ -66,7 +68,7 @@ const CreatePasswordScreen = ({navigation}) => {
               placeholderText={strings.PasswordPlaceHolderText}
               value={password}
               onChangeText={onChangePassword}
-              isSecure
+              isSecure={true}
               RightIcon={RightIcon}
             />
             <CText style={localstyle.PasswordConfirmTitle} type={'M14'}>
@@ -76,18 +78,8 @@ const CreatePasswordScreen = ({navigation}) => {
               placeholderText={strings.PasswordPlaceHolderText}
               value={ConfirmPassword}
               onChangeText={onConfirmPassword}
-              secureTextEntry={true}
-              isSecure
-              RightIcon={() => (
-                <View style={localstyle.btnhandle}>
-                  <TouchableOpacity>
-                    <Image
-                      source={images.Check}
-                      style={localstyle.inputRightIconCheckStyle}
-                    />
-                  </TouchableOpacity>
-                </View>
-              )}
+              isSecure={true}
+              RightIcon={RightIcon}
             />
             <CText style={localstyle.termsStyle} type={'R14'}>
               {strings.temrsAndCondition}
@@ -136,11 +128,9 @@ const localstyle = StyleSheet.create({
   },
   PasswordTitle: {
     ...styles.mt20,
-    ...styles.mb10,
   },
   PasswordConfirmTitle: {
     ...styles.mt20,
-    ...styles.mb10,
   },
   inputRightIconCheckStyle: {
     ...styles.mr10,
@@ -176,6 +166,12 @@ const localstyle = StyleSheet.create({
   accountdetailStyle: {
     ...styles.flex,
     ...styles.center,
+  },
+  securetextStyle: {
+    ...styles.center,
+    ...styles.mr10,
+    height: moderateScale(24),
+    width: moderateScale(24),
   },
 });
 export default CreatePasswordScreen;

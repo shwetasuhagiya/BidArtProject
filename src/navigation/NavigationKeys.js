@@ -1,6 +1,6 @@
 export const StackNav = {
   Splash: 'Splash',
-  Onboarding: 'Onboarding',
+  OnBoarding: 'OnBoarding',
   AuthNavigation: 'AuthNavigation',
 };
 
@@ -8,5 +8,6 @@ export const AuthNav = {
   LoginScreen: 'LoginScreen',
   CreatePasswordScreen: 'CreatePasswordScreen',
   FullNameScreen:'FullNameScreen',
-  FollowArtistScreen:'FollowArtistScreen'
+  FollowArtistScreen:'FollowArtistScreen',
+  FollowCategoriesScreen:'FollowCategoriesScreen'
 };

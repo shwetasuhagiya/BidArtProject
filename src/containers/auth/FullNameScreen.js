@@ -1,5 +1,7 @@
 import {View, SafeAreaView, StyleSheet, Image} from 'react-native';
 import React, {useState} from 'react';
+
+//custom imports
 import {colors, styles} from '../../themes';
 import {deviceWidth, moderateScale} from '../../common/constants';
 import CText from '../../components/common/CText';
@@ -80,7 +82,6 @@ const localstyle = StyleSheet.create({
   },
   PasswordTitle: {
     ...styles.mt20,
-    ...styles.mb10,
   },
   termsStyle: {
     width: moderateScale(300),

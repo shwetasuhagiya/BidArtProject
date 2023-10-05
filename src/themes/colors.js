@@ -18,5 +18,6 @@ export const colors = {
   red: '#FF5470',
   green: '#1ED390',
   lightGray: '#9F9F9F',
+  light400:'#707070',
   borderColor: '#DCDCDC',
 };

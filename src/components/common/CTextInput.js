@@ -1,5 +1,11 @@
-import {View, Text, TextInput, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import React, { useState } from 'react';
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+import React, {useState} from 'react';
 import {colors, styles} from '../../themes';
 import {moderateScale} from '../../common/constants';
 import typography from '../../themes/typography';
@@ -11,16 +17,18 @@ const CTextInput = props => {
     ChangeStyle,
     value,
     onChangeText,
-    secureTextEntry,
     RightIcon,
-    isSecure
+    LeftIcon,
+    isSecure=false,
+    changeViewStyle,
   } = props;
-  const [isSecurepass,SetisSecurePass]= useState(true)
-  const onPressSecureIcon=()=>{
-    SetisSecurePass(!isSecurepass)
-  }
+  const [isSecurepass, SetisSecurePass] = useState(false);
+  const onPressSecureIcon = () => {
+    SetisSecurePass(!isSecurepass);
+  };
   return (
-    <View style={localstyle.flexinput}>
+    <View style={[localstyle.flexinput, changeViewStyle]}>
+      {!!LeftIcon && <LeftIcon />}
       <TextInput
         placeholder={placeholderText}
         style={[localstyle.TextInputStyle, ChangeStyle]}
@@ -45,11 +53,11 @@ const CTextInput = props => {
 const localstyle = StyleSheet.create({
   flexinput: {
     ...styles.rowCenter,
-    ...styles.mt5,
+    ...styles.mt20,
     width: '100%',
     borderColor: colors.borderColor,
     borderWidth: moderateScale(1.5),
-    ...styles.mb10
+    ...styles.mb10,
   },
   TextInputStyle: {
     ...typography.fontSizes.f14,
