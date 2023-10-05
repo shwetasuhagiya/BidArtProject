@@ -2,6 +2,7 @@ export const StackNav = {
   Splash: 'Splash',
   OnBoarding: 'OnBoarding',
   AuthNavigation: 'AuthNavigation',
+  TabNavigation:'TabNavigation'
 };
 
 export const AuthNav = {
@@ -9,5 +10,10 @@ export const AuthNav = {
   CreatePasswordScreen: 'CreatePasswordScreen',
   FullNameScreen:'FullNameScreen',
   FollowArtistScreen:'FollowArtistScreen',
-  FollowCategoriesScreen:'FollowCategoriesScreen'
+  FollowCategoriesScreen:'FollowCategoriesScreen',
+  BudgetScreen:'BudgetScreen'
 };
+
+export const TabNav ={
+    Home:'Home'
+}

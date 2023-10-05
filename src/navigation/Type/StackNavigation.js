@@ -22,6 +22,10 @@ export default function StackNavigation() {
         name={StackNav.AuthNavigation}
         component={StackRoute.AuthNavigation}
       />
+      <Stack.Screen
+        name={StackNav.TabNavigation}
+        component={StackRoute.TabNavigation}
+      />
     </Stack.Navigator>
   );
 }

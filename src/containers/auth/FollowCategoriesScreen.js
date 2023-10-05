@@ -1,4 +1,11 @@
-import {View, SafeAreaView, FlatList, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {
+  View,
+  SafeAreaView,
+  FlatList,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import React, {useState} from 'react';
 
 //custom import
@@ -10,31 +17,36 @@ import strings from '../../i18n/strings';
 import CTextInput from '../../components/common/CTextInput';
 import images from '../../assets/images';
 import {CategoriesList} from '../../api/constant';
-import { moderateScale } from '../../common/constants';
+import {moderateScale} from '../../common/constants';
 import CButton from '../../components/common/CButton';
+import {AuthNav} from '../../navigation/NavigationKeys';
 
-const FollowCategoriesScreen = () => {
+const FollowCategoriesScreen = ({navigation}) => {
   const [select, setSelect] = useState(CategoriesList);
-  const [search, SetSearch] = useState('');
+  const [searchitem, SetSearchItem] = useState('');
 
   const onChangeSearch = item => {
-    SetSearch(item);
+    SetSearchItem(item);
+  };
+
+  const MovetoNextScreen = () => {
+    navigation.navigate(AuthNav.BudgetScreen);
   };
 
   const LeftIconButton = () => {
     return <Image source={images.search} style={localstyle.searchbtn} />;
   };
 
-   const handleOnpress = item => {
-     const newItem = select.map(value => {
-       if (value.id === item.id) {
-         return {...value, selected:!value.selected};
-       } else {
-         return value;
-       }
-     });
-     setSelect(newItem);
-   };
+  const handleOnpress = item => {
+    const newItem = select.map(value => {
+      if (value.id === item.id) {
+        return {...value, selected: !value.selected};
+      } else {
+        return value;
+      }
+    });
+    setSelect(newItem);
+  };
 
   const renderItem = ({item}) => {
     return (
@@ -50,11 +62,11 @@ const FollowCategoriesScreen = () => {
             </CText>
           </View>
         </View>
-        <TouchableOpacity onPress={() => handleOnpress(item)} activeOpacity={1}>
+        <TouchableOpacity onPress={() => handleOnpress(item)}>
           {item.selected ? (
             <Image source={images.rounded} />
           ) : (
-            <Image source={images.circle} />
+            <Image source={images.circle} style={localstyle.circlestyle} />
           )}
         </TouchableOpacity>
       </View>
@@ -69,7 +81,7 @@ const FollowCategoriesScreen = () => {
         <CTextInput
           LeftIcon={LeftIconButton}
           placeholderText={strings.categoriesPlaceholderText}
-          value={search}
+          value={searchitem}
           onChangeText={onChangeSearch}
         />
         <CText style={localstyle.topArtistStyle} type={'M16'}>
@@ -92,6 +104,7 @@ const FollowCategoriesScreen = () => {
         <CButton
           Title={strings.Next}
           ChangeBtnStyle={localstyle.nextbtnStyle}
+          onPress={MovetoNextScreen}
         />
       </KeyBoardAvoidWrapper>
     </SafeAreaView>
@@ -126,12 +139,16 @@ const localstyle = StyleSheet.create({
   nameStyle: {
     ...styles.mv5,
   },
-  contentViewStyle:{
+  contentViewStyle: {
     ...styles.ml20,
   },
   nextbtnStyle: {
     ...styles.mt30,
     bottom: moderateScale(20),
+  },
+  circlestyle: {
+    height: moderateScale(20),
+    width: moderateScale(20),
   },
 });
 export default FollowCategoriesScreen;

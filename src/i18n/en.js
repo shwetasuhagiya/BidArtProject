@@ -31,5 +31,6 @@ export default {
   TopArtistonBidart: 'Top Artist on Bidart',
   categoriesTitle: 'Follow categories of art that most interest you',
   categoriesPlaceholderText: 'Search Style',
-  PopularCategories :'Popular Categories Of Art on Bidart'
+  PopularCategories: 'Popular Categories Of Art on Bidart',
+  budgetTitle: 'Do you have a budget in mind',
 };

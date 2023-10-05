@@ -113,3 +113,41 @@ export const CategoriesList = [
     selected: false,
   },
 ];
+
+export const BudgetList = [
+  {
+    id: 1,
+    price: 'Under $500',
+    selected: false,
+  },
+  {
+    id: 2,
+    price: 'Under $1,000',
+    selected: false,
+  },
+  {
+    id: 3,
+    price: 'Under $2,500',
+    selected: false,
+  },
+  {
+    id: 4,
+    price: 'Under $5,000',
+    selected: false,
+  },
+  {
+    id: 5,
+    price: 'Under $10,000',
+    selected: false,
+  },
+  {
+    id: 6,
+    price: 'Under $25,000',
+    selected: false,
+  },
+  {
+    id: 7,
+    price: 'No Budget in Mind',
+    selected: false,
+  },
+];

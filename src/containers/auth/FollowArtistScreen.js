@@ -65,7 +65,7 @@ const FollowArtistScreen = ({navigation}) => {
           {item.selected ? (
             <Image source={images.rounded} />
           ) : (
-            <Image source={images.circle} />
+            <Image source={images.circle} style={localstyle.circlestyle} />
           )}
         </TouchableOpacity>
       </View>
@@ -149,6 +149,10 @@ const localstyle = StyleSheet.create({
   btnimageStyle: {
     width: moderateScale(10),
     height: moderateScale(10),
+  },
+  circlestyle: {
+    height: moderateScale(20),
+    width: moderateScale(20),
   },
 });
 export default FollowArtistScreen;

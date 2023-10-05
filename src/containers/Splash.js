@@ -24,7 +24,7 @@ const Splash = ({navigation}) => {
         // cl
         let {onBoardingValue, Loginvalue} = asyncData;
         if (!!Loginvalue) {
-          navigation.replace();
+          navigation.replace(StackNav.TabNavigation);
         } else if (!!onBoardingValue) {
           navigation.replace(StackNav.AuthNavigation);
         } else {

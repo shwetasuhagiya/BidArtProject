@@ -28,4 +28,12 @@ export default {
   artImage4: require('../images/artImage4.png'),
   artImage5: require('../images/artImage5.png'),
   artImage6: require('../images/artImage6.png'),
+  home: require('../images/home.png'),
+  activeHome: require('../images/ActiveHome.png'),
+  discover: require('../images/discover.png'),
+  activeDiscover: require('../images/ActiveDiscover.png'),
+  sms: require('../images/sms.png'),
+  activeSms: require('../images/ActiveSms.png'),
+  profile: require('../images/profile.png'),
+  activeProfile: require('../images/ActiveProfile.png'),
 };

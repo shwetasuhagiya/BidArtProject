@@ -99,7 +99,7 @@ const OnBoarding = props => {
 };
 const localstyle = StyleSheet.create({
   renderItemcontainer: {
-    // width: deviceWidth,
+    width: deviceWidth,
     ...styles.center,
     ...styles.aligncenter,
   },
