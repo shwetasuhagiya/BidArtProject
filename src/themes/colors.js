@@ -20,4 +20,5 @@ export const colors = {
   lightGray: '#9F9F9F',
   light400:'#707070',
   borderColor: '#DCDCDC',
+  GrayPrimary:'#E7E7E7'
 };

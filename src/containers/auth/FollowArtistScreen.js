@@ -107,6 +107,7 @@ const FollowArtistScreen = ({navigation}) => {
           Title={strings.Next}
           ChangeBtnStyle={localstyle.nextbtnStyle}
           onPress={MovetoNextBtn}
+          type={'B16'}
         />
       </KeyBoardAvoidWrapper>
     </SafeAreaView>
@@ -119,7 +120,7 @@ const localstyle = StyleSheet.create({
     ...styles.mainContainerSurface,
   },
   searchbtn: {
-    ...styles.ml10,
+    ...styles.ml15,
   },
   topArtistStyle: {
     ...styles.mt25,

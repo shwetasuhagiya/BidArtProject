@@ -2,7 +2,9 @@ export const StackNav = {
   Splash: 'Splash',
   OnBoarding: 'OnBoarding',
   AuthNavigation: 'AuthNavigation',
-  TabNavigation:'TabNavigation'
+  TabNavigation: 'TabNavigation',
+  ArtWorkScreen: 'ArtWorkScreen',
+  FilterResult:'FilterResult'
 };
 
 export const AuthNav = {

@@ -1,4 +1,5 @@
 import images from '../assets/images';
+import strings from '../i18n/strings';
 
 export const OnBoardingSlideData = [
   {
@@ -151,3 +152,79 @@ export const BudgetList = [
     selected: false,
   },
 ];
+
+export const ArtWorkList = [
+  {
+    image: images.artwork1,
+    title: 'Abstract Face Woman in...',
+    creatorImage: images.artist1,
+    Creator: 'Creator',
+    email: '@selena',
+    CurrentBid: 'Current Bid',
+    price: '$3,800',
+    timeImage: images.time1,
+  },
+  {
+    image: images.artwork2,
+    title: 'Men Scale Concre...',
+    creatorImage: images.artist1,
+    Creator: 'Creator',
+    email: ' @andreas',
+    CurrentBid: 'Current Bid',
+    price: '$4,500',
+    timeImage: images.time2,
+  },
+  {
+    image: images.artwork3,
+    title: 'Absurted',
+    creatorImage: images.artist1,
+    Creator: 'Creator',
+    email: '@mariano',
+    CurrentBid: 'Current Bid',
+    price: '$4,100',
+    timeImage: images.time3,
+  },
+  {
+    image: images.artwork4,
+    title: 'Woman Face',
+    creatorImage: images.artist1,
+    Creator: 'Creator',
+    email: '@alimotion',
+    CurrentBid: 'Current Bid',
+    price: '$4,300',
+    timeImage: images.time4,
+  },
+];
+
+export const sortby =[
+  {
+    id:1,
+    data:strings.LotNumberAscending,
+    selected:false
+  },
+  {
+    id:2,
+    data: strings.LotNumberDescending,
+    selected:false
+  },
+  {
+    id:3,
+    data: strings.MostBids,
+    selected:false
+  },
+  {
+    id:4,
+    data:strings.LeastBids,
+    selected:false
+  },
+  {
+    id:5,
+    data:strings.HighestBids,
+    selected:false
+  },
+  {
+    id:6,
+    data:  strings.LowestBids,
+    selected:false
+  }
+]

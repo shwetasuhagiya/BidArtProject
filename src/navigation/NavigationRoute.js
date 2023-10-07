@@ -1,3 +1,5 @@
+import ArtWorkScreen from '../containers/ArtWorkScreen';
+import FilterResult from '../containers/FilterResult';
 import OnBoarding from "../containers/OnBoarding"
 import Splash from "../containers/Splash"
 import HomeTab from "../containers/Tab/HomeTab"
@@ -10,12 +12,14 @@ import LoginScreen from "../containers/auth/LoginScreen"
 import AuthNavigation from "./Type/AuthNavigation"
 import TabNavigation from "./Type/TabNavigation"
 
-export const StackRoute={
-    Splash,
-    OnBoarding,
-    AuthNavigation,
-    TabNavigation
-}
+export const StackRoute = {
+  Splash,
+  OnBoarding,
+  AuthNavigation,
+  TabNavigation,
+  ArtWorkScreen,
+  FilterResult
+};
 
 export const AuthRoute ={
     LoginScreen,

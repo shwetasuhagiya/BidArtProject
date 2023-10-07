@@ -85,6 +85,11 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  rowSpaceEvenly: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+  },
   rowStart: {
     alignItems: 'center',
     flexDirection: 'row',
@@ -105,7 +110,7 @@ export default StyleSheet.create({
   wrap: {
     flexWrap: 'wrap',
   },
-  aligncenter:{
-    alignItems:'center'
-  }
+  aligncenter: {
+    alignItems: 'center',
+  },
 });

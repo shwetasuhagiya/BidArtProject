@@ -67,6 +67,7 @@ const BudgetScreen = ({navigation}) => {
           Title={strings.Next}
           ChangeBtnStyle={localstyle.nextbtnStyle}
           onPress={MovetoNextBtn}
+          type={'B16'}
         />
       </View>
     </SafeAreaView>

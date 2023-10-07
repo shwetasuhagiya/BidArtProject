@@ -2,26 +2,26 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
 import {colors, styles} from '../../themes';
 import typography from '../../themes/typography';
+import { moderateScale } from '../../common/constants';
+import CText from './CText';
 
 const CButton = props => {
-  const {Title, ChangeBtnStyle, ChangeTxtStyle, onPress} = props;
+  const {type,Title, ChangeBtnStyle, ChangeTxtStyle, onPress} = props;
   return (
     <TouchableOpacity
       style={[localstyle.btnStyle, ChangeBtnStyle]}
       onPress={onPress}>
-      <Text style={[localstyle.txtStyle, ChangeTxtStyle]}>{Title}</Text>
+      <CText style={[localstyle.txtStyle, ChangeTxtStyle]} type={type}>{Title}</CText>
     </TouchableOpacity>
   );
 };
 const localstyle = StyleSheet.create({
   btnStyle: {
-    height: 54,
+    height: moderateScale(54),
     backgroundColor: colors.black,
     ...styles.center,
   },
   txtStyle: {
-    ...typography.fontSizes.f16,
-    ...typography.fontWeights.Bold,
     ...styles.selfCenter,
     color: colors.white,
   },

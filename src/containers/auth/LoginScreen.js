@@ -33,7 +33,7 @@ const LoginScreen = ({navigation}) => {
   };
 
   return (
-    <View style={styles.mainContainerSurface}>
+    <View style={styles.mainContainerSurface} >
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
         <StepIndicator step={1} />
         <View style={localstyle.container}>
@@ -48,12 +48,12 @@ const LoginScreen = ({navigation}) => {
             placeholderText={strings.EmailPlaceHolderText}
             value={Email}
             onChangeText={onChangeEmail}
-            
           />
           <CButton
             Title={strings.Next}
             ChangeBtnStyle={localstyle.btnstyle}
             onPress={onPressNext}
+            type={'B16'}
           />
           <View style={localstyle.LineContainer}>
             <View style={localstyle.randomLine}></View>

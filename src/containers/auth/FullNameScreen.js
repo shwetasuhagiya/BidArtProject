@@ -59,6 +59,7 @@ const FullNameScreen = props => {
             Title={strings.Next}
             ChangeBtnStyle={localstyle.btnStyle}
             onPress={onpressNextbtn}
+            type={'B16'}
           />
         </View>
         <View />
