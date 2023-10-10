@@ -328,3 +328,46 @@ export const SearchResultData = [
     timeImage: images.fTime1,
   },
 ];
+
+ export const BidArtEventList = [
+   {
+     mainImage: images.event,
+     sideImage1: images.artwork2,
+     sideImage2: images.event1,
+     date: strings.Eventdate,
+     auction: strings.Auction,
+   },
+   {
+     mainImage: images.event2,
+     sideImage1: images.folwer3,
+     sideImage2: images.event3,
+     date: strings.Eventdate1,
+     auction: strings.Auction1,
+   },
+ ];
+
+ export const ExhibitorsData = [
+   {
+     image: images.exhibitors1,
+     title: 'Half Face',
+     price: '$4,500 - $7,500',
+   },
+   {
+     image: images.exhibitors2,
+     title: 'Red Hair Face',
+     price: '$4,500 - $7,500',
+   },
+ ];
+
+ export const ExhibitorsList = [
+   {
+     image: images.exhibitors3,
+     title: 'Abstract Blue Red',
+     price: '$4,500 - $7,500',
+   },
+   {
+     image: images.exhibitors4,
+     title: 'Yellow abstract',
+     price: '$4,500 - $7,500',
+   },
+ ];

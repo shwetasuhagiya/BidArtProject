@@ -12,7 +12,7 @@ export default function StackNavigation() {
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName={StackNav.TabNavigation}>
+      initialRouteName={StackNav.Splash}>
       <Stack.Screen name={StackNav.Splash} component={StackRoute.Splash} />
       <Stack.Screen
         name={StackNav.OnBoarding}
@@ -49,6 +49,18 @@ export default function StackNavigation() {
       <Stack.Screen
         name={StackNav.SearchResult}
         component={StackRoute.SearchResult}
+      />
+      <Stack.Screen
+        name={StackNav.BidArtEvent}
+        component={StackRoute.BidArtEvent}
+      />
+      <Stack.Screen
+        name={StackNav.DetailEvent}
+        component={StackRoute.DetailEvent}
+      />
+      <Stack.Screen
+        name={StackNav.SearchEvent}
+        component={StackRoute.SearchEvent}
       />
     </Stack.Navigator>
   );

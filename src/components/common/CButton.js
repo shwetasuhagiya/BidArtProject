@@ -19,6 +19,7 @@ const localstyle = StyleSheet.create({
   btnStyle: {
     backgroundColor: colors.black,
     ...styles.center,
+    height:moderateScale(54)
   },
   txtStyle: {
     ...styles.selfCenter,

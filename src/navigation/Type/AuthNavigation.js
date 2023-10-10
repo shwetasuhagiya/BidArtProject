@@ -8,7 +8,7 @@ const AuthNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{headerShown: false}}
-      initialRouteName={AuthNav.BudgetScreen}>
+      initialRouteName={AuthNav.LoginScreen}>
       <Stack.Screen
         name={AuthNav.LoginScreen}
         component={AuthRoute.LoginScreen}

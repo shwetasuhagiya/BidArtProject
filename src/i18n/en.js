@@ -85,7 +85,23 @@ export default {
   Happy: 'Happy',
   Love: 'Love',
   RecentView: 'Recent View',
-  SearchResult:'Search Result',
-  Artworkresult:'2 Artwork result'
+  SearchResult: 'Search Result',
+  Artworkresult: '2 Artwork result',
+  Eventdate: '1-54 Paris 2022',
+  Auction: ' 7 - 10 Apr, 2022',
+  Searchevent: 'Search event',
+  Eventdate1: 'England Art 2022',
+  Auction1: '14 - 25 Apr, 2022',
+  OnAuction: 'On Auction ',
+  AboutthisAuction: 'About this Auction',
+  otherDetail:
+    'Oliver Artworthly + BidArt present Print & Editions. All lots in this auction are subject to Buyer’s Premium + VAT. Please',
+  learnmore: 'learn more',
+  JakobBergson: 'Jakob Bergson',
+  works: '25 works',
+  MiraCalzoni: 'Mira Calzoni',
+  ExploreView: 'Explore art on view',
+  CityGuide: 'City Guide',
+  otherTxt: 'Browse fairs and shows in different cities',
 };
 

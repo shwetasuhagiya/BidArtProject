@@ -40,7 +40,7 @@ export default function DetailArtist({route, navigation}) {
   ];
 
   const moveToNextScreen = () => {
-    navigation.replace(StackNav.TrendingArtist);
+    navigation.navigate(StackNav.TrendingArtist);
   };
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>

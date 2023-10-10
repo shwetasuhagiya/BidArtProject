@@ -7,8 +7,11 @@ export const StackNav = {
   FilterResult: 'FilterResult',
   TrendingArtist: 'TrendingArtist',
   DetailArtist: 'DetailArtist',
-  SearchPage:'SearchPage',
-  SearchResult:'SearchResult',
+  SearchPage: 'SearchPage',
+  SearchResult: 'SearchResult',
+  BidArtEvent: 'BidArtEvent',
+  DetailEvent: 'DetailEvent',
+  SearchEvent: 'SearchEvent',
 };
 
 export const AuthNav = {

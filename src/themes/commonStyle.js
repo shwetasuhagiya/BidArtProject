@@ -47,6 +47,5 @@ export default StyleSheet.create({
   sheetContainer: {
     borderTopLeftRadius: moderateScale(35),
     borderTopRightRadius: moderateScale(35),
-    backgroundColor: colors.primarySurface,
   },
 });

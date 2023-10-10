@@ -83,9 +83,7 @@ const FilterArtWork = props => {
   };
   return (
     <ActionSheet
-      ref={sheetRef}
-      gestureEnabled={true}
-      style={styles.mainContainerSurface}>
+      ref={sheetRef}>
       <View style={localstyle.container}>
         <CText type={'B24'} style={localstyle.filterHeaderStyle}>
           {strings.FilterArtwork}

@@ -10,6 +10,7 @@ import {
 import React, {useState} from 'react';
 
 //custom imports
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import {colors, styles} from '../../themes';
 import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper';
 import images from '../../assets/images';
@@ -32,6 +33,9 @@ const HomeTab = ({navigation}) => {
   const ViewAllCategories = () => {
     navigation.navigate(StackNav.ArtWorkScreen);
   };
+  const ViewAllBidArtEvent =()=>{
+    navigation.navigate(StackNav.BidArtEvent);
+  }
 
   const ViewAllArtist = () => {
     navigation.navigate(StackNav.TrendingArtist);
@@ -94,6 +98,33 @@ const HomeTab = ({navigation}) => {
     );
   };
 
+  const BidArtEvent = ()=>{
+    return (
+      <View style={localstyles.maineventStyle}>
+        <View style={localstyles.childImgStyle}>
+          <Image source={images.event} style={localstyles.imgStyle} />
+          <View>
+            <Image source={images.artwork2} style={localstyles.childImage} />
+            <Image source={images.event1} style={localstyles.childImage} />
+          </View>
+        </View>
+        <View style={localstyles.eventInfoStyle}>
+          <View>
+            <CText
+              type={'B18'}
+              numberOfLines={1}
+              style={localstyles.artistStyle}>
+              {strings.Eventdate}
+            </CText>
+            <CText type={'M12'} numberOfLines={1}>
+              {strings.Auction}
+            </CText>
+          </View>
+          <Image source={images.arrowRight} />
+        </View>
+      </View>
+    );
+  }
   const renderItemArtist = ({item}) => {
     return (
       <View style={localstyles.mainArtistStyle}>
@@ -166,8 +197,9 @@ const HomeTab = ({navigation}) => {
           <CategoriesHeader
             name={strings.BidArtEvent}
             Style={localstyles.artisrHeaderStyle}
-            // onPress={ViewAllCategories}
+            onPress={ViewAllBidArtEvent}
           />
+            <BidArtEvent />
         </ScrollView>
       </KeyBoardAvoidWrapper>
     </SafeAreaView>
@@ -244,7 +276,7 @@ const localstyles = StyleSheet.create({
     left: moderateScale(16),
   },
   artisrHeaderStyle: {
-    ...styles.mt40,
+    ...styles.mt30,
   },
   mainArtistStyle: {
     ...styles.flexRow,
@@ -252,7 +284,7 @@ const localstyles = StyleSheet.create({
     height: moderateScale(48),
     width: moderateScale(154),
     ...styles.mr20,
-    ...styles.mt10
+    ...styles.mt10,
   },
   imageArtist: {
     height: moderateScale(48),
@@ -261,6 +293,26 @@ const localstyles = StyleSheet.create({
   },
   artistStyle: {
     ...styles.mb5,
+  },
+  maineventStyle: {
+    height: moderateScale(282),
+    backgroundColor: colors.white,
+    ...styles.mv15,
+  },
+  imgStyle: {
+    height: moderateScale(200),
+    width: moderateScale(227),
+  },
+  childImgStyle: {
+    ...styles.flexRow,
+  },
+  childImage: {
+    height: moderateScale(100),
+    width: moderateScale(120),
+  },
+  eventInfoStyle: {
+    ...styles.p15,
+    ...styles.rowSpaceBetween,
   },
 });
 export default HomeTab;

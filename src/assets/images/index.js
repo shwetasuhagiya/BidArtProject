@@ -45,6 +45,7 @@ export default {
   artist1: require('../images/artist1.png'),
   artist2: require('../images/artist2.png'),
   arrowLeft: require('../images/arrowLeft.png'),
+  arrowRight: require('../images/arrowRight.png'),
   filter: require('../images/Filter.png'),
   horizonatal: require('../images/horizonatal.png'),
   activeHorizonatal: require('../images/activeHorizonatal.png'),
@@ -73,4 +74,14 @@ export default {
   folwer4: require('../images/folwer4.jpg'),
   fTime1: require('../images/fTime1.jpg'),
   fTime2: require('../images/fTime2.jpg'),
+  event: require('../images/event.jpg'),
+  event1: require('../images/event1.png'),
+  event2: require('../images/event2.jpg'),
+  event3: require('../images/event3.png'),
+  share: require('../images/share.png'),
+  exhibitors1: require('../images/exhibitors1.jpg'),
+  exhibitors2: require('../images/exhibitors2.jpg'),
+  exhibitors3: require('../images/exhibitors3.jpg'),
+  exhibitors4: require('../images/exhibitors4.jpg'),
+  map:require('../images/map.jpg')
 };
