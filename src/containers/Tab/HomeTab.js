@@ -17,7 +17,7 @@ import CText from '../../components/common/CText';
 import strings from '../../i18n/strings';
 import CTextInput from '../../components/common/CTextInput';
 import {StackNav} from '../../navigation/NavigationKeys';
-import {ArtWorkList} from '../../api/constant';
+import {ArtWorkList, TreadingArtistList} from '../../api/constant';
 import {moderateScale} from '../../common/constants';
 import CButton from '../../components/common/CButton';
 
@@ -33,9 +33,12 @@ const HomeTab = ({navigation}) => {
     navigation.navigate(StackNav.ArtWorkScreen);
   };
 
-  const CategoriesHeader = ({name, onPress}) => {
+  const ViewAllArtist = () => {
+    navigation.navigate(StackNav.TrendingArtist);
+  };
+  const CategoriesHeader = ({name, onPress, Style}) => {
     return (
-      <View style={localstyles.HeaderTitleStyle}>
+      <View style={[localstyles.HeaderTitleStyle, Style]}>
         <CText type={'B18'} numberOfLines={1}>
           {name}
         </CText>
@@ -91,6 +94,22 @@ const HomeTab = ({navigation}) => {
     );
   };
 
+  const renderItemArtist = ({item}) => {
+    return (
+      <View style={localstyles.mainArtistStyle}>
+        <Image source={item.image} style={localstyles.imageArtist} />
+        <View>
+          <CText type={'S16'} numberOfLines={1} style={localstyles.artistStyle}>
+            {item.name}
+          </CText>
+          <CText type={'R12'} numberOfLines={1}>
+            {item.followers}
+          </CText>
+        </View>
+      </View>
+    );
+  };
+
   return (
     <SafeAreaView style={localstyles.mainContainer}>
       <KeyBoardAvoidWrapper style={styles.flexG1}>
@@ -129,6 +148,26 @@ const HomeTab = ({navigation}) => {
             scrollEnabled
             showsHorizontalScrollIndicator={false}
           />
+
+          {/* --------------------Trending Artist ------------------ */}
+          <CategoriesHeader
+            name={strings.TrendingArtist}
+            Style={localstyles.artisrHeaderStyle}
+            onPress={ViewAllArtist}
+          />
+          <FlatList
+            data={TreadingArtistList}
+            renderItem={renderItemArtist}
+            horizontal
+            scrollEnabled
+            showsHorizontalScrollIndicator={false}
+          />
+          {/* --------------------BidArt Event ------------------ */}
+          <CategoriesHeader
+            name={strings.BidArtEvent}
+            Style={localstyles.artisrHeaderStyle}
+            // onPress={ViewAllCategories}
+          />
         </ScrollView>
       </KeyBoardAvoidWrapper>
     </SafeAreaView>
@@ -159,7 +198,8 @@ const localstyles = StyleSheet.create({
     ...styles.flexRow,
     ...styles.aligncenter,
     ...styles.justifyBetween,
-    ...styles.mv10,
+    ...styles.mt15,
+    ...styles.mb10,
   },
   artImgesStyles: {
     width: moderateScale(250),
@@ -202,6 +242,25 @@ const localstyles = StyleSheet.create({
     position: 'absolute',
     top: moderateScale(16),
     left: moderateScale(16),
+  },
+  artisrHeaderStyle: {
+    ...styles.mt40,
+  },
+  mainArtistStyle: {
+    ...styles.flexRow,
+    ...styles.aligncenter,
+    height: moderateScale(48),
+    width: moderateScale(154),
+    ...styles.mr20,
+    ...styles.mt10
+  },
+  imageArtist: {
+    height: moderateScale(48),
+    width: moderateScale(48),
+    ...styles.mr10,
+  },
+  artistStyle: {
+    ...styles.mb5,
   },
 });
 export default HomeTab;

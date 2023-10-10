@@ -228,3 +228,103 @@ export const sortby =[
     selected:false
   }
 ]
+
+export const TreadingArtistList = [
+  {
+    image: images.artist1,
+    name: 'Selena Perez',
+    followers: '1,224 Followers',
+  },
+  {
+    image: images.artist2,
+    name: 'Simon Richard Ojeka',
+    followers: '514 Followers',
+  },
+];
+
+export const userData = [
+  {
+    id: 1,
+    image1: images.userImage1,
+    image2: images.userImage2,
+    image3: images.userImage3,
+    userImage: images.user,
+    name: 'Wilson Korsgaard',
+    followers: '128,182 Followers',
+    follow: false,
+  },
+  {
+    id: 2,
+    image1: images.userImage4,
+    image2: images.userImage5,
+    image3: images.userImage6,
+    userImage: images.user1,
+    name: 'Cooper Kenter',
+    followers: '95,224 Followers',
+    follow: false,
+  },
+  {
+    id: 3,
+    image1: images.userImage7,
+    image2: images.userImage8,
+    image3: images.userImage9,
+    userImage: images.user2,
+    name: 'Haylie Herwithz',
+    followers: '1,224 Followers',
+    follow: false,
+  },
+];
+
+
+export const RecentSearchData = [
+  {
+    images: images.artwork1,
+    name: 'Abstract Face Woman',
+    email: '@selena',
+  },
+  {
+    images: images.userImage1,
+    name: 'Woman Face Pink',
+    email: '@wilsonk',
+  },
+  {
+    images: images.userImage6,
+    name: 'Patung Wong',
+    email: ' @selena',
+  },
+]; 
+
+export const SearchResultData = [
+  {
+    image: images.folwer1,
+    title: 'Dark Flowers',
+    email: '@mandalikena',
+    CurrentBid: 'Current Bid',
+    price: '$3,500',
+    timeImage: images.fTime2,
+  },
+  {
+    image: images.folwer2,
+    title: 'Man Flowers',
+    email: '@danipredo',
+    CurrentBid: 'Current Bid',
+    price: '$3,900',
+    timeImage: images.fTime1,
+  },
+  {
+    image: images.folwer3,
+    title: 'Red Flowers',
+    email: '@jametkudasi',
+    CurrentBid: 'Current Bid',
+    price: '$3,500',
+    timeImage: images.fTime2,
+  },
+  {
+    image: images.folwer4,
+    title: 'Red White Flower',
+    email: '@simanjuntak',
+    CurrentBid: 'Current Bid',
+    price: '$3,900',
+    timeImage: images.fTime1,
+  },
+];

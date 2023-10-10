@@ -4,7 +4,11 @@ export const StackNav = {
   AuthNavigation: 'AuthNavigation',
   TabNavigation: 'TabNavigation',
   ArtWorkScreen: 'ArtWorkScreen',
-  FilterResult:'FilterResult'
+  FilterResult: 'FilterResult',
+  TrendingArtist: 'TrendingArtist',
+  DetailArtist: 'DetailArtist',
+  SearchPage:'SearchPage',
+  SearchResult:'SearchResult',
 };
 
 export const AuthNav = {

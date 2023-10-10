@@ -10,10 +10,11 @@ import React from 'react';
 //custom imports
 import {styles} from '../../themes';
 import images from '../../assets/images';
+import CText from './CText';
 
-const CHeader = ({img, icon,onPress,IconPress}) => {
+const CHeader = ({img, icon, onPress, IconPress, Style, text}) => {
   return (
-    <View style={localStyle.imageContainerStyle}>
+    <View style={[localStyle.imageContainerStyle, Style]}>
       <TouchableOpacity onPress={onPress}>
         <Image source={img} />
       </TouchableOpacity>

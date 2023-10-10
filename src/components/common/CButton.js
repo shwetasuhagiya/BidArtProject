@@ -17,7 +17,6 @@ const CButton = props => {
 };
 const localstyle = StyleSheet.create({
   btnStyle: {
-    height: moderateScale(54),
     backgroundColor: colors.black,
     ...styles.center,
   },

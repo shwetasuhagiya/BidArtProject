@@ -9,17 +9,17 @@ import {
 import React, {useRef, useState} from 'react';
 
 // custom import
-import {colors, styles} from '../themes';
-import images from '../assets/images';
-import strings from '../i18n/strings';
-import {moderateScale} from '../common/constants';
-import {ArtWorkList} from '../api/constant';
-import CHorizontalView from '../components/CHorizontalView';
-import CVerticalView from '../components/CVerticalView';
-import CHeader from '../components/common/CHeader';
-import CText from '../components/common/CText';
-import {StackNav} from '../navigation/NavigationKeys';
-import FilterArtWork from '../components/modals/FilterArtWork';
+import {colors, styles} from '../../themes';
+import images from '../../assets/images';
+import strings from '../../i18n/strings';
+import {moderateScale} from '../../common/constants';
+import {ArtWorkList} from '../../api/constant';
+import CHorizontalView from '../CHorizontalView';
+import CVerticalView from '../CVerticalView';
+import CHeader from '../common/CHeader';
+import CText from '../common/CText';
+import {StackNav} from '../../navigation/NavigationKeys';
+import FilterArtWork from '../modals/FilterArtWork';
 
 const ArtWorkScreen = ({navigation}) => {
   const [isHorizontalView, isSetHorizontalView] = useState(true);

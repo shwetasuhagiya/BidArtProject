@@ -41,6 +41,25 @@
 		<string>fonts/Urbanist-Medium.ttf</string>
 		<string>fonts/Urbanist-SemiBold.ttf</string>
 		<string>fonts/Urbanist-Thin.ttf</string>
+		<string>fonts/AntDesign.ttf</string>
+		<string>fonts/Entypo.ttf</string>
+		<string>fonts/Evillcons.ttf</string>
+		<string>fonts/Feather.ttf</string>
+		<string>fonts/FontAwesome.ttf</string>
+		<string>fonts/FontAwesome5_Brands.ttf</string>
+		<string>fonts/FontAwesome5_Regular.ttf</string>
+		<string>fonts/FontAwesome5_Solid.ttf</string>
+		<string>fonts/FontAwesome6_Brands.ttf</string>
+		<string>fonts/FontAwesome6_Regular.ttf</string>
+		<string>fonts/FontAwesome6_Solid.ttf</string>
+		<string>fonts/Fontisto.ttf</string>
+		<string>fonts/Foundation.ttf</string>
+		<string>fonts/Ionicons.ttf</string>
+		<string>fonts/Material.ttf</string>
+		<string>fonts/Materiallcons.ttf</string>
+		<string>fonts/Octicons.ttf</string>
+        <string>fonts/SimpleLineIcons.ttf</string>
+
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

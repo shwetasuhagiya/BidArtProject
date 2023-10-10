@@ -12,7 +12,7 @@ export default function StackNavigation() {
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName={StackNav.FilterResult}>
+      initialRouteName={StackNav.TabNavigation}>
       <Stack.Screen name={StackNav.Splash} component={StackRoute.Splash} />
       <Stack.Screen
         name={StackNav.OnBoarding}
@@ -33,6 +33,22 @@ export default function StackNavigation() {
       <Stack.Screen
         name={StackNav.FilterResult}
         component={StackRoute.FilterResult}
+      />
+      <Stack.Screen
+        name={StackNav.TrendingArtist}
+        component={StackRoute.TrendingArtist}
+      />
+      <Stack.Screen
+        name={StackNav.DetailArtist}
+        component={StackRoute.DetailArtist}
+      />
+      <Stack.Screen
+        name={StackNav.SearchPage}
+        component={StackRoute.SearchPage}
+      />
+      <Stack.Screen
+        name={StackNav.SearchResult}
+        component={StackRoute.SearchResult}
       />
     </Stack.Navigator>
   );
