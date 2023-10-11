@@ -53,15 +53,14 @@ const CTextInput = props => {
 const localstyle = StyleSheet.create({
   flexinput: {
     ...styles.rowCenter,
-    ...styles.mt20,
+    ...styles.mt15,
     width: '100%',
     borderColor: colors.borderColor,
     borderWidth: moderateScale(1.5),
-    ...styles.mb10,
   },
   TextInputStyle: {
     ...typography.fontSizes.f14,
-    ...typography.fontWeights.Regular,
+    ...typography.fontWeights.Medium,
     ...styles.ph10,
     ...styles.flex,
     height: moderateScale(52),

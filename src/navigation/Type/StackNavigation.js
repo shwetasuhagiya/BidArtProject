@@ -1,8 +1,7 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import { StackNav } from '../NavigationKeys';
-import { StackRoute } from '../NavigationRoute';
-
+import {StackNav} from '../NavigationKeys';
+import {StackRoute} from '../NavigationRoute';
 
 const Stack = createNativeStackNavigator();
 
@@ -61,6 +60,30 @@ export default function StackNavigation() {
       <Stack.Screen
         name={StackNav.SearchEvent}
         component={StackRoute.SearchEvent}
+      />
+      <Stack.Screen
+        name={StackNav.SearchDiscover}
+        component={StackRoute.SearchDiscover}
+      />
+      <Stack.Screen
+        name={StackNav.DetailArt}
+        component={StackRoute.DetailArt}
+      />
+      <Stack.Screen
+        name={StackNav.RegisterBid}
+        component={StackRoute.RegisterBid}
+      />
+      <Stack.Screen
+        name={StackNav.AddCreditCard}
+        component={StackRoute.AddCreditCard}
+      />
+      <Stack.Screen
+        name={StackNav.AddBillingAddress}
+        component={StackRoute.AddBillingAddress}
+      />
+      <Stack.Screen
+        name={StackNav.RegisterBidData}
+        component={StackRoute.RegisterBidData}
       />
     </Stack.Navigator>
   );

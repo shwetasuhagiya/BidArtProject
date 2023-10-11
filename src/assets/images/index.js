@@ -47,6 +47,7 @@ export default {
   arrowLeft: require('../images/arrowLeft.png'),
   arrowRight: require('../images/arrowRight.png'),
   filter: require('../images/Filter.png'),
+  discoverFilter: require('../images/discoverFilter.png'),
   horizonatal: require('../images/horizonatal.png'),
   activeHorizonatal: require('../images/activeHorizonatal.png'),
   vertical: require('../images/vertical.png'),
@@ -83,5 +84,11 @@ export default {
   exhibitors2: require('../images/exhibitors2.jpg'),
   exhibitors3: require('../images/exhibitors3.jpg'),
   exhibitors4: require('../images/exhibitors4.jpg'),
-  map:require('../images/map.jpg')
+  map: require('../images/map.jpg'),
+  BookMark:require('../images/Bookmark.png'),
+  face:require('../images/face.jpg'),
+  credit:require('../images/credit.png'),
+  location:require('../images/location.png'),
+  addCircle:require('../images/addCircle.png'),
+  info:require('../images/infoCircle.png')
 };

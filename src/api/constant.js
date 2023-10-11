@@ -371,3 +371,15 @@ export const SearchResultData = [
      price: '$4,500 - $7,500',
    },
  ];
+
+ export const DiscoveList = [
+   {label: 'Following', value: 'Following'},
+   {label: 'Popular', value: 'Popular'},
+   {label: 'Nearby', value: 'Nearby'},
+ ];
+
+  export const countryList = [
+    {label: 'India', value: 'Imdia'},
+    {label: 'USA', value: 'USA'},
+    {label: 'China', value: 'China'},
+  ];

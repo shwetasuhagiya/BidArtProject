@@ -12,6 +12,12 @@ export const StackNav = {
   BidArtEvent: 'BidArtEvent',
   DetailEvent: 'DetailEvent',
   SearchEvent: 'SearchEvent',
+  SearchDiscover: 'SearchDiscover',
+  DetailArt: 'DetailArt',
+  RegisterBid: 'RegisterBid',
+  AddCreditCard: 'AddCreditCard',
+  AddBillingAddress: 'AddBillingAddress',
+  RegisterBidData: 'RegisterBidData',
 };
 
 export const AuthNav = {
@@ -24,5 +30,6 @@ export const AuthNav = {
 };
 
 export const TabNav ={
-    Home:'Home'
+    Home:'Home',
+    Discover:'Discover'
 }
