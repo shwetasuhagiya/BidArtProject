@@ -17,6 +17,7 @@ import OnBoarding from '../containers/OnBoarding';
 import Splash from '../containers/Splash';
 import DiscoverTab from '../containers/Tab/DiscoverTab';
 import HomeTab from '../containers/Tab/HomeTab';
+import InboxTab from '../containers/Tab/InboxTab';
 import BudgetScreen from '../containers/auth/BudgetScreen';
 import CreatePasswordScreen from '../containers/auth/CreatePasswordScreen';
 import FollowArtistScreen from '../containers/auth/FollowArtistScreen';
@@ -60,4 +61,5 @@ export const AuthRoute = {
 export const TabRoute = {
   HomeTab,
   DiscoverTab,
+  InboxTab,
 };

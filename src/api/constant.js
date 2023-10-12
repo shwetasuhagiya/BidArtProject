@@ -196,38 +196,38 @@ export const ArtWorkList = [
   },
 ];
 
-export const sortby =[
+export const sortby = [
   {
-    id:1,
-    data:strings.LotNumberAscending,
-    selected:false
+    id: 1,
+    data: strings.LotNumberAscending,
+    selected: false,
   },
   {
-    id:2,
+    id: 2,
     data: strings.LotNumberDescending,
-    selected:false
+    selected: false,
   },
   {
-    id:3,
+    id: 3,
     data: strings.MostBids,
-    selected:false
+    selected: false,
   },
   {
-    id:4,
-    data:strings.LeastBids,
-    selected:false
+    id: 4,
+    data: strings.LeastBids,
+    selected: false,
   },
   {
-    id:5,
-    data:strings.HighestBids,
-    selected:false
+    id: 5,
+    data: strings.HighestBids,
+    selected: false,
   },
   {
-    id:6,
-    data:  strings.LowestBids,
-    selected:false
-  }
-]
+    id: 6,
+    data: strings.LowestBids,
+    selected: false,
+  },
+];
 
 export const TreadingArtistList = [
   {
@@ -275,7 +275,6 @@ export const userData = [
   },
 ];
 
-
 export const RecentSearchData = [
   {
     images: images.artwork1,
@@ -292,7 +291,7 @@ export const RecentSearchData = [
     name: 'Patung Wong',
     email: ' @selena',
   },
-]; 
+];
 
 export const SearchResultData = [
   {
@@ -329,57 +328,123 @@ export const SearchResultData = [
   },
 ];
 
- export const BidArtEventList = [
-   {
-     mainImage: images.event,
-     sideImage1: images.artwork2,
-     sideImage2: images.event1,
-     date: strings.Eventdate,
-     auction: strings.Auction,
-   },
-   {
-     mainImage: images.event2,
-     sideImage1: images.folwer3,
-     sideImage2: images.event3,
-     date: strings.Eventdate1,
-     auction: strings.Auction1,
-   },
- ];
+export const BidArtEventList = [
+  {
+    mainImage: images.event,
+    sideImage1: images.artwork2,
+    sideImage2: images.event1,
+    date: strings.Eventdate,
+    auction: strings.Auction,
+  },
+  {
+    mainImage: images.event2,
+    sideImage1: images.folwer3,
+    sideImage2: images.event3,
+    date: strings.Eventdate1,
+    auction: strings.Auction1,
+  },
+];
 
- export const ExhibitorsData = [
-   {
-     image: images.exhibitors1,
-     title: 'Half Face',
-     price: '$4,500 - $7,500',
-   },
-   {
-     image: images.exhibitors2,
-     title: 'Red Hair Face',
-     price: '$4,500 - $7,500',
-   },
- ];
+export const ExhibitorsData = [
+  {
+    image: images.exhibitors1,
+    title: 'Half Face',
+    price: '$4,500 - $7,500',
+  },
+  {
+    image: images.exhibitors2,
+    title: 'Red Hair Face',
+    price: '$4,500 - $7,500',
+  },
+];
 
- export const ExhibitorsList = [
-   {
-     image: images.exhibitors3,
-     title: 'Abstract Blue Red',
-     price: '$4,500 - $7,500',
-   },
-   {
-     image: images.exhibitors4,
-     title: 'Yellow abstract',
-     price: '$4,500 - $7,500',
-   },
- ];
+export const ExhibitorsList = [
+  {
+    image: images.exhibitors3,
+    title: 'Abstract Blue Red',
+    price: '$4,500 - $7,500',
+  },
+  {
+    image: images.exhibitors4,
+    title: 'Yellow abstract',
+    price: '$4,500 - $7,500',
+  },
+];
 
- export const DiscoveList = [
-   {label: 'Following', value: 'Following'},
-   {label: 'Popular', value: 'Popular'},
-   {label: 'Nearby', value: 'Nearby'},
- ];
+export const DiscoveList = [
+  {label: 'Following', value: 'Following'},
+  {label: 'Popular', value: 'Popular'},
+  {label: 'Nearby', value: 'Nearby'},
+];
 
-  export const countryList = [
-    {label: 'India', value: 'Imdia'},
-    {label: 'USA', value: 'USA'},
-    {label: 'China', value: 'China'},
-  ];
+export const countryList = [
+  {label: 'India', value: 'Imdia'},
+  {label: 'USA', value: 'USA'},
+  {label: 'China', value: 'China'},
+];
+
+export const InboxFiled= [
+  strings.Bids,
+  strings.Inbox,
+  strings.Archive
+]
+
+export const ActiveBidFiled = [
+  {
+    image: images.face,
+    name: 'Tripple Face',
+    email: '@oliver',
+    discription: 'Live bidding begins Apr 5th at 2 pm ',
+  },
+  {
+    image: images.face1,
+    name: 'Beauty Woman',
+    email: '@mantunis',
+    discription: 'Live bidding begins Apr 5th at 2 pm ',
+  },
+  {
+    image: images.artwork3,
+    name: 'Absurted',
+    email: '@mariano',
+    discription: 'Live bidding begins Apr 5th at 2 pm ',
+  },
+];
+
+export const InboxChatFiled = [
+  {
+    image: images.chat1,
+    name: 'Rhiel Madsen',
+    time: '21 minutes ago',
+    msg: 'I have spent a good amount of mone and loose it and i hen the game drops',
+  },
+  {
+    image: images.chat2,
+    name: 'Corey Aminoff',
+    time: '21/04',
+    msg: 'i am on level 3409 i sure cant figure ot out on to get the center area',
+  },
+  {
+    image: images.chat3,
+    name: 'Dulce Arcand',
+    time: '19/04',
+    msg: 'also would please quit giving free lives for every rewrads you have?',
+  },
+  {
+    image: images.chat4,
+    name: 'Maren Bothman',
+    time: '24/03',
+    msg: 'how do you play when it treansforers from one side to anothers',
+  },
+  {
+    image: images.chat5,
+    name: 'Zaire Franci',
+    time: '22/03',
+    msg: 'I have spent a good amount of mone and loose it and i hen the game drops',
+  },
+  {
+    image: images.chat6,
+    name: 'Phillip Lubin',
+    time: '21/03',
+    msg: 'how do you play when it treansforers from one side to anothers',
+  },
+];

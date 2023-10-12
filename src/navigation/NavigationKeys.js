@@ -31,5 +31,6 @@ export const AuthNav = {
 
 export const TabNav ={
     Home:'Home',
-    Discover:'Discover'
+    Discover:'Discover',
+    Inbox:'Inbox'
 }

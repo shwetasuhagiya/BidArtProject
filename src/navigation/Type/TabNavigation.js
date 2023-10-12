@@ -25,7 +25,9 @@ const TabNavigation = () => {
     );
   };
   return (
-    <Tab.Navigator screenOptions={{headerShown: false, tabBarShowLabel: false}} initialRouteName={TabNav.Discover}>
+    <Tab.Navigator
+      screenOptions={{headerShown: false, tabBarShowLabel: false}}
+      initialRouteName={TabNav.Inbox}>
       <Tab.Screen
         name={TabNav.Home}
         component={TabRoute.HomeTab}
@@ -41,6 +43,15 @@ const TabNavigation = () => {
         options={{
           tabBarIcon: ({focused}) => (
             <Image source={focused ? images.activeDiscover : images.discover} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={TabNav.Inbox}
+        component={TabRoute.InboxTab}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <Image source={focused ? images.activeSms : images.sms} />
           ),
         }}
       />

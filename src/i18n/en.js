@@ -138,5 +138,13 @@ export default {
   SelectCountry: 'Select Country',
   TrippleFace: 'Tripple Face',
   billingAdd: 'Papandayan No.213, Semarang, Centra...',
+  Inbox: 'Inbox',
+  Bids: 'Bids',
+  Archive: 'Archive',
+  ActiveBid: 'Active Bid',
+  achiveDes: 'Keep track of your conversations with galleries',
+  achiveOther:
+    'Contract galleries to learn more about works you want to collect. Use your inbox to stay on top of your archive',
+  Exploreworks:'Explore works'
 };
 

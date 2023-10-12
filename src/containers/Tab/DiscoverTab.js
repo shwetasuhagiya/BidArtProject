@@ -20,7 +20,7 @@ import CTextInput from '../../components/common/CTextInput';
 import {moderateScale} from '../../common/constants';
 import CText from '../../components/common/CText';
 import CVerticalView from '../../components/CVerticalView';
-import { StackNav } from '../../navigation/NavigationKeys';
+import {StackNav} from '../../navigation/NavigationKeys';
 
 export default function DiscoverTab({navigation}) {
   const [SelectedItem, SetSelectedItem] = useState(false);
@@ -33,9 +33,9 @@ export default function DiscoverTab({navigation}) {
     {id: 2, name: 'Emerging Artists'},
     {id: 3, name: 'Pop Art'},
   ];
-  const MovetoSearchScreen = ()=>{
+  const MovetoSearchScreen = () => {
     navigation.navigate(StackNav.SearchDiscover);
-  }
+  };
   const onChangeDataFiled = ({value}) => {
     setData(value);
   };
@@ -53,29 +53,33 @@ export default function DiscoverTab({navigation}) {
   };
   const RenderMainItems = ({item}) => {
     return (
-      <View style={localStyle.contentStyle}>
-        <TouchableOpacity
-          onPress={() => SetSelectedItem(item.id)}
+      <TouchableOpacity
+        onPress={() => SetSelectedItem(item.id)}
+        style={[
+          localStyle.bottomStyle,
+          SelectedItem === item.id ? localStyle.ActiveStyle : null,
+        ]}>
+        <CText
+          numberOfLines={1}
+          type={SelectedItem === item.id ? 'B16' : 'B16'}
           style={[
-            localStyle.bottomStyle,
-            SelectedItem === item.id ? localStyle.ActiveStyle : null,
+            SelectedItem === item.id ? null : localStyle.OtherFontcolor,
+            localStyle.FontStyle,
           ]}>
-          <CText
-            numberOfLines={1}
-            type={SelectedItem === item.id ? 'B16' : 'B16'}
-            style={[
-              SelectedItem === item.id ? null : localStyle.OtherFontcolor,
-              localStyle.FontStyle,
-            ]}>
-            {item.name}
-          </CText>
-        </TouchableOpacity>
-      </View>
+          {item.name}
+        </CText>
+      </TouchableOpacity>
     );
   };
   const onpressrenderItem = ({item}) => {
     return (
-      <TouchableOpacity onPress={() => navigation.navigate(StackNav.DetailArt,{image:item.image,title:item.title})}>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate(StackNav.DetailArt, {
+            image: item.image,
+            title: item.title,
+          })
+        }>
         <CVerticalView item={item} />
       </TouchableOpacity>
     );
