@@ -52,7 +52,7 @@ export default function AddBillingAddress({navigation}) {
         <ScrollView>
           <View>
             <View style={localStyle.containerStyle}>
-              <CHeader img={images.arrowLeft} onPress={MoveToBack}/>
+              <CHeader img={images.arrowLeft} onPress={MoveToBack} />
               <CText type={'B16'} numberOfLines={1}>
                 {strings.AddBillingAddress}
               </CText>
@@ -113,28 +113,20 @@ export default function AddBillingAddress({navigation}) {
               value={phonenum}
               onChangeText={onChangePhonenumber}
             />
-            <CText
-              style={localStyle.contentStyle}
-              type={'M14'}
-              numberOfLines={1}>
-              {strings.Country}
-            </CText>
             <CDropdownInput
-              Style={localStyle.dropdownStyle}
-              lable={strings.following}
-              style={localStyle.dropStyle}
+              label={strings.Country}
+              type={'M14'}
               data={countryList}
               value={country}
               placeholder={strings.SelectCountry}
               onChange={onChangeCountryFied}
-              itemStyle={localStyle.itemStyle}
-              selectStyle={localStyle.selectStyle}
             />
           </View>
           <CButton
             Title={strings.AddBillingAddress}
             type={'B16'}
             ChangeBtnStyle={localStyle.btnStyle}
+            ChangeTxtStyle={localStyle.ChangeTxtStyle}
             onPress={MoveToNextScreen}
           />
         </ScrollView>
@@ -157,30 +149,12 @@ const localStyle = StyleSheet.create({
   contentStyle: {
     ...styles.mt25,
   },
-  dropdownStyle: {
-    ...typography.fontWeights.Medium,
-    ...typography.fontSizes.f14,
-    color: colors.grayText,
-  },
-  dropStyle: {
-    width: moderateScale(340),
-    borderWidth: moderateScale(1),
-    borderColor: colors.inputBorder,
-    height: moderateScale(52),
-    ...styles.ph10,
-  },
-  itemStyle: {
-    ...typography.fontWeights.Medium,
-    ...typography.fontSizes.f14,
-    color: colors.grayText,
-  },
-  selectStyle: {
-    ...typography.fontWeights.Medium,
-    ...typography.fontSizes.f14,
-    color: colors.black,
-  },
   btnStyle: {
     ...styles.mb10,
     ...styles.mt30,
+    backgroundColor: colors.lightGray,
+  },
+  ChangeTxtStyle: {
+    color: colors.gray400,
   },
 });

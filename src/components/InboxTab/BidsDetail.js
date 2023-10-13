@@ -1,5 +1,7 @@
 import { FlatList, Image, SafeAreaView, StyleSheet,View } from 'react-native'
 import React from 'react'
+
+//custom import
 import CText from '../common/CText'
 import strings from '../../i18n/strings'
 import { ActiveBidFiled } from '../../api/constant'

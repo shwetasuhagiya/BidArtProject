@@ -18,6 +18,11 @@ export const StackNav = {
   AddCreditCard: 'AddCreditCard',
   AddBillingAddress: 'AddBillingAddress',
   RegisterBidData: 'RegisterBidData',
+  SubmitWork: 'SubmitWork',
+  WhisList: 'WhisList',
+  SettingAccount: 'SettingAccount',
+  Payment: 'Payment',
+  Setting: 'Setting',
 };
 
 export const AuthNav = {
@@ -29,8 +34,9 @@ export const AuthNav = {
   BudgetScreen:'BudgetScreen'
 };
 
-export const TabNav ={
-    Home:'Home',
-    Discover:'Discover',
-    Inbox:'Inbox'
-}
+export const TabNav = {
+  Home: 'Home',
+  Discover: 'Discover',
+  Inbox: 'Inbox',
+  Profile: 'Profile',
+};

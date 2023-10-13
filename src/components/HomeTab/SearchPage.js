@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 
-//local import
+//custom import
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {moderateScale} from '../../common/constants';
 import CHeader from '../common/CHeader';

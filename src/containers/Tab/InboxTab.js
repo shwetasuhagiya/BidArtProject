@@ -6,16 +6,17 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React, {useState} from 'react';
-import CHeader from '../../components/common/CHeader';
+
+//custom import
 import CText from '../../components/common/CText';
 import {colors, styles} from '../../themes';
-import images from '../../assets/images';
 import {InboxFiled} from '../../api/constant';
 import {moderateScale} from '../../common/constants';
 import strings from '../../i18n/strings';
 import BidsDetail from '../../components/InboxTab/BidsDetail';
 import InboxDetail from '../../components/InboxTab/InboxDetail';
 import ArchiveDetail from '../../components/InboxTab/ArchiveDetail';
+import { Home } from '../../assets/svg';
 
 export default function InboxTab() {
   const [SelectedItem, SetSelectedItem] = useState(strings.Bids);
@@ -51,6 +52,8 @@ export default function InboxTab() {
         return <InboxDetail />;
       case strings.Archive:
         return <ArchiveDetail />
+      default: 
+        return <BidsDetail />
     }
   };
   return (
@@ -59,7 +62,7 @@ export default function InboxTab() {
         <CText type={'B24'} numberOfLines={1}>
           {strings.Inbox}
         </CText>
-        <CHeader img={images.more} />
+        <Home width={44} height={44} />
       </View>
       <View style={localStyle.contentstyle}>
         <FlatList

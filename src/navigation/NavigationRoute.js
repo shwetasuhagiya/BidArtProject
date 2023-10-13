@@ -12,12 +12,18 @@ import SearchEvent from '../components/HomeTab/SearchEvent';
 import SearchPage from '../components/HomeTab/SearchPage';
 import SearchResult from '../components/HomeTab/SearchResult';
 import TrendingArtist from '../components/HomeTab/TrendingArtist';
+import Payment from '../components/ProfileTab.js/Payment';
+import Setting from '../components/ProfileTab.js/Setting';
+import SettingAccount from '../components/ProfileTab.js/SettingAccount';
+import SubmitWork from '../components/ProfileTab.js/SubmitWork';
+import WhisList from '../components/ProfileTab.js/WhisList';
 import FilterResult from '../containers/FilterResult';
 import OnBoarding from '../containers/OnBoarding';
 import Splash from '../containers/Splash';
 import DiscoverTab from '../containers/Tab/DiscoverTab';
 import HomeTab from '../containers/Tab/HomeTab';
 import InboxTab from '../containers/Tab/InboxTab';
+import ProfileTab from '../containers/Tab/ProfileTab';
 import BudgetScreen from '../containers/auth/BudgetScreen';
 import CreatePasswordScreen from '../containers/auth/CreatePasswordScreen';
 import FollowArtistScreen from '../containers/auth/FollowArtistScreen';
@@ -47,6 +53,11 @@ export const StackRoute = {
   AddCreditCard,
   AddBillingAddress,
   RegisterBidData,
+  SubmitWork,
+  WhisList,
+  SettingAccount,
+  Payment,
+  Setting
 };
 
 export const AuthRoute = {
@@ -62,4 +73,5 @@ export const TabRoute = {
   HomeTab,
   DiscoverTab,
   InboxTab,
+  ProfileTab,
 };

@@ -1,33 +1,19 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 //local import
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import {TabNav} from '../NavigationKeys';
 import {TabRoute} from '../NavigationRoute';
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
 import images from '../../assets/images';
-import {colors, styles} from '../../themes';
-import {hp, moderateScale} from '../../common/constants';
+import {styles} from '../../themes';
+import {hp} from '../../common/constants';
 
 const TabNavigation = () => {
   const Tab = createBottomTabNavigator();
-
-  const TabText = ({IconType, name, focused}) => {
-    return (
-      <View style={localStyle.tabViewContainer}>
-        <IconType
-          name={name}
-          solid={focused}
-          size={moderateScale(20)}
-          color={!!focused ? colors.black : colors.GrayPrimary}
-        />
-      </View>
-    );
-  };
   return (
     <Tab.Navigator
       screenOptions={{headerShown: false, tabBarShowLabel: false}}
-      initialRouteName={TabNav.Inbox}>
+      initialRouteName={TabNav.Home}>
       <Tab.Screen
         name={TabNav.Home}
         component={TabRoute.HomeTab}
@@ -52,6 +38,15 @@ const TabNavigation = () => {
         options={{
           tabBarIcon: ({focused}) => (
             <Image source={focused ? images.activeSms : images.sms} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={TabNav.Profile}
+        component={TabRoute.ProfileTab}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <Image source={focused ? images.activeProfile : images.profile} />
           ),
         }}
       />

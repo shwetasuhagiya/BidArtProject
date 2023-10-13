@@ -12,7 +12,6 @@ import React, {useState} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper';
 import {colors, styles} from '../../themes';
-import CDropdownInput from '../../components/common/CDropdownInput';
 import {ArtWorkList, DiscoveList} from '../../api/constant';
 import strings from '../../i18n/strings';
 import images from '../../assets/images';
@@ -21,9 +20,10 @@ import {moderateScale} from '../../common/constants';
 import CText from '../../components/common/CText';
 import CVerticalView from '../../components/CVerticalView';
 import {StackNav} from '../../navigation/NavigationKeys';
+import CminDropdown from '../../components/common/CminDropdown';
 
 export default function DiscoverTab({navigation}) {
-  const [SelectedItem, SetSelectedItem] = useState(false);
+  const [SelectedItem, SetSelectedItem] = useState(strings.AllArt);
   const [data, setData] = useState('');
   const [search, setSearch] = useState('');
 
@@ -88,12 +88,12 @@ export default function DiscoverTab({navigation}) {
     <SafeAreaView style={localStyle.mainContainer}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
         <View style={localStyle.changeStyle}>
-          <CDropdownInput
+          <CminDropdown
             data={DiscoveList}
-            lable={strings.following}
             placeholder={strings.following}
             value={data}
             onChange={onChangeDataFiled}
+            style={localStyle.dropdownStyle}
           />
           <Image source={images.discoverFilter} />
         </View>

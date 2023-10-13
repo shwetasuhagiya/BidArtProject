@@ -1,5 +1,7 @@
-import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { Image, SafeAreaView, StyleSheet } from 'react-native'
 import React from 'react'
+
+//custom import
 import { styles } from '../../themes';
 import images from '../../assets/images';
 import { moderateScale } from '../../common/constants';

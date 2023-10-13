@@ -85,6 +85,17 @@ export default function StackNavigation() {
         name={StackNav.RegisterBidData}
         component={StackRoute.RegisterBidData}
       />
+      <Stack.Screen
+        name={StackNav.SubmitWork}
+        component={StackRoute.SubmitWork}
+      />
+      <Stack.Screen name={StackNav.WhisList} component={StackRoute.WhisList} />
+      <Stack.Screen
+        name={StackNav.SettingAccount}
+        component={StackRoute.SettingAccount}
+      />
+      <Stack.Screen name={StackNav.Payment} component={StackRoute.Payment} />
+      <Stack.Screen name={StackNav.Setting} component={StackRoute.Setting} />
     </Stack.Navigator>
   );
 }

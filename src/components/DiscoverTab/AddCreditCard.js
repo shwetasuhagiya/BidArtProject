@@ -2,7 +2,7 @@ import {SafeAreaView, StyleSheet, View} from 'react-native';
 import React, {useState} from 'react';
 
 //custom import
-import {styles} from '../../themes';
+import {colors, styles} from '../../themes';
 import CText from '../common/CText';
 import images from '../../assets/images';
 import CHeader from '../common/CHeader';
@@ -86,6 +86,7 @@ export default function AddCreditCard({navigation}) {
         Title={strings.AddCreditCard}
         type={'B16'}
         ChangeBtnStyle={localStyle.btnStyle}
+        ChangeTxtStyle={localStyle.ChangeTxtStyle}
         onPress={MovetoNextScreen}
       />
     </SafeAreaView>
@@ -118,5 +119,9 @@ const localStyle = StyleSheet.create({
   btnStyle: {
     ...styles.mb10,
     ...styles.mt30,
+    backgroundColor: colors.lightGray,
+  },
+  ChangeTxtStyle: {
+    color: colors.gray400,
   },
 });

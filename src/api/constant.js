@@ -383,11 +383,7 @@ export const countryList = [
   {label: 'China', value: 'China'},
 ];
 
-export const InboxFiled= [
-  strings.Bids,
-  strings.Inbox,
-  strings.Archive
-]
+export const InboxFiled = [strings.Bids, strings.Inbox, strings.Archive];
 
 export const ActiveBidFiled = [
   {
@@ -446,5 +442,44 @@ export const InboxChatFiled = [
     name: 'Phillip Lubin',
     time: '21/03',
     msg: 'how do you play when it treansforers from one side to anothers',
+  },
+];
+
+export const CategoryList = [
+  {label: 'ArtWork', value: 'ArtWork'},
+  {label: 'photography', value: 'photography'},
+  {label: 'pop Art', value: 'pop Art'},
+];
+
+export const whisListData = [strings.Works, strings.Show];
+
+export const WorkList = [
+  {
+    image: images.face,
+    title: 'Triple Face',
+    email: '@oliver',
+    CurrentBid: 'Current Bid',
+    price: '$4,500',
+  },
+  {
+    image: images.artwork3,
+    title: 'Absurted',
+    email: '@mariano',
+    CurrentBid: 'Current Bid',
+    price: '$4,100',
+  },
+  {
+    image: images.face2,
+    title: 'Monalisa',
+    email: '@paijo',
+    CurrentBid: 'Current Bid',
+    price: '$3,900',
+  },
+  {
+    image: images.face1,
+    title: 'Beauty Woman',
+    email: '@martunisr',
+    CurrentBid: 'Current Bid',
+    price: '$4,600',
   },
 ];

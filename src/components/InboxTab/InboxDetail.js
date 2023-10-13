@@ -1,5 +1,7 @@
 import {FlatList, Image, SafeAreaView, StyleSheet, View} from 'react-native';
 import React from 'react';
+
+//custom import
 import {InboxChatFiled} from '../../api/constant';
 import {colors, styles} from '../../themes';
 import CText from '../common/CText';

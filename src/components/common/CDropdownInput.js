@@ -4,53 +4,48 @@ import {Dropdown} from 'react-native-element-dropdown';
 import CText from './CText';
 import {colors, styles} from '../../themes';
 import {moderateScale} from '../../common/constants';
-import typography from '../../themes/typography';
 
 export default function CDropdownInput(props) {
-  const {label, data, placeholder, value, onChange,style,Style,itemStyle,selectStyle} = props;
+  const {label, data, placeholder, value, onChange} = props;
 
   return (
     <View style={localStyles.genderContainer}>
       <View style={localStyles.labelContainer}>
-        <CText>{label}</CText>
+        <CText type={'R14'}>{label}</CText>
       </View>
       <Dropdown
-        style={[localStyles.dropdownStyle, style]}
+        style={localStyles.dropdownStyle}
         data={data}
         value={value}
         maxHeight={180}
         labelField="label"
         valueField="value"
         placeholder={placeholder}
-        placeholderStyle={[localStyles.dropdownPlaceholder,Style]}
+        placeholderStyle={localStyles.dropdownPlaceholder}
         onChange={onChange}
-        selectedTextStyle={[localStyles.selectedTextStyle,selectStyle]}
-        itemTextStyle={[localStyles.itemTextStyle,itemStyle]}
-        selectedTextProps={1}
-        iconColor={colors.black}
       />
     </View>
   );
 }
 
 const localStyles = StyleSheet.create({
+  genderContainer: {
+    marginTop: moderateScale(10),
+  },
   dropdownStyle: {
+    borderWidth: moderateScale(1.5),
+    borderColor: colors.inputBorder,
+    height: moderateScale(52),
+    ...styles.mt5,
+    ...styles.ph10,
     ...styles.justifyCenter,
     color: colors.textColor,
-    width: moderateScale(140),
   },
   dropdownPlaceholder: {
-    color: colors.black,
-    ...typography.fontWeights.Bold,
-    ...typography.fontSizes.f24,
-  },
-  selectedTextStyle: {
-    ...typography.fontWeights.Bold,
-    ...typography.fontSizes.f24,
-  },
-  itemTextStyle: {
     color: colors.grayText,
-    ...typography.fontWeights.Bold,
-    ...typography.fontSizes.f18,
+  },
+  labelContainer: {
+    ...styles.mt10,
+    ...styles.mb5,
   },
 });

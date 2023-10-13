@@ -88,6 +88,7 @@ export default {
   BookMark: require('../images/Bookmark.png'),
   face: require('../images/face.jpg'),
   face1: require('../images/face1.jpg'),
+  face2: require('../images/face2.jpg'),
   credit: require('../images/credit.png'),
   location: require('../images/location.png'),
   addCircle: require('../images/addCircle.png'),
@@ -99,5 +100,9 @@ export default {
   chat4: require('../images/chat4.png'),
   chat5: require('../images/chat5.png'),
   chat6: require('../images/chat6.png'),
-  remove:require('../images/remove.png')
+  remove: require('../images/remove.png'),
+  profileUser: require('../images/profileUser.png'),
+  work1: require('../images/work1.jpg'),
+  work2: require('../images/work2.jpg'),
+  creditCard:require('../images/creditCard.jpg')
 };

@@ -113,4 +113,7 @@ export default StyleSheet.create({
   aligncenter: {
     alignItems: 'center',
   },
+  alignEnd: {
+    alignItems: 'flex-end',
+  },
 });
