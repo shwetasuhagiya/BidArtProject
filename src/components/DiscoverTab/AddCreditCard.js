@@ -28,9 +28,9 @@ export default function AddCreditCard({navigation}) {
   const MovetoBackscreen = () => {
     navigation.navigate(StackNav.RegisterBid);
   };
-  const MovetoNextScreen = ()=>{
+  const MovetoNextScreen = () => {
     navigation.navigate(StackNav.AddBillingAddress);
-  }
+  };
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>

@@ -1,7 +1,6 @@
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
 import {colors, styles} from '../../themes';
-import typography from '../../themes/typography';
 import {moderateScale} from '../../common/constants';
 import CText from './CText';
 

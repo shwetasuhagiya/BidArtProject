@@ -1,5 +1,7 @@
 import {StyleSheet, View} from 'react-native';
 import React from 'react';
+
+//custom import
 import {Dropdown} from 'react-native-element-dropdown';
 import CText from './CText';
 import {colors, styles} from '../../themes';

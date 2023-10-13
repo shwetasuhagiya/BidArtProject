@@ -8,25 +8,27 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
+
+//custom import
 import CHeader from '../common/CHeader';
 import images from '../../assets/images';
 import {colors, styles} from '../../themes';
 import {moderateScale} from '../../common/constants';
 import CText from '../common/CText';
 import strings from '../../i18n/strings';
-import { ExhibitorsData, ExhibitorsList } from '../../api/constant';
+import {ExhibitorsData, ExhibitorsList} from '../../api/constant';
 import CButton from '../common/CButton';
 
-export default function DetailEvent({route,navigation}) {
+export default function DetailEvent({route, navigation}) {
   const [SelectedItem, SetSelectedItem] = useState(false);
   const {image, date, auction} = route.params;
   const Array = [
     {id: 0, name: 'Exhibitors'},
     {id: 1, name: 'Artworks'},
   ];
-  const MoveToBackScreen= ()=>{
-    navigation.goBack()
-  }
+  const MoveToBackScreen = () => {
+    navigation.goBack();
+  };
   const RenderMainItems = ({item}) => {
     return (
       <TouchableOpacity
@@ -46,7 +48,7 @@ export default function DetailEvent({route,navigation}) {
       </TouchableOpacity>
     );
   };
-  const renderItemExhibitors = ({item})=>{
+  const renderItemExhibitors = ({item}) => {
     return (
       <View style={localStyle.imageContiner}>
         <Image source={item.image} style={localStyle.imgcontainer} />
@@ -54,7 +56,11 @@ export default function DetailEvent({route,navigation}) {
           <CText type={'B164'} numberOfLines={1}>
             {item.title}
           </CText>
-          <CText type={'S14'} numberOfLines={1} color={colors.grayText} style={localStyle.priceStyle}>
+          <CText
+            type={'S14'}
+            numberOfLines={1}
+            color={colors.grayText}
+            style={localStyle.priceStyle}>
             {item.price}
           </CText>
           <CButton
@@ -64,7 +70,7 @@ export default function DetailEvent({route,navigation}) {
         </View>
       </View>
     );
-  }
+  };
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
       <ScrollView>
@@ -220,8 +226,8 @@ const localStyle = StyleSheet.create({
     ...styles.mt10,
     ...styles.mb5,
   },
-  contextStyle:{
+  contextStyle: {
     ...styles.rowSpaceBetween,
-    ...styles.mt10
-  }
+    ...styles.mt10,
+  },
 });

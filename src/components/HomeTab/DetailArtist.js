@@ -1,5 +1,7 @@
 import {Image, SafeAreaView, ScrollView, StyleSheet, View} from 'react-native';
 import React from 'react';
+
+//custom import
 import {colors, styles} from '../../themes';
 import CHeader from '../common/CHeader';
 import images from '../../assets/images';

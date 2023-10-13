@@ -9,11 +9,9 @@ import CTextInput from '../common/CTextInput';
 import images from '../../assets/images';
 import strings from '../../i18n/strings';
 import CDropdownInput from '../common/CDropdownInput';
-import typography from '../../themes/typography';
-import {moderateScale} from '../../common/constants';
 import {countryList} from '../../api/constant';
 import CButton from '../common/CButton';
-import { StackNav } from '../../navigation/NavigationKeys';
+import {StackNav} from '../../navigation/NavigationKeys';
 
 export default function AddBillingAddress({navigation}) {
   const [country, setCountry] = useState('');
@@ -43,9 +41,9 @@ export default function AddBillingAddress({navigation}) {
   const MoveToBack = () => {
     navigation.navigate(StackNav.RegisterBid);
   };
-  const MoveToNextScreen= ()=>{
-      navigation.navigate(StackNav.RegisterBidData);
-  }
+  const MoveToNextScreen = () => {
+    navigation.navigate(StackNav.RegisterBidData);
+  };
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>

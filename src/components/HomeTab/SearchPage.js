@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 //custom import
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -19,13 +19,13 @@ import strings from '../../i18n/strings';
 import CTextInput from '../common/CTextInput';
 import KeyBoardAvoidWrapper from '../common/KeyBoardAvoidWrapper';
 import {RecentSearchData} from '../../api/constant';
-import { StackNav } from '../../navigation/NavigationKeys';
+import {StackNav} from '../../navigation/NavigationKeys';
 
 export default function SearchPage({navigation}) {
-  const [search,SetSearch] = useState('')
-  const Setsearchicon=(item)=>{
-    SetSearch(item)
-  }
+  const [search, SetSearch] = useState('');
+  const Setsearchicon = item => {
+    SetSearch(item);
+  };
   const MovetoTrending = () => {
     navigation.navigate(StackNav.TrendingArtist);
   };
@@ -53,7 +53,9 @@ export default function SearchPage({navigation}) {
     return (
       <TouchableOpacity
         style={[localStyle.mainwapperStyle, style]}
-        onPress={() => navigation.navigate(StackNav.SearchResult,{title:title})}>
+        onPress={() =>
+          navigation.navigate(StackNav.SearchResult, {title: title})
+        }>
         <CText type={'M16'} numberOfLines={1}>
           {title}
         </CText>
@@ -83,7 +85,7 @@ export default function SearchPage({navigation}) {
     <SafeAreaView style={localStyle.mainContainerStyle}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
         <View style={localStyle.containerStyle}>
-          <CHeader img={images.arrowLeft} onPress={MovetoTrending}/>
+          <CHeader img={images.arrowLeft} onPress={MovetoTrending} />
           <CText type={'B16'} numberOfLines={1}>
             {strings.Search}
           </CText>
@@ -173,7 +175,7 @@ const localStyle = StyleSheet.create({
     ...styles.flexRow,
     ...styles.aligncenter,
     ...styles.justifyBetween,
-    ...styles.mb5
+    ...styles.mb5,
   },
   searchIcon: {
     ...styles.ml10,

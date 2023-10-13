@@ -21,7 +21,7 @@ import {moderateScale} from '../../common/constants';
 import {SearchResultData} from '../../api/constant';
 import CButton from '../common/CButton';
 
-export default function SearchResult({route,navigation}) {
+export default function SearchResult({route, navigation}) {
   const {title} = route.params;
   const [SelectedItem, SetSelectedItem] = useState(false);
   const [search, SetSearch] = useState('');
@@ -32,9 +32,9 @@ export default function SearchResult({route,navigation}) {
   const Setsearchicon = item => {
     SetSearch(item);
   };
-  const MoveToBackScreen=()=>{
-      navigation.goBack()
-  }
+  const MoveToBackScreen = () => {
+    navigation.goBack();
+  };
   const LeftIconTextinput = () => {
     return (
       <Ionicons
@@ -100,7 +100,7 @@ export default function SearchResult({route,navigation}) {
     <SafeAreaView style={localStyle.mainContainer}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
         <View style={localStyle.containerStyle}>
-          <CHeader img={images.arrowLeft} onPress={MoveToBackScreen}/>
+          <CHeader img={images.arrowLeft} onPress={MoveToBackScreen} />
           <CText type={'B16'} numberOfLines={1}>
             {strings.SearchResult}
           </CText>
@@ -114,7 +114,7 @@ export default function SearchResult({route,navigation}) {
         />
         <View style={localStyle.contentStyle}>
           {Array.map(item => {
-            return <RenderMainItems item={item} />
+            return <RenderMainItems item={item} />;
           })}
         </View>
         <CText type={'M16'} numberOfLines={1}>

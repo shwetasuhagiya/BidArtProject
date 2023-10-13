@@ -1,9 +1,4 @@
-import {
-  Image,
-  SafeAreaView,
-  StyleSheet,
-  View,
-} from 'react-native';
+import {Image, SafeAreaView, StyleSheet, View} from 'react-native';
 import React from 'react';
 
 //custom import

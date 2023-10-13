@@ -19,9 +19,9 @@ const CTextInput = props => {
     onChangeText,
     RightIcon,
     LeftIcon,
-    isSecure=false,
+    isSecure = false,
     changeViewStyle,
-    color
+    color,
   } = props;
   const [isSecurepass, SetisSecurePass] = useState(false);
   const onPressSecureIcon = () => {
@@ -33,7 +33,7 @@ const CTextInput = props => {
       <TextInput
         placeholder={placeholderText}
         style={[localstyle.TextInputStyle, ChangeStyle]}
-        placeholderTextColor={[colors.grayText,color]}
+        placeholderTextColor={[colors.grayText, color]}
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={isSecurepass}

@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 
-//local import
+//custom import
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import KeyBoardAvoidWrapper from '../common/KeyBoardAvoidWrapper';
 import {colors, styles} from '../../themes';
@@ -29,9 +29,9 @@ export default function BidArtEvent({navigation}) {
   const MoveToBackScreen = () => {
     navigation.goBack();
   };
-   const MoveToSearch = () => {
-     navigation.navigate(StackNav.SearchEvent)
-   };
+  const MoveToSearch = () => {
+    navigation.navigate(StackNav.SearchEvent);
+  };
   const LeftIconTextinput = () => {
     return (
       <Ionicons
@@ -49,7 +49,7 @@ export default function BidArtEvent({navigation}) {
           navigation.navigate(StackNav.DetailEvent, {
             image: item.mainImage,
             date: item.date,
-            auction:item.auction
+            auction: item.auction,
           })
         }>
         <View style={localStyle.childImgStyle}>

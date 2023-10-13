@@ -1,7 +1,6 @@
 import {
   View,
   StyleSheet,
-  SafeAreaView,
   Image,
   TouchableOpacity,
 } from 'react-native';
@@ -10,8 +9,7 @@ import React from 'react';
 //custom imports
 import {styles} from '../../themes';
 
-
-const CHeader = ({img, icon, onPress, IconPress, style,}) => {
+const CHeader = ({img, icon, onPress, IconPress, style}) => {
   return (
     <View style={[localStyle.imageContainerStyle, style]}>
       <TouchableOpacity onPress={onPress}>

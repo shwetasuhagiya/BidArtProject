@@ -18,14 +18,13 @@ import {moderateScale} from '../../common/constants';
 import CButton from '../common/CButton';
 import {StackNav, TabNav} from '../../navigation/NavigationKeys';
 
-export default function RegisterBid({ navigation}) {
-
+export default function RegisterBid({navigation}) {
   const MoveToNextScreen = () => {
     navigation.navigate(StackNav.AddCreditCard);
   };
-  const MovetoBackScreen= ()=>{
+  const MovetoBackScreen = () => {
     navigation.navigate(TabNav.Discover);
-  }
+  };
   const MovetoBillingScreen = () => {
     navigation.navigate(StackNav.AddBillingAddress);
   };

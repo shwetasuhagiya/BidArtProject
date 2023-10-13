@@ -82,8 +82,7 @@ const FilterArtWork = props => {
     );
   };
   return (
-    <ActionSheet
-      ref={sheetRef}>
+    <ActionSheet ref={sheetRef}>
       <View style={localstyle.container}>
         <CText type={'B24'} style={localstyle.filterHeaderStyle}>
           {strings.FilterArtwork}

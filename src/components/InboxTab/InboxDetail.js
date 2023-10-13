@@ -5,7 +5,7 @@ import React from 'react';
 import {InboxChatFiled} from '../../api/constant';
 import {colors, styles} from '../../themes';
 import CText from '../common/CText';
-import { moderateScale } from '../../common/constants';
+import {moderateScale} from '../../common/constants';
 
 export default function InboxDetail() {
   const renderItem = ({item}) => {
@@ -32,8 +32,13 @@ export default function InboxDetail() {
     );
   };
   return (
-    <SafeAreaView style={localStyle.MainStyle}> 
-      <FlatList data={[...InboxChatFiled,...InboxChatFiled]} renderItem={renderItem} scrollEnabled showsVerticalScrollIndicator={false}/>
+    <SafeAreaView style={localStyle.MainStyle}>
+      <FlatList
+        data={[...InboxChatFiled, ...InboxChatFiled]}
+        renderItem={renderItem}
+        scrollEnabled
+        showsVerticalScrollIndicator={false}
+      />
     </SafeAreaView>
   );
 }
@@ -55,12 +60,12 @@ const localStyle = StyleSheet.create({
   msgStyle: {
     ...styles.ml10,
   },
-  lineStyle:{
-    height:moderateScale(1),
-    backgroundColor:colors.GrayPrimary,
-    ...styles.mv15
+  lineStyle: {
+    height: moderateScale(1),
+    backgroundColor: colors.GrayPrimary,
+    ...styles.mv15,
   },
-  MainStyle:{
-    ...styles.mt10
-  }
+  MainStyle: {
+    ...styles.mt10,
+  },
 });
