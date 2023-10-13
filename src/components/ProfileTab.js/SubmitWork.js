@@ -21,41 +21,41 @@ import CDropdownInput from '../common/CDropdownInput';
 import typography from '../../themes/typography';
 import {CategoryList} from '../../api/constant';
 import CButton from '../common/CButton';
-import { TabNav } from '../../navigation/NavigationKeys';
+import {TabNav} from '../../navigation/NavigationKeys';
 
 export default function SubmitWork({navigation}) {
-  const [category, SetCategory] = useState('')
-  const [title,SetTitle] = useState('')
-  const [size,setSize] = useState('')
-  const [number,SetNumber] = useState('')
-  const [switchOn,setSwitch] = useState(false)
-  const [switchOn1,setSwitch1] = useState(false)
+  const [category, SetCategory] = useState('');
+  const [title, SetTitle] = useState('');
+  const [size, setSize] = useState('');
+  const [number, SetNumber] = useState('');
+  const [switchOn, setSwitch] = useState(false);
+  const [switchOn1, setSwitch1] = useState(false);
   const [switchOn2, setSwitch2] = useState(false);
 
   const onChangeCategory = value => {
     SetCategory(value);
   };
-  const onchangeTitle = (item)=>{
-    SetTitle(item)
-  }
-  const onchangeSize = (item)=>{
-    setSize(item)
-  }
-  const onchangeNumber = (item)=>{
-    SetNumber(item)
-  }
-  const onValueChange=()=>{
-    setSwitch(!switchOn)
-  }
-   const onValueSwitch = () => {
-     setSwitch1(!switchOn1);
-   };
-    const onValueSwitch1 = () => {
-      setSwitch2(!switchOn2);
-    };
-    const MovetoBackScreen=()=>{
-      navigation.navigate(TabNav.Profile)
-    }
+  const onchangeTitle = item => {
+    SetTitle(item);
+  };
+  const onchangeSize = item => {
+    setSize(item);
+  };
+  const onchangeNumber = item => {
+    SetNumber(item);
+  };
+  const onValueChange = () => {
+    setSwitch(!switchOn);
+  };
+  const onValueSwitch = () => {
+    setSwitch1(!switchOn1);
+  };
+  const onValueSwitch1 = () => {
+    setSwitch2(!switchOn2);
+  };
+  const MovetoBackScreen = () => {
+    navigation.navigate(TabNav.Profile);
+  };
   const RenderItems = ({title, text, style, value, onChangeText}) => {
     return (
       <View style={localStyle.textInputStyle}>

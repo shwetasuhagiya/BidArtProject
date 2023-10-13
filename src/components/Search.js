@@ -1,38 +1,38 @@
-import { StyleSheet, View ,SafeAreaView,Image} from 'react-native'
-import React, { useState } from 'react'
+import {StyleSheet, View, SafeAreaView, Image} from 'react-native';
+import React, {useState} from 'react';
 
 //local import
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { colors, styles } from '../themes';
+import {colors, styles} from '../themes';
 import CText from './common/CText';
 import CTextInput from './common/CTextInput';
-import { moderateScale } from '../common/constants';
+import {moderateScale} from '../common/constants';
 import CHeader from './common/CHeader';
 import images from '../assets/images';
 
-export default function Search({onpress,placeholder}) {
-     const [search, SetSearch] = useState('');
-     const Setsearchicon = item => {
-       SetSearch(item);
-     };
-     const LeftIconTextinput = () => {
-       return (
-         <Ionicons
-           name={'search-outline'}
-           size={moderateScale(22)}
-           style={localStyle.searchIcon}
-         />
-       );
-     };
-     const RoundOfNumbers = ({num,style}) => {
-       return (
-         <View style={[localStyle.roundNumStyle, style]}>
-           <CText type={'B16'} style={localStyle.numStyle}>
-             {num}
-           </CText>
-         </View>
-       );
-     };
+export default function Search({onpress, placeholder}) {
+  const [search, SetSearch] = useState('');
+  const Setsearchicon = item => {
+    SetSearch(item);
+  };
+  const LeftIconTextinput = () => {
+    return (
+      <Ionicons
+        name={'search-outline'}
+        size={moderateScale(22)}
+        style={localStyle.searchIcon}
+      />
+    );
+  };
+  const RoundOfNumbers = ({num, style}) => {
+    return (
+      <View style={[localStyle.roundNumStyle, style]}>
+        <CText type={'B16'} style={localStyle.numStyle}>
+          {num}
+        </CText>
+      </View>
+    );
+  };
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
@@ -54,7 +54,7 @@ export default function Search({onpress,placeholder}) {
         </CText>
         <View style={localStyle.imageContainer}>
           <Image source={images.map} style={localStyle.mapImageStyle} />
-          <RoundOfNumbers num={16} style={localStyle.absoluteStyle}/>
+          <RoundOfNumbers num={16} style={localStyle.absoluteStyle} />
           <RoundOfNumbers num={7} style={localStyle.changeNumStyle} />
           <RoundOfNumbers num={8} style={localStyle.changetoNumStyle} />
           <RoundOfNumbers num={12} style={localStyle.changeStyle} />

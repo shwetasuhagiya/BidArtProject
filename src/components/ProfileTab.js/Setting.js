@@ -8,12 +8,12 @@ import {colors, styles} from '../../themes';
 import CHeader from '../common/CHeader';
 import strings from '../../i18n/strings';
 import {moderateScale} from '../../common/constants';
-import { TabNav } from '../../navigation/NavigationKeys';
+import {TabNav} from '../../navigation/NavigationKeys';
 
 export default function Setting({navigation}) {
-    const MoveToBackScreen = ()=>{
-        navigation.navigate(TabNav.Profile)
-    }
+  const MoveToBackScreen = () => {
+    navigation.navigate(TabNav.Profile);
+  };
   const RenderItems = ({title, icon, onPress, data, style}) => {
     return (
       <TouchableOpacity
@@ -38,7 +38,7 @@ export default function Setting({navigation}) {
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
       <View style={localStyle.containerStyle}>
-        <CHeader img={images.arrowLeft} onPress={MoveToBackScreen}/>
+        <CHeader img={images.arrowLeft} onPress={MoveToBackScreen} />
         <CText type={'B16'} numberOfLines={1}>
           {strings.Setting}
         </CText>

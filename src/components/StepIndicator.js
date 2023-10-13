@@ -1,7 +1,7 @@
 import {FlatList, SafeAreaView, StyleSheet, View} from 'react-native';
 import React from 'react';
 
-// Local Imports
+// custom Imports
 import {deviceWidth, moderateScale} from '../common/constants';
 import {colors} from '../themes';
 import {styles} from '../themes';

@@ -33,9 +33,9 @@ const HomeTab = ({navigation}) => {
   const ViewAllCategories = () => {
     navigation.navigate(StackNav.ArtWorkScreen);
   };
-  const ViewAllBidArtEvent =()=>{
+  const ViewAllBidArtEvent = () => {
     navigation.navigate(StackNav.BidArtEvent);
-  }
+  };
 
   const ViewAllArtist = () => {
     navigation.navigate(StackNav.TrendingArtist);
@@ -98,7 +98,7 @@ const HomeTab = ({navigation}) => {
     );
   };
 
-  const BidArtEvent = ()=>{
+  const BidArtEvent = () => {
     return (
       <View style={localstyles.maineventStyle}>
         <View style={localstyles.childImgStyle}>
@@ -124,7 +124,7 @@ const HomeTab = ({navigation}) => {
         </View>
       </View>
     );
-  }
+  };
   const renderItemArtist = ({item}) => {
     return (
       <View style={localstyles.mainArtistStyle}>
@@ -199,7 +199,7 @@ const HomeTab = ({navigation}) => {
             Style={localstyles.artisrHeaderStyle}
             onPress={ViewAllBidArtEvent}
           />
-            <BidArtEvent />
+          <BidArtEvent />
         </ScrollView>
       </KeyBoardAvoidWrapper>
     </SafeAreaView>

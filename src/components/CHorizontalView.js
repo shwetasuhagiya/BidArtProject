@@ -1,7 +1,7 @@
-import {View, Text, SafeAreaView, Image, StyleSheet} from 'react-native';
+import {View, SafeAreaView, Image, StyleSheet} from 'react-native';
 import React from 'react';
 
-//local import
+//custom import
 import {colors, styles} from '../themes';
 import {moderateScale} from '../common/constants';
 import CText from './common/CText';

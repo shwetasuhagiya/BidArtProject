@@ -33,7 +33,7 @@ const LoginScreen = ({navigation}) => {
   };
 
   return (
-    <View style={styles.mainContainerSurface} >
+    <View style={styles.mainContainerSurface}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
         <StepIndicator step={1} />
         <View style={localstyle.container}>

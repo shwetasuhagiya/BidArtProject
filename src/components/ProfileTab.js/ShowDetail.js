@@ -16,7 +16,7 @@ import {colors, styles} from '../../themes';
 export default function ShowDetail() {
   const renderItemEvent = ({item}) => {
     return (
-      <TouchableOpacity style={localStyle.maineventStyle} >
+      <TouchableOpacity style={localStyle.maineventStyle}>
         <View style={localStyle.childImgStyle}>
           <Image source={item.mainImage} style={localStyle.imgStyle} />
           <View>

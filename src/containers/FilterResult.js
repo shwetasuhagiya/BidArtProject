@@ -1,29 +1,37 @@
-import { View, Text, SafeAreaView, StyleSheet, Image, TouchableOpacity, FlatList } from 'react-native'
-import React, { useState } from 'react'
-import CHeader from '../components/common/CHeader'
-import images from '../assets/images'
-import { colors, styles } from '../themes'
-import CText from '../components/common/CText'
-import { moderateScale } from '../common/constants'
-import { ArtWorkList } from '../api/constant'
-import CHorizontalView from '../components/CHorizontalView'
-import CVerticalView from '../components/CVerticalView'
-import strings from '../i18n/strings'
-import { StackNav } from '../navigation/NavigationKeys'
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  FlatList,
+} from 'react-native';
+import React, {useState} from 'react';
+import CHeader from '../components/common/CHeader';
+import images from '../assets/images';
+import {colors, styles} from '../themes';
+import CText from '../components/common/CText';
+import {moderateScale} from '../common/constants';
+import {ArtWorkList} from '../api/constant';
+import CHorizontalView from '../components/CHorizontalView';
+import CVerticalView from '../components/CVerticalView';
+import strings from '../i18n/strings';
+import {StackNav} from '../navigation/NavigationKeys';
 
 const FilterResult = ({navigation}) => {
-    const [isHorizontalView, isSetHorizontalView] = useState(true);
+  const [isHorizontalView, isSetHorizontalView] = useState(true);
 
-    const onPressHorizontalView = () => {
-      isSetHorizontalView(true);
-    };
-    const onPressVerticalView = () => {
-      isSetHorizontalView(false);
-    };
+  const onPressHorizontalView = () => {
+    isSetHorizontalView(true);
+  };
+  const onPressVerticalView = () => {
+    isSetHorizontalView(false);
+  };
 
-    const BacktoScreen = () => {
-      navigation.replace(StackNav.TabNavigation);
-    };
+  const BacktoScreen = () => {
+    navigation.replace(StackNav.TabNavigation);
+  };
 
   const HeaderBtn = () => {
     return (
@@ -45,13 +53,13 @@ const FilterResult = ({navigation}) => {
       </View>
     );
   };
-const renderArtListItem = ({item, index}) => {
-  return isHorizontalView ? (
-    <CHorizontalView item={item} index={index} />
-  ) : (
-    <CVerticalView item={item} index={index} />
-  );
-};
+  const renderArtListItem = ({item, index}) => {
+    return isHorizontalView ? (
+      <CHorizontalView item={item} index={index} />
+    ) : (
+      <CVerticalView item={item} index={index} />
+    );
+  };
   return (
     <SafeAreaView style={localStyle.mainContainer}>
       <CHeader
@@ -87,7 +95,7 @@ const renderArtListItem = ({item, index}) => {
       />
     </SafeAreaView>
   );
-}
+};
 const localStyle = StyleSheet.create({
   mainContainer: {
     ...styles.mainContainerSurface,
@@ -110,16 +118,16 @@ const localStyle = StyleSheet.create({
     gap: 10,
     ...styles.aligncenter,
   },
-  searchStyle:{
-    width:moderateScale(275),
-    height:moderateScale(32),
-    backgroundColor:colors.borderColor,
+  searchStyle: {
+    width: moderateScale(275),
+    height: moderateScale(32),
+    backgroundColor: colors.borderColor,
     ...styles.rowSpaceBetween,
     ...styles.ph10,
-    ...styles.mv10
+    ...styles.mv10,
   },
-  searchBottom:{
-    width:moderateScale(225)
-  }
+  searchBottom: {
+    width: moderateScale(225),
+  },
 });
-export default FilterResult
+export default FilterResult;

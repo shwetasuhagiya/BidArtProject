@@ -16,7 +16,7 @@ import strings from '../../i18n/strings';
 import BidsDetail from '../../components/InboxTab/BidsDetail';
 import InboxDetail from '../../components/InboxTab/InboxDetail';
 import ArchiveDetail from '../../components/InboxTab/ArchiveDetail';
-import { Home } from '../../assets/svg';
+import {Home} from '../../assets/svg';
 
 export default function InboxTab() {
   const [SelectedItem, SetSelectedItem] = useState(strings.Bids);
@@ -51,9 +51,9 @@ export default function InboxTab() {
       case strings.Inbox:
         return <InboxDetail />;
       case strings.Archive:
-        return <ArchiveDetail />
-      default: 
-        return <BidsDetail />
+        return <ArchiveDetail />;
+      default:
+        return <BidsDetail />;
     }
   };
   return (

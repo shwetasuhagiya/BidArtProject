@@ -12,12 +12,12 @@ import {moderateScale} from '../../common/constants';
 import CTextInput from '../common/CTextInput';
 import {Google, Trash} from '../../assets/svg';
 import CButton from '../common/CButton';
-import { TabNav } from '../../navigation/NavigationKeys';
+import {TabNav} from '../../navigation/NavigationKeys';
 
 export default function SettingAccount({navigation}) {
-  const MoveToBackScreen = ()=>{
-    navigation.navigate(TabNav.Profile)
-  }
+  const MoveToBackScreen = () => {
+    navigation.navigate(TabNav.Profile);
+  };
   const RenderItems = ({title, text, style, value, onChangeText, color}) => {
     return (
       <View style={localStyle.textInputStyle}>
@@ -150,7 +150,7 @@ const localStyle = StyleSheet.create({
     ...styles.mt30,
     backgroundColor: colors.lightGray,
   },
-  ChangeTxtStyle:{
-    color:colors.light400
-  }
+  ChangeTxtStyle: {
+    color: colors.light400,
+  },
 });

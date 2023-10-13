@@ -4,7 +4,7 @@ import {styles} from '../themes';
 import images from '../assets/images';
 import {StorageGetValue} from '../utils/asyncstorage';
 import {moderateScale} from '../common/constants';
-import { StackNav } from '../navigation/NavigationKeys';
+import {StackNav} from '../navigation/NavigationKeys';
 
 const Splash = ({navigation}) => {
   // setTimeout(() => {
