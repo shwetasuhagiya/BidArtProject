@@ -23,7 +23,7 @@ import {StackNav} from '../../navigation/NavigationKeys';
 import CminDropdown from '../../components/common/CminDropdown';
 
 export default function DiscoverTab({navigation}) {
-  const [SelectedItem, SetSelectedItem] = useState(strings.AllArt);
+  const [SelectedItem, SetSelectedItem] = useState(0);
   const [data, setData] = useState('');
   const [search, setSearch] = useState('');
 

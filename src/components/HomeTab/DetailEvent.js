@@ -20,7 +20,7 @@ import {ExhibitorsData, ExhibitorsList} from '../../api/constant';
 import CButton from '../common/CButton';
 
 export default function DetailEvent({route, navigation}) {
-  const [SelectedItem, SetSelectedItem] = useState(false);
+  const [SelectedItem, SetSelectedItem] = useState(0);
   const {image, date, auction} = route.params;
   const Array = [
     {id: 0, name: 'Exhibitors'},
