@@ -89,7 +89,7 @@ export default function SettingAccount({navigation}) {
           </CText>
         </View>
         <CButton
-          Title={strings.AddBillingAddress}
+          Title={strings.SaveChange}
           type={'B16'}
           ChangeBtnStyle={localStyle.btnStyle}
           ChangeTxtStyle={localStyle.ChangeTxtStyle}

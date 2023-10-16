@@ -197,6 +197,7 @@ export default {
   SendFeedback: '  Send Feedback',
   AppVersion: 'App Version',
   version: '4.1',
-  AllArt:'All Art'
+  AllArt:'All Art',
+  SaveChange:'Save Change'
 };
 
