@@ -6,7 +6,7 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 //custom imports
 import {colors, styles} from '../../themes';
@@ -23,16 +23,30 @@ import {AuthNav} from '../../navigation/NavigationKeys';
 
 const FollowArtistScreen = ({navigation}) => {
   const [select, setSelect] = useState(TopArtistList);
-  const [search, SetSearch] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const leftIconButton = () => {
+  const LeftIconButton = () => {
     return <Image source={images.search} style={localstyle.searchbtn} />;
   };
   const MovetoNextBtn = () => {
     navigation.navigate(AuthNav.FollowCategoriesScreen);
   };
-  const onChangeSearch = item => {
-    SetSearch(item);
+  const OnChangeText = text => {
+    setSearchQuery(text);
+  };
+  useEffect(() => {
+    OnChangeSearch();
+  }, [searchQuery]);
+
+  const OnChangeSearch = () => {
+    if (searchQuery) {
+      const filtered = select.filter(item =>
+        item.name.toLowerCase().includes(searchQuery.toLowerCase()),
+      );
+      setSelect(filtered);
+    } else {
+      setSelect(TopArtistList);
+    }
   };
 
   const handleOnpress = item => {
@@ -76,18 +90,18 @@ const FollowArtistScreen = ({navigation}) => {
     return (
       <View>
         <StepIndicator step={3} style={styles.mh0} />
-        <View>
-          <CText type={'B24'}>{strings.FollowArtistTitle}</CText>
-          <CTextInput
-            LeftIcon={leftIconButton}
-            placeholderText={strings.FollowArtistPlaceholderText}
-            value={search}
-            onChangeText={onChangeSearch}
-          />
-          <CText type={'M16'} style={localstyle.topArtistStyle}>
-            {strings.TopArtistonBidart}
-          </CText>
-        </View>
+        <CText type={'B24'} numberOfLines={2}>
+          {strings.FollowArtistTitle}
+        </CText>
+        <CTextInput
+          LeftIcon={LeftIconButton}
+          placeholderText={strings.FollowArtistPlaceholderText}
+          value={searchQuery}
+          onChangeText={OnChangeText}
+        />
+        <CText type={'M16'} style={localstyle.topArtistStyle} numberOfLines={1}>
+          {strings.TopArtistonBidart}
+        </CText>
       </View>
     );
   };
@@ -146,10 +160,6 @@ const localstyle = StyleSheet.create({
   nextbtnStyle: {
     ...styles.mt30,
     bottom: moderateScale(20),
-  },
-  btnimageStyle: {
-    width: moderateScale(10),
-    height: moderateScale(10),
   },
   circlestyle: {
     height: moderateScale(20),

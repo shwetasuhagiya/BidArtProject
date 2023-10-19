@@ -14,11 +14,11 @@ export const colors = {
   modalBackground: 'rgba(0,0,0,0.5)',
   tabIcon: '#6F6F6F',
   yellow: '#FFC60B',
-  modalBg: '#00000099',
+  modalBg: '#000099',
   red: '#FF5470',
-  green: '#1ED390',
+  green: '#008000',
   lightGray: '#9F9F9F',
-  light400:'#707070',
+  light400: '#707070',
   borderColor: '#DCDCDC',
-  GrayPrimary:'#E7E7E7'
+  GrayPrimary: '#E7E7E7',
 };

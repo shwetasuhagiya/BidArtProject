@@ -66,9 +66,9 @@ export default {
   userImage7: require('../images/userImage7.jpg'),
   userImage8: require('../images/userImage8.jpg'),
   userImage9: require('../images/userImage9.jpg'),
-  user: require('../images/userArtist1.jpg'),
-  user1: require('../images/userArtist2.jpg'),
-  user2: require('../images/userArtist3.jpg'),
+  trnding1: require('../images/userArtist1.jpg'),
+  trnding2: require('../images/userArtist2.jpg'),
+  trnding3: require('../images/userArtist3.jpg'),
   folwer1: require('../images/folwer1.jpg'),
   folwer2: require('../images/folwer2.jpg'),
   folwer3: require('../images/folwer3.jpg'),
@@ -104,5 +104,5 @@ export default {
   profileUser: require('../images/profileUser.png'),
   work1: require('../images/work1.jpg'),
   work2: require('../images/work2.jpg'),
-  creditCard:require('../images/creditCard.jpg')
+  creditCard: require('../images/creditCard.jpg'),
 };

@@ -22,20 +22,37 @@ import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper';
 const CreatePasswordScreen = ({navigation}) => {
   const [password, SetPassword] = useState('');
   const [ConfirmPassword, SetConfirmPassword] = useState('');
+  const [isError, SetIsError] = useState('');
+  const [passworkChk, SetPasswordChk] = useState('');
 
   const GoBackBtnHandle = () => {
     navigation.navigate(AuthNav.LoginScreen);
   };
   const onChangePassword = item => {
     SetPassword(item);
+    let check = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
+    if (item.match(check)) {
+      SetPasswordChk('Strong Password 😎');
+    } else {
+      SetPasswordChk('Week Password 😞');
+    }
   };
   const onConfirmPassword = item => {
     SetConfirmPassword(item);
+    SetIsError('')
   };
   const onpressNextbtn = () => {
-    navigation.navigate(AuthNav.FullNameScreen);
+    if (password !== ConfirmPassword) {
+      SetIsError('Both password are not match');
+    }
+    else if(password === "" && ConfirmPassword === ""){
+        SetIsError('please enter your password')
+    }
+    else {
+      SetIsError('');
+      navigation.navigate(AuthNav.FullNameScreen);
+    }
   };
-
   const RightIcon = () => {
     return (
       <View style={localstyle.btnhandle}>
@@ -55,13 +72,13 @@ const CreatePasswordScreen = ({navigation}) => {
         <StepIndicator step={2} />
         <View style={localstyle.container}>
           <View>
-            <CText style={localstyle.PasswordTitleStyle} type={'B24'}>
+            <CText numberOfLines={1}  style={localstyle.PasswordTitleStyle} type={'B24'}>
               {strings.PasswordTitle}
             </CText>
-            <CText style={localstyle.PasswordDesStyle} type={'M16'}>
+            <CText numberOfLines={1}  style={localstyle.PasswordDesStyle} type={'M16'}>
               {strings.PasswordDes}
             </CText>
-            <CText type={'M14'} style={localstyle.PasswordTitle}>
+            <CText numberOfLines={1}  type={'M14'} style={localstyle.PasswordTitle}>
               {strings.NewPassword}
             </CText>
             <CTextInput
@@ -71,26 +88,28 @@ const CreatePasswordScreen = ({navigation}) => {
               isSecure={true}
               RightIcon={RightIcon}
             />
-            <CText style={localstyle.PasswordConfirmTitle} type={'M14'}>
+            <CText numberOfLines={1}  style={localstyle.emailStyle}>{passworkChk}</CText>
+            <CText numberOfLines={1}  style={localstyle.PasswordConfirmTitle} type={'M14'}>
               {strings.ConfirmPassword}
             </CText>
             <CTextInput
               placeholderText={strings.PasswordPlaceHolderText}
               value={ConfirmPassword}
               onChangeText={onConfirmPassword}
-              isSecure={true}
+              isSecure
               RightIcon={RightIcon}
             />
-            <CText style={localstyle.termsStyle} type={'R14'}>
+            <CText numberOfLines={1}  style={localstyle.textStyle}>{isError}</CText>
+            <CText numberOfLines={2}  style={localstyle.termsStyle} type={'R14'}>
               {strings.temrsAndCondition}
-              <CText type={'B14'}>{strings.TermofUse}</CText>
-              <CText>{strings.and}</CText>
-              <CText type={'B14'}>{strings.PrivacyPolicy}</CText>
-              <CText>{strings.otherdes}</CText>
+              <CText numberOfLines={1}  type={'B14'}>{strings.TermofUse}</CText>
+              <CText numberOfLines={1} >{strings.and}</CText>
+              <CText numberOfLines={1}  type={'B14'}>{strings.PrivacyPolicy}</CText>
+              <CText numberOfLines={1} >{strings.otherdes}</CText>
             </CText>
             <View style={localstyle.agreeStyle}>
               <Image source={images.Check} style={localstyle.CheckbtnStyle} />
-              <CText>{strings.Agree}</CText>
+              <CText numberOfLines={1} >{strings.Agree}</CText>
             </View>
             <CButton
               Title={strings.Next}
@@ -101,9 +120,9 @@ const CreatePasswordScreen = ({navigation}) => {
           </View>
 
           <View style={localstyle.accountdetailStyle}>
-            <CText type={'R14'} style={localstyle.AccountStyle}>
+            <CText numberOfLines={1}  type={'R14'} style={localstyle.AccountStyle}>
               {strings.AlreadyAccount}
-              <CText type={'B14'} onPress={GoBackBtnHandle}>
+              <CText numberOfLines={1}  type={'B14'} onPress={GoBackBtnHandle}>
                 {strings.GoBack}
               </CText>
             </CText>
@@ -131,7 +150,7 @@ const localstyle = StyleSheet.create({
     ...styles.mt20,
   },
   PasswordConfirmTitle: {
-    ...styles.mt20,
+    ...styles.mt10,
   },
   inputRightIconCheckStyle: {
     ...styles.mr10,
@@ -173,6 +192,14 @@ const localstyle = StyleSheet.create({
     ...styles.mr10,
     height: moderateScale(24),
     width: moderateScale(24),
+  },
+  textStyle: {
+    color: colors.red,
+    ...styles.mv10,
+  },
+  emailStyle: {
+    color: colors.green,
+    ...styles.mv10,
   },
 });
 export default CreatePasswordScreen;

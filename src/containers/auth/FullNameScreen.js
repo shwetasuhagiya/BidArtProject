@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 
 //custom imports
 import {colors, styles} from '../../themes';
-import {deviceWidth, moderateScale} from '../../common/constants';
+import {moderateScale} from '../../common/constants';
 import CText from '../../components/common/CText';
 import CTextInput from '../../components/common/CTextInput';
 import strings from '../../i18n/strings';
@@ -12,14 +12,25 @@ import CButton from '../../components/common/CButton';
 import {AuthNav} from '../../navigation/NavigationKeys';
 import StepIndicator from '../../components/StepIndicator';
 
-const FullNameScreen = props => {
+const FullNameScreen = ({navigation}) => {
   const [name, Setname] = useState('');
+  const [FullName, SetFullName] = useState('');
 
   const onChangeName = item => {
     Setname(item);
+    let name = '[a-zA-Z]+\\.?';
+    if (item.match(name)) {
+      SetFullName('');
+    } else {
+      SetFullName('Enter a valid Full Name');
+    }
   };
   const onpressNextbtn = () => {
-    props.navigation.navigate(AuthNav.FollowArtistScreen);
+    if (name === '') {
+      SetFullName('please enter your FullName');
+    } else {
+      navigation.navigate(AuthNav.FollowArtistScreen);
+    }
   };
   return (
     <SafeAreaView style={styles.mainContainerSurface}>
@@ -28,13 +39,13 @@ const FullNameScreen = props => {
       <StepIndicator step={2} />
       <View style={localstyle.container}>
         <View>
-          <CText style={localstyle.PasswordTitleStyle} type={'B24'}>
+          <CText numberOfLines={1}  style={localstyle.PasswordTitleStyle} type={'B24'}>
             {strings.FullNameTitle}
           </CText>
-          <CText style={localstyle.PasswordDesStyle} type={'M16'}>
+          <CText numberOfLines={2}  style={localstyle.PasswordDesStyle} type={'M16'}>
             {strings.FullNameDes}
           </CText>
-          <CText type={'M14'} style={localstyle.PasswordTitle}>
+          <CText numberOfLines={1}  type={'M14'} style={localstyle.PasswordTitle}>
             {strings.FullName}
           </CText>
           <CTextInput
@@ -42,18 +53,19 @@ const FullNameScreen = props => {
             value={name}
             onChangeText={onChangeName}
           />
+          <CText numberOfLines={1}  style={localstyle.textStyle}>{FullName}</CText>
         </View>
         <View style={styles.mh15}>
-          <CText style={localstyle.termsStyle} type={'R14'}>
+          <CText numberOfLines={2}  style={localstyle.termsStyle} type={'R14'}>
             {strings.temrsAndCondition}
-            <CText type={'B14'}>{strings.TermofUse}</CText>
-            <CText>{strings.and}</CText>
-            <CText type={'B14'}>{strings.PrivacyPolicy}</CText>
-            <CText>{strings.otherdes}</CText>
+            <CText numberOfLines={1}  type={'B14'}>{strings.TermofUse}</CText>
+            <CText numberOfLines={1} >{strings.and}</CText>
+            <CText numberOfLines={1}  type={'B14'}>{strings.PrivacyPolicy}</CText>
+            <CText numberOfLines={1} >{strings.otherdes}</CText>
           </CText>
           <View style={localstyle.agreeStyle}>
             <Image source={images.Check} style={localstyle.CheckbtnStyle} />
-            <CText>{strings.Agree}</CText>
+            <CText numberOfLines={1} >{strings.Agree}</CText>
           </View>
           <CButton
             Title={strings.Next}
@@ -99,6 +111,10 @@ const localstyle = StyleSheet.create({
   },
   btnStyle: {
     ...styles.mt40,
+  },
+  textStyle: {
+    color: colors.red,
+    ...styles.mv10,
   },
 });
 export default FullNameScreen;

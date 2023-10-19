@@ -5,8 +5,9 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 //custom import
 import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper';
@@ -37,6 +38,20 @@ const FollowCategoriesScreen = ({navigation}) => {
     return <Image source={images.search} style={localstyle.searchbtn} />;
   };
 
+  useEffect(() => {
+    OnChangeSearch();
+  }, [searchitem]);
+
+  const OnChangeSearch = () => {
+    if (searchitem) {
+      const filtered = select.filter(item =>
+        item.name.toLowerCase().includes(searchitem.toLowerCase()),
+      );
+      setSelect(filtered);
+    } else {
+      setSelect(CategoriesList);
+    }
+  };
   const handleOnpress = item => {
     const newItem = select.map(value => {
       if (value.id === item.id) {
@@ -53,7 +68,7 @@ const FollowCategoriesScreen = ({navigation}) => {
       <View style={localstyle.maincontantStyle}>
         <View style={localstyle.contentStyle}>
           <Image source={item.image} style={localstyle.artistimageStyle} />
-          <View style={localstyle.contentViewStyle}>
+          <View style={[styles.ml20, styles.flex]}>
             <CText type={'M16'} numberOfLines={1} style={localstyle.nameStyle}>
               {item.name}
             </CText>
@@ -77,22 +92,24 @@ const FollowCategoriesScreen = ({navigation}) => {
     return (
       <View>
         <StepIndicator step={4} style={styles.mh0} />
-        <CText type={'B24'}>{strings.categoriesTitle}</CText>
+        <CText type={'B24'} numberOfLines={2}>
+          {strings.categoriesTitle}
+        </CText>
         <CTextInput
           LeftIcon={LeftIconButton}
           placeholderText={strings.categoriesPlaceholderText}
           value={searchitem}
           onChangeText={onChangeSearch}
         />
-        <CText style={localstyle.topArtistStyle} type={'M16'}>
+        <CText style={localstyle.topArtistStyle} type={'M16'} numberOfLines={1}>
           {strings.PopularCategories}
         </CText>
       </View>
     );
   };
   return (
-    <SafeAreaView style={localstyle.maincontainer}>
-      <KeyBoardAvoidWrapper style={styles.flexG1}>
+    <SafeAreaView style={localstyle.container}>
+      <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
         <FlatList
           ListHeaderComponent={ListHeaderComponent}
           data={select}
@@ -112,9 +129,10 @@ const FollowCategoriesScreen = ({navigation}) => {
   );
 };
 const localstyle = StyleSheet.create({
-  maincontainer: {
+  container: {
     ...styles.mainContainerSurface,
     ...styles.mh15,
+    ...styles.mv20,
   },
   searchbtn: {
     ...styles.ml15,
@@ -142,6 +160,7 @@ const localstyle = StyleSheet.create({
   },
   contentViewStyle: {
     ...styles.ml20,
+    ...styles.flex
   },
   nextbtnStyle: {
     ...styles.mt30,

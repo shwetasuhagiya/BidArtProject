@@ -1,9 +1,9 @@
-import {View, Text, StyleSheet, Image, Alert} from 'react-native';
+import {View,StyleSheet, Image} from 'react-native';
 import React, {useState} from 'react';
 
 //custom imports
 import {colors, styles} from '../../themes';
-import {deviceWidth, moderateScale} from '../../common/constants';
+import {moderateScale} from '../../common/constants';
 import strings from '../../i18n/strings';
 import CTextInput from '../../components/common/CTextInput';
 import CButton from '../../components/common/CButton';
@@ -15,19 +15,30 @@ import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper';
 
 const LoginScreen = ({navigation}) => {
   const [Email, SetEmail] = useState('');
+  const [emailValidError, setEmailValidError] = useState('');
 
-  const onPressNext = () => {
-    navigation.navigate(AuthNav.CreatePasswordScreen);
+  const handleValidEmail = () => {
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+    if(Email === ""){
+      setEmailValidError('Please enter your email')
+    }
+    else if (reg.test(Email)) {
+      setEmailValidError('');
+      navigation.navigate(AuthNav.CreatePasswordScreen);
+    } else {
+      setEmailValidError('Invalid');
+    }
   };
   const onChangeEmail = item => {
     SetEmail(item);
+    setEmailValidError('')
   };
 
   const SocialButtonComponent = ({img, text}) => {
     return (
       <View style={localstyle.googleStyle}>
         <Image source={img} style={localstyle.googleImageStyle} />
-        <CText type={'S16'}>{text}</CText>
+        <CText numberOfLines={1} type={'S16'}>{text}</CText>
       </View>
     );
   };
@@ -37,27 +48,30 @@ const LoginScreen = ({navigation}) => {
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
         <StepIndicator step={1} />
         <View style={localstyle.container}>
-          <CText style={localstyle.EmailTitleStyle} type={'B24'}>
+          <CText numberOfLines={1} style={localstyle.EmailTitleStyle} type={'B24'}>
             {strings.EmailTitle}
           </CText>
-          <CText style={localstyle.EmailDesStyle} type={'M16'}>
+          <CText numberOfLines={2} style={localstyle.EmailDesStyle} type={'M16'}>
             {strings.EmailDes}
           </CText>
-          <CText type={'M14'}>{strings.YourEmail}</CText>
+          <CText numberOfLines={1} type={'M14'}>{strings.YourEmail}</CText>
           <CTextInput
             placeholderText={strings.EmailPlaceHolderText}
             value={Email}
             onChangeText={onChangeEmail}
           />
+          {emailValidError ? (
+            <CText numberOfLines={1} style={localstyle.textStyle}>{emailValidError}</CText>
+          ) : null}
           <CButton
             Title={strings.Next}
             ChangeBtnStyle={localstyle.btnstyle}
-            onPress={onPressNext}
+            onPress={handleValidEmail}
             type={'B16'}
           />
           <View style={localstyle.LineContainer}>
             <View style={localstyle.randomLine}></View>
-            <CText style={localstyle.ORstyle} type={'M12'}>
+            <CText numberOfLines={1} style={localstyle.ORstyle} type={'M12'}>
               {strings.or}
             </CText>
             <View style={localstyle.randomLine}></View>
@@ -86,7 +100,7 @@ const localstyle = StyleSheet.create({
     ...styles.mb25,
   },
   btnstyle: {
-    ...styles.mt10,
+    ...styles.mt20,
   },
   ORstyle: {
     ...styles.selfCenter,
@@ -114,6 +128,10 @@ const localstyle = StyleSheet.create({
     width: moderateScale(150),
     height: moderateScale(1),
     backgroundColor: colors.borderColor,
+  },
+  textStyle: {
+    color: colors.red,
+    ...styles.mv10,
   },
 });
 export default LoginScreen;
