@@ -1,5 +1,5 @@
 import {StyleSheet, View, SafeAreaView, Image} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 
 //local import
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
@@ -13,27 +13,36 @@ import CTextInput from '../common/CTextInput';
 import {Google, Trash} from '../../assets/svg';
 import CButton from '../common/CButton';
 import {TabNav} from '../../navigation/NavigationKeys';
+import {validateEmail, validateFullName} from '../../utils/Validation';
 
 export default function SettingAccount({navigation}) {
+  const [name, setName] = useState();
+  const [fullName, setFullName] = useState();
+  const [username, SetuserName] = useState();
+  const [email, Setemail] = useState();
+  const [errorEmail, setErrorEmail] = useState();
+
+  const [errorUserName, setErrorUserName] = useState();
   const MoveToBackScreen = () => {
     navigation.navigate(TabNav.Profile);
   };
-  const RenderItems = ({title, text, style, value, onChangeText, color}) => {
-    return (
-      <View style={localStyle.textInputStyle}>
-        <CText type={'M14'} numberOfLines={1}>
-          {title}
-        </CText>
-        <CTextInput
-          placeholderText={text}
-          changeViewStyle={style}
-          value={value}
-          onChangeText={onChangeText}
-          color={color}
-        />
-      </View>
-    );
+  const onchangeName = item => {
+    setName(item);
+    const {msg} = validateFullName(item);
+    setFullName(msg);
   };
+  const onchangeUserName = item => {
+    SetuserName(item);
+    const {msg} = validateFullName(item);
+    setErrorUserName(msg);
+  };
+
+   const onchangeEmail = item => {
+     Setemail(item);
+     const {msg} = validateEmail(item);
+     setErrorEmail(msg);
+   };
+
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
@@ -52,15 +61,39 @@ export default function SettingAccount({navigation}) {
             style={localStyle.iconStyle}
           />
         </View>
-        <RenderItems
-          text={strings.FullNamePlaceHolder}
-          title={strings.FullName}
-        />
-        <RenderItems
-          text={strings.UsernamePlaceHolder}
-          title={strings.Username}
-        />
-        <RenderItems text={strings.Emailtext} title={strings.Email} />
+        <View style={localStyle.textInputStyle}>
+          <CText type={'M14'} numberOfLines={1}>
+            {strings.FullName}
+          </CText>
+          <CTextInput
+            placeholderText={strings.FullNamePlaceHolder}
+            value={name}
+            onChangeText={onchangeName}
+            errorText={fullName}
+          />
+        </View>
+        <View style={localStyle.textInputStyle}>
+          <CText type={'M14'} numberOfLines={1}>
+            {strings.Username}
+          </CText>
+          <CTextInput
+            placeholderText={strings.UsernamePlaceHolder}
+            value={username}
+            onChangeText={onchangeUserName}
+            errorText={errorUserName}
+          />
+        </View>
+        <View style={localStyle.textInputStyle}>
+          <CText type={'M14'} numberOfLines={1}>
+            {strings.Email}
+          </CText>
+          <CTextInput
+            placeholderText={strings.Emailtext}
+            value={email}
+            onChangeText={onchangeEmail}
+            errorText={errorEmail}
+          />
+        </View>
         <CText type={'M14'} numberOfLines={1} style={localStyle.textInputStyle}>
           {strings.Account}
         </CText>

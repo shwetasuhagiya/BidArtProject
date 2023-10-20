@@ -1,5 +1,6 @@
-import {SafeAreaView, StyleSheet, View} from 'react-native';
-import React, {useState} from 'react';
+import {SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
 //custom import
 import {colors, styles} from '../../themes';
@@ -11,19 +12,45 @@ import CTextInput from '../common/CTextInput';
 import {moderateScale} from '../../common/constants';
 import CButton from '../common/CButton';
 import {StackNav} from '../../navigation/NavigationKeys';
+import {
+  validateCVV,
+  validateCardNumber,
+  validateDate,
+} from '../../utils/Validation';
 
 export default function AddCreditCard({navigation}) {
   const [CardNumber, setcardNumber] = useState('');
-  const [date, setdate] = useState('');
+  const [cardNumberCheck, setcardNumberCheck] = useState('');
+  const [date, setdate] = useState(false);
+  const [dateError, setDateError] = useState('');
   const [cvc, SetCvc] = useState('');
+  const [cvcError, SetcvvError] = useState('');
+  const [isDisabled, setIsDisabled] = useState(true);
+
+  useEffect(() => {
+    if (!!CardNumber && !!date && !!cvc) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [CardNumber, date, cvc]);
+
   const onChangeCardnumber = item => {
     setcardNumber(item);
+    const {msg} = validateCardNumber(item);
+    setcardNumberCheck(msg);
   };
+
   const onChangeDate = item => {
     setdate(item);
+    const {msg} = validateDate(item);
+    setDateError(msg);
   };
+
   const onChangeCVC = item => {
     SetCvc(item);
+    const {msg} = validateCVV(item);
+    SetcvvError(msg);
   };
   const MovetoBackscreen = () => {
     navigation.navigate(StackNav.RegisterBid);
@@ -31,6 +58,7 @@ export default function AddCreditCard({navigation}) {
   const MovetoNextScreen = () => {
     navigation.navigate(StackNav.AddBillingAddress);
   };
+
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
@@ -49,6 +77,8 @@ export default function AddCreditCard({navigation}) {
             placeholderText={strings.PlaceholderCard}
             value={CardNumber}
             onChangeText={onChangeCardnumber}
+            errorText={cardNumberCheck}
+            keyBoardType={'"numeric"'}
           />
           <View style={localStyle.flexInput}>
             <View>
@@ -56,13 +86,15 @@ export default function AddCreditCard({navigation}) {
                 style={localStyle.contentStyle}
                 type={'M14'}
                 numberOfLines={1}>
-                {strings.ExpiredDate}
+                {strings.CardNumber}
               </CText>
               <CTextInput
                 placeholderText={strings.MMYY}
                 changeViewStyle={localStyle.textInputstyle}
                 value={date}
                 onChangeText={onChangeDate}
+                errorText={dateError}
+                keyBoardType={'"numeric"'}
               />
             </View>
             <View>
@@ -77,6 +109,8 @@ export default function AddCreditCard({navigation}) {
                 changeViewStyle={localStyle.textInputstyle}
                 value={cvc}
                 onChangeText={onChangeCVC}
+                errorText={cvcError}
+                keyBoardType={'"numeric"'}
               />
             </View>
           </View>
@@ -115,6 +149,7 @@ const localStyle = StyleSheet.create({
   flexInput: {
     ...styles.rowSpaceBetween,
     ...styles.aligncenter,
+    ...styles.flex,
   },
   btnStyle: {
     ...styles.mb10,

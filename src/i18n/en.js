@@ -197,7 +197,19 @@ export default {
   SendFeedback: '  Send Feedback',
   AppVersion: 'App Version',
   version: '4.1',
-  AllArt:'All Art',
-  SaveChange:'Save Change'
+  AllArt: 'All Art',
+  SaveChange: 'Save Change',
+  regexEmail: 'Please enter your email',
+  Invalid: 'Invalid Email',
+  StrongPassword: 'Strong Password 😎',
+  WeekPassword: 'Week Password 😞',
+  FullNameRegex: 'Enter a Valid Full Name',
+  enterFullName: 'Please Enter Your FullName',
+  passwordNotMatch: 'Both password are not match',
+  enterPassword: 'please enter your password',
+  validCardNumber: 'Enter valid card number',
+  thisFieldIsMandatory: 'This field is mandatory',
+  validCvv: 'Enter valid cvv',
+  validDate: 'Enter valid Date',
+  blank:' '
 };
-

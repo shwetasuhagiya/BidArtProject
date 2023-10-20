@@ -8,42 +8,21 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 
-//local import
-import Ionicons from 'react-native-vector-icons/Ionicons';
+//custom import
 import KeyBoardAvoidWrapper from '../common/KeyBoardAvoidWrapper';
 import {colors, styles} from '../../themes';
-import CHeader from '../common/CHeader';
-import images from '../../assets/images';
 import CText from '../common/CText';
 import strings from '../../i18n/strings';
-import CTextInput from '../common/CTextInput';
 import {moderateScale} from '../../common/constants';
 import {SearchResultData} from '../../api/constant';
 import CButton from '../common/CButton';
 
 export default function SearchResult({route, navigation}) {
-  const {title} = route.params;
-  const [SelectedItem, SetSelectedItem] = useState(false);
-  const [search, SetSearch] = useState('');
+  const [SelectedItem, SetSelectedItem] = useState(0);
   const Array = [
     {id: 0, name: 'ArtWork'},
     {id: 1, name: 'Artist'},
   ];
-  const Setsearchicon = item => {
-    SetSearch(item);
-  };
-  const MoveToBackScreen = () => {
-    navigation.goBack();
-  };
-  const LeftIconTextinput = () => {
-    return (
-      <Ionicons
-        name={'search-outline'}
-        size={moderateScale(22)}
-        style={localStyle.searchIcon}
-      />
-    );
-  };
   const RenderMainItems = ({item}) => {
     return (
       <TouchableOpacity
@@ -99,19 +78,6 @@ export default function SearchResult({route, navigation}) {
   return (
     <SafeAreaView style={localStyle.mainContainer}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
-        <View style={localStyle.containerStyle}>
-          <CHeader img={images.arrowLeft} onPress={MoveToBackScreen} />
-          <CText type={'B16'} numberOfLines={1}>
-            {strings.SearchResult}
-          </CText>
-          <View />
-        </View>
-        <CTextInput
-          LeftIcon={LeftIconTextinput}
-          placeholderText={title}
-          value={search}
-          onChangeText={Setsearchicon}
-        />
         <View style={localStyle.contentStyle}>
           {Array.map(item => {
             return <RenderMainItems item={item} />;
@@ -136,7 +102,7 @@ export default function SearchResult({route, navigation}) {
 const localStyle = StyleSheet.create({
   mainContainer: {
     ...styles.mainContainerSurface,
-    ...styles.mh20,
+    ...styles.mh10
   },
   containerStyle: {
     ...styles.flexRow,

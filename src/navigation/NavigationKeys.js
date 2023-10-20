@@ -23,6 +23,7 @@ export const StackNav = {
   SettingAccount: 'SettingAccount',
   Payment: 'Payment',
   Setting: 'Setting',
+  SearchArtist:'SearchArtist'
 };
 
 export const AuthNav = {

@@ -10,6 +10,7 @@ import {colors, styles} from '../../themes';
 import {moderateScale} from '../../common/constants';
 import typography from '../../themes/typography';
 import images from '../../assets/images';
+import CText from './CText';
 
 const CTextInput = props => {
   const {
@@ -19,35 +20,51 @@ const CTextInput = props => {
     onChangeText,
     RightIcon,
     LeftIcon,
+    errorText,
+    errorStyle,
     isSecure = false,
     changeViewStyle,
     color,
+    keyBoardType,
   } = props;
   const [isSecurepass, SetisSecurePass] = useState(false);
   const onPressSecureIcon = () => {
     SetisSecurePass(!isSecurepass);
   };
   return (
-    <View style={[localstyle.flexinput, changeViewStyle]}>
-      {!!LeftIcon && <LeftIcon />}
-      <TextInput
-        placeholder={placeholderText}
-        style={[localstyle.TextInputStyle, ChangeStyle]}
-        placeholderTextColor={[colors.grayText, color]}
-        value={value}
-        onChangeText={onChangeText}
-        secureTextEntry={isSecurepass}
-      />
-      {!!RightIcon && <RightIcon />}
-      {!!isSecure && (
-        <TouchableOpacity onPress={onPressSecureIcon}>
-          {!isSecurepass ? (
-            <Image source={images.Eye} style={localstyle.securetextStyle} />
-          ) : (
-            <Image source={images.Eye1} style={localstyle.securetextStyle} />
-          )}
-        </TouchableOpacity>
-      )}
+    <View>
+      <View style={[localstyle.flexinput, changeViewStyle]}>
+        {!!LeftIcon && <LeftIcon />}
+        <TextInput
+          placeholder={placeholderText}
+          style={[localstyle.TextInputStyle, ChangeStyle]}
+          placeholderTextColor={[colors.grayText, color]}
+          value={value}
+          onChangeText={onChangeText}
+          secureTextEntry={isSecurepass}
+          keyboardType={keyBoardType}
+        />
+        {!!RightIcon && <RightIcon />}
+        {!!isSecure && (
+          <TouchableOpacity onPress={onPressSecureIcon}>
+            {!isSecurepass ? (
+              <Image source={images.Eye} style={localstyle.securetextStyle} />
+            ) : (
+              <Image source={images.Eye1} style={localstyle.securetextStyle} />
+            )}
+          </TouchableOpacity>
+        )}
+      </View>
+      {errorText && errorText != '' ? (
+        <CText
+          style={{
+            ...localstyle.errorText,
+            ...errorStyle,
+            color: colors.alertColor,
+          }}>
+          {errorText}
+        </CText>
+      ) : null}
     </View>
   );
 };
@@ -71,6 +88,12 @@ const localstyle = StyleSheet.create({
     ...styles.mr10,
     height: moderateScale(24),
     width: moderateScale(24),
+  },
+  errorText: {
+    textAlign: 'left',
+    ...typography.fontSizes.f12,
+    ...styles.mv10,
+    ...styles.ml10,
   },
 });
 export default CTextInput;

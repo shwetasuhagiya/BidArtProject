@@ -11,26 +11,20 @@ import images from '../../assets/images';
 import CButton from '../../components/common/CButton';
 import {AuthNav} from '../../navigation/NavigationKeys';
 import StepIndicator from '../../components/StepIndicator';
+import {validateFullName} from '../../utils/Validation';
 
 const FullNameScreen = ({navigation}) => {
+
   const [name, Setname] = useState('');
   const [FullName, SetFullName] = useState('');
 
   const onChangeName = item => {
-    Setname(item);
-    let name = '[a-zA-Z]+\\.?';
-    if (item.match(name)) {
-      SetFullName('');
-    } else {
-      SetFullName('Enter a valid Full Name');
-    }
+    const {msg} = validateFullName(item);
+     Setname(item);
+    SetFullName(msg)
   };
   const onpressNextbtn = () => {
-    if (name === '') {
-      SetFullName('please enter your FullName');
-    } else {
-      navigation.navigate(AuthNav.FollowArtistScreen);
-    }
+    navigation.navigate(AuthNav.FollowArtistScreen);
   };
   return (
     <SafeAreaView style={styles.mainContainerSurface}>
@@ -39,33 +33,46 @@ const FullNameScreen = ({navigation}) => {
       <StepIndicator step={2} />
       <View style={localstyle.container}>
         <View>
-          <CText numberOfLines={1}  style={localstyle.PasswordTitleStyle} type={'B24'}>
+          <CText
+            numberOfLines={1}
+            style={localstyle.PasswordTitleStyle}
+            type={'B24'}>
             {strings.FullNameTitle}
           </CText>
-          <CText numberOfLines={2}  style={localstyle.PasswordDesStyle} type={'M16'}>
+          <CText
+            numberOfLines={2}
+            style={localstyle.PasswordDesStyle}
+            type={'M16'}>
             {strings.FullNameDes}
           </CText>
-          <CText numberOfLines={1}  type={'M14'} style={localstyle.PasswordTitle}>
+          <CText
+            numberOfLines={1}
+            type={'M14'}
+            style={localstyle.PasswordTitle}>
             {strings.FullName}
           </CText>
           <CTextInput
             placeholderText={strings.FullNamePlaceHolderText}
             value={name}
             onChangeText={onChangeName}
+            errorText={FullName}
           />
-          <CText numberOfLines={1}  style={localstyle.textStyle}>{FullName}</CText>
         </View>
         <View style={styles.mh15}>
-          <CText numberOfLines={2}  style={localstyle.termsStyle} type={'R14'}>
+          <CText numberOfLines={2} style={localstyle.termsStyle} type={'R14'}>
             {strings.temrsAndCondition}
-            <CText numberOfLines={1}  type={'B14'}>{strings.TermofUse}</CText>
-            <CText numberOfLines={1} >{strings.and}</CText>
-            <CText numberOfLines={1}  type={'B14'}>{strings.PrivacyPolicy}</CText>
-            <CText numberOfLines={1} >{strings.otherdes}</CText>
+            <CText numberOfLines={1} type={'B14'}>
+              {strings.TermofUse}
+            </CText>
+            <CText numberOfLines={1}>{strings.and}</CText>
+            <CText numberOfLines={1} type={'B14'}>
+              {strings.PrivacyPolicy}
+            </CText>
+            <CText numberOfLines={1}>{strings.otherdes}</CText>
           </CText>
           <View style={localstyle.agreeStyle}>
             <Image source={images.Check} style={localstyle.CheckbtnStyle} />
-            <CText numberOfLines={1} >{strings.Agree}</CText>
+            <CText numberOfLines={1}>{strings.Agree}</CText>
           </View>
           <CButton
             Title={strings.Next}

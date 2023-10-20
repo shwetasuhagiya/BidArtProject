@@ -96,6 +96,10 @@ export default function StackNavigation() {
       />
       <Stack.Screen name={StackNav.Payment} component={StackRoute.Payment} />
       <Stack.Screen name={StackNav.Setting} component={StackRoute.Setting} />
+      <Stack.Screen
+        name={StackNav.SearchArtist}
+        component={StackRoute.SearchArtist}
+      />
     </Stack.Navigator>
   );
 }

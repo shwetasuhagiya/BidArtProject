@@ -20,7 +20,7 @@ import {userData} from '../../api/constant';
 import {deviceWidth, moderateScale} from '../../common/constants';
 import CButton from '../common/CButton';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {StackNav} from '../../navigation/NavigationKeys';
+import {StackNav, TabNav} from '../../navigation/NavigationKeys';
 
 export default function TrendingArtist({navigation}) {
   const [select, setSelect] = useState(false);
@@ -32,7 +32,7 @@ export default function TrendingArtist({navigation}) {
     return <Image source={images.search} style={localStyle.searchBtn} />;
   };
   const MoveToBackScreen = () => {
-    navigation.goBack();
+    navigation.navigate(TabNav.Home)
   };
   const MoveToSearchPage = () => {
     navigation.navigate(StackNav.SearchPage);

@@ -8,6 +8,7 @@ import ArtWorkScreen from '../components/HomeTab/ArtWorkScreen';
 import BidArtEvent from '../components/HomeTab/BidArtEvent';
 import DetailArtist from '../components/HomeTab/DetailArtist';
 import DetailEvent from '../components/HomeTab/DetailEvent';
+import SearchArtist from '../components/HomeTab/SearchArtist';
 import SearchEvent from '../components/HomeTab/SearchEvent';
 import SearchPage from '../components/HomeTab/SearchPage';
 import SearchResult from '../components/HomeTab/SearchResult';
@@ -57,7 +58,8 @@ export const StackRoute = {
   WhisList,
   SettingAccount,
   Payment,
-  Setting
+  Setting,
+  SearchArtist,
 };
 
 export const AuthRoute = {

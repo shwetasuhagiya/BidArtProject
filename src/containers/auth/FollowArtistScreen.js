@@ -31,7 +31,7 @@ const FollowArtistScreen = ({navigation}) => {
   const MovetoNextBtn = () => {
     navigation.navigate(AuthNav.FollowCategoriesScreen);
   };
-  const OnChangeText = text => {
+  const OnChangeTextInput = text => {
     setSearchQuery(text);
   };
   useEffect(() => {
@@ -97,7 +97,7 @@ const FollowArtistScreen = ({navigation}) => {
           LeftIcon={LeftIconButton}
           placeholderText={strings.FollowArtistPlaceholderText}
           value={searchQuery}
-          onChangeText={OnChangeText}
+          onChangeText={OnChangeTextInput}
         />
         <CText type={'M16'} style={localstyle.topArtistStyle} numberOfLines={1}>
           {strings.TopArtistonBidart}

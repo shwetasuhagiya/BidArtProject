@@ -1,5 +1,5 @@
-import {View,StyleSheet, Image} from 'react-native';
-import React, {useState} from 'react';
+import {View, StyleSheet, Image} from 'react-native';
+import React, {useEffect, useState} from 'react';
 
 //custom imports
 import {colors, styles} from '../../themes';
@@ -12,33 +12,29 @@ import {AuthNav} from '../../navigation/NavigationKeys';
 import CText from '../../components/common/CText';
 import StepIndicator from '../../components/StepIndicator';
 import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper';
+import {validateEmail} from '../../utils/Validation';
 
 const LoginScreen = ({navigation}) => {
   const [Email, SetEmail] = useState('');
   const [emailValidError, setEmailValidError] = useState('');
 
   const handleValidEmail = () => {
-    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
-    if(Email === ""){
-      setEmailValidError('Please enter your email')
-    }
-    else if (reg.test(Email)) {
-      setEmailValidError('');
-      navigation.navigate(AuthNav.CreatePasswordScreen);
-    } else {
-      setEmailValidError('Invalid');
-    }
+    navigation.navigate(AuthNav.CreatePasswordScreen);
   };
+
   const onChangeEmail = item => {
+    const {msg} = validateEmail(item);
     SetEmail(item);
-    setEmailValidError('')
+    setEmailValidError(msg);
   };
 
   const SocialButtonComponent = ({img, text}) => {
     return (
       <View style={localstyle.googleStyle}>
         <Image source={img} style={localstyle.googleImageStyle} />
-        <CText numberOfLines={1} type={'S16'}>{text}</CText>
+        <CText numberOfLines={1} type={'S16'}>
+          {text}
+        </CText>
       </View>
     );
   };
@@ -48,21 +44,27 @@ const LoginScreen = ({navigation}) => {
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
         <StepIndicator step={1} />
         <View style={localstyle.container}>
-          <CText numberOfLines={1} style={localstyle.EmailTitleStyle} type={'B24'}>
+          <CText
+            numberOfLines={1}
+            style={localstyle.EmailTitleStyle}
+            type={'B24'}>
             {strings.EmailTitle}
           </CText>
-          <CText numberOfLines={2} style={localstyle.EmailDesStyle} type={'M16'}>
+          <CText
+            numberOfLines={2}
+            style={localstyle.EmailDesStyle}
+            type={'M16'}>
             {strings.EmailDes}
           </CText>
-          <CText numberOfLines={1} type={'M14'}>{strings.YourEmail}</CText>
+          <CText numberOfLines={1} type={'M14'}>
+            {strings.YourEmail}
+          </CText>
           <CTextInput
             placeholderText={strings.EmailPlaceHolderText}
             value={Email}
             onChangeText={onChangeEmail}
+            errorText={emailValidError}
           />
-          {emailValidError ? (
-            <CText numberOfLines={1} style={localstyle.textStyle}>{emailValidError}</CText>
-          ) : null}
           <CButton
             Title={strings.Next}
             ChangeBtnStyle={localstyle.btnstyle}
