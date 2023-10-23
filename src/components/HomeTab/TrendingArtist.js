@@ -17,7 +17,7 @@ import {colors, styles} from '../../themes';
 import CText from '../common/CText';
 import CTextInput from '../common/CTextInput';
 import {userData} from '../../api/constant';
-import {deviceWidth, moderateScale} from '../../common/constants';
+import {moderateScale} from '../../common/constants';
 import CButton from '../common/CButton';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {StackNav, TabNav} from '../../navigation/NavigationKeys';
@@ -154,8 +154,8 @@ const localStyle = StyleSheet.create({
     backgroundColor: colors.black,
     borderRadius: moderateScale(10),
     overflow: 'hidden',
-    textAlign: 'center',
     ...styles.mr10,
+    textAlign:'center',
   },
   nameStyle: {
     ...styles.mb5,

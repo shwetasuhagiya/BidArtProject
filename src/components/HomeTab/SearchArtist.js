@@ -111,7 +111,7 @@ export default function SearchArtist() {
         type={'B14'}
         numberOfLines={1}
         style={localStyle.TrendingSearchStyle}>
-        {strings.RecentSeartch}
+        {strings.RecentSearch}
       </CText>
       <FlatList
         data={RecentSearchData}

@@ -7,7 +7,7 @@ let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
 let checkRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
 
 //regex for fullName
-let FullNamRegex = '/^([\w]{1,})+([\w\s]{0,})+$/i';
+let FullNamRegex = /^[a-zA-Z ]{2,40}$/;
 
 // card regex
 const CardNumberRegex = /^[0-9]{16}$/;
@@ -41,7 +41,7 @@ const validateFullName = fullname => {
       msg: strings.enterFullName,
     };
   } else {
-    return FullNamRegex.match(fullname)
+    return FullNamRegex.test(fullname)
       ? {status: true, msg: strings.blank}
       : {
           status: false,
@@ -105,7 +105,7 @@ const validateCVV = CVV => {
     };
   } else {
     return cvvRegex.test(CVV)
-      ? {status: true, msg:strings.blank}
+      ? {status: true, msg: strings.blank}
       : {
           status: false,
           msg: strings.validCvv,

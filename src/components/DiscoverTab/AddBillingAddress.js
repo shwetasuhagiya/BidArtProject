@@ -12,11 +12,11 @@ import CDropdownInput from '../common/CDropdownInput';
 import {countryList} from '../../api/constant';
 import CButton from '../common/CButton';
 import {StackNav} from '../../navigation/NavigationKeys';
-import { validateFullName } from '../../utils/Validation';
+import {validateFullName} from '../../utils/Validation';
 
 export default function AddBillingAddress({navigation}) {
   const [country, setCountry] = useState('');
-    const [name, Setname] = useState('');
+  const [name, Setname] = useState('');
   const [fullName, setFullName] = useState('');
   const [city, setCity] = useState('');
   const [data, setData] = useState('');
@@ -26,9 +26,9 @@ export default function AddBillingAddress({navigation}) {
     setCountry(value);
   };
   const onChangefullName = item => {
-      const {msg} = validateFullName(item);
-      Setname(item);
-      setFullName(msg);
+    const {msg} = validateFullName(item);
+    Setname(item);
+    setFullName(msg);
   };
   const onChangeCity = item => {
     setCity(item);

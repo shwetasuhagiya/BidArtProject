@@ -1,4 +1,11 @@
-import {Image, SafeAreaView, ScrollView, StyleSheet, View} from 'react-native';
+import {
+  FlatList,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  View,
+} from 'react-native';
 import React from 'react';
 
 //custom import
@@ -13,7 +20,6 @@ import {StackNav} from '../../navigation/NavigationKeys';
 
 export default function DetailArtist({route, navigation}) {
   const {name, userImage, image1, image2, image3} = route.params;
-  width: moderateScale(156);
   const array = [
     {
       image: image1,
@@ -43,6 +49,31 @@ export default function DetailArtist({route, navigation}) {
 
   const moveToNextScreen = () => {
     navigation.navigate(StackNav.TrendingArtist);
+  };
+
+  const renderItem = ({item}) => {
+    return (
+      <View style={localStyle.mainImageStyle}>
+        <Image source={item.image} style={localStyle.imageStyle} />
+        <View style={localStyle.contentmainStyle}>
+          <CText type={'B14'} numberOfLines={1}>
+            {item.name}
+          </CText>
+          <View style={localStyle.flexContainer}>
+            <CText type={'M12'} color={colors.grayText} numberOfLines={1}>
+              {item.current}
+            </CText>
+            <CText type={'S14'} numberOfLines={1}>
+              {item.price}
+            </CText>
+          </View>
+          <CButton
+            Title={strings.PlaceBid}
+            ChangeBtnStyle={localStyle.ChangeBtnStyle}
+          />
+        </View>
+      </View>
+    );
   };
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
@@ -117,41 +148,13 @@ export default function DetailArtist({route, navigation}) {
             {strings.artWork}
           </CText>
           <View style={localStyle.contentStyle}>
-            <Image source={images.filter} />
+            <Image source={images.filter} style={styles.mr10} />
             <CText numberOfLines={1} type={'M14'}>
               {strings.SortFilter}
             </CText>
           </View>
         </View>
-        <View style={localStyle.imgStyle}>
-          {array.map(item => {
-            return (
-              <View style={localStyle.mainImageStyle}>
-                <Image source={item.image} style={localStyle.imageStyle} />
-                <View style={localStyle.contentmainStyle}>
-                  <CText type={'B14'} numberOfLines={1}>
-                    {item.name}
-                  </CText>
-                  <View style={localStyle.flexContainer}>
-                    <CText
-                      type={'M12'}
-                      color={colors.grayText}
-                      numberOfLines={1}>
-                      {item.current}
-                    </CText>
-                    <CText type={'S14'} numberOfLines={1}>
-                      {item.price}
-                    </CText>
-                  </View>
-                  <CButton
-                    Title={strings.PlaceBid}
-                    ChangeBtnStyle={localStyle.ChangeBtnStyle}
-                  />
-                </View>
-              </View>
-            );
-          })}
-        </View>
+        <FlatList data={array} renderItem={renderItem} numColumns={2} key={2} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -160,7 +163,7 @@ export default function DetailArtist({route, navigation}) {
 const localStyle = StyleSheet.create({
   mainContainerStyle: {
     ...styles.mainContainerSurface,
-    ...styles.mh15,
+    ...styles.mh20,
   },
   containerStyle: {
     ...styles.flexRow,
@@ -227,8 +230,6 @@ const localStyle = StyleSheet.create({
     ...styles.mt10,
   },
   imgStyle: {
-    ...styles.flex,
     flexWrap: 'wrap',
-    flexDirection: 'row',
   },
 });

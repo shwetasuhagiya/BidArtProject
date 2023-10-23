@@ -77,7 +77,7 @@ export default function DetailEvent({route, navigation}) {
         <CHeader
           img={images.arrowLeft}
           icon={images.share}
-          Style={localStyle.contentStyles}
+          style={localStyle.contentStyles}
           onPress={MoveToBackScreen}
         />
         <Image source={image} style={localStyle.imgStyle} />
