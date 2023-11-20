@@ -64,6 +64,7 @@ const LoginScreen = ({navigation}) => {
             value={Email}
             onChangeText={onChangeEmail}
             errorText={emailValidError}
+            keyBoardType={'email-address'}
           />
           <CButton
             Title={strings.Next}

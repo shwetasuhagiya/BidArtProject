@@ -9,7 +9,7 @@ import React, {useState} from 'react';
 
 //custom imports
 import {colors, styles} from '../../themes';
-import {deviceWidth, moderateScale} from '../../common/constants';
+import {moderateScale} from '../../common/constants';
 import strings from '../../i18n/strings';
 import CTextInput from '../../components/common/CTextInput';
 import CText from '../../components/common/CText';
@@ -28,7 +28,7 @@ const CreatePasswordScreen = ({navigation}) => {
   const [passworkChk, SetPasswordChk] = useState('');
 
   const GoBackBtnHandle = () => {
-    navigation.navigate(AuthNav.LoginScreen);
+    navigation.replace(AuthNav.LoginScreen);
   };
   const onChangePassword = item => {
     SetPassword(item);
@@ -92,10 +92,10 @@ const CreatePasswordScreen = ({navigation}) => {
               placeholderText={strings.PasswordPlaceHolderText}
               value={password}
               onChangeText={onChangePassword}
-              isSecure={true}
-              RightIcon={RightIcon}
+              isSecure
               errorText={passworkChk}
-              keyBoardType={'numeric'}
+              keyBoardType={'default'}
+              RightIcon={RightIcon}
             />
             <CText
               numberOfLines={1}
@@ -109,11 +109,11 @@ const CreatePasswordScreen = ({navigation}) => {
               onChangeText={onConfirmPassword}
               isSecure
               RightIcon={RightIcon}
-              keyBoardType={'numeric'}
+              keyBoardType={'default'}
             />
-            <CText numberOfLines={1} style={localstyle.textStyle}>
+            {/* <CText numberOfLines={1} style={localstyle.textStyle}>
               {isError}
-            </CText>
+            </CText> */}
             <CText numberOfLines={2} style={localstyle.termsStyle} type={'R14'}>
               {strings.temrsAndCondition}
               <CText numberOfLines={1} type={'B14'}>
@@ -143,10 +143,12 @@ const CreatePasswordScreen = ({navigation}) => {
               type={'R14'}
               style={localstyle.AccountStyle}>
               {strings.AlreadyAccount}
-              <CText numberOfLines={1} type={'B14'} onPress={GoBackBtnHandle}>
+            </CText>
+            <TouchableOpacity onPress={GoBackBtnHandle}>
+              <CText numberOfLines={1} type={'B14'}>
                 {strings.GoBack}
               </CText>
-            </CText>
+            </TouchableOpacity>
           </View>
         </View>
       </KeyBoardAvoidWrapper>
@@ -207,6 +209,7 @@ const localstyle = StyleSheet.create({
   accountdetailStyle: {
     ...styles.flex,
     ...styles.center,
+    ...styles.flexRow
   },
   securetextStyle: {
     ...styles.center,

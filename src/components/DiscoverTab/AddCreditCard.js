@@ -1,6 +1,5 @@
 import {SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
 //custom import
 import {colors, styles} from '../../themes';

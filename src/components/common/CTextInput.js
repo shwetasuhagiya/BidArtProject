@@ -22,12 +22,11 @@ const CTextInput = props => {
     LeftIcon,
     errorText,
     errorStyle,
-    isSecure = false,
+    isSecure,
     changeViewStyle,
-    color,
     keyBoardType,
   } = props;
-  const [isSecurepass, SetisSecurePass] = useState(false);
+  const [isSecurepass, SetisSecurePass] = useState(isSecure);
   const onPressSecureIcon = () => {
     SetisSecurePass(!isSecurepass);
   };
@@ -38,19 +37,20 @@ const CTextInput = props => {
         <TextInput
           placeholder={placeholderText}
           style={[localstyle.TextInputStyle, ChangeStyle]}
-          placeholderTextColor={[colors.grayText, color]}
+          placeholderTextColor={colors.grayText}
           value={value}
           onChangeText={onChangeText}
           secureTextEntry={isSecurepass}
           keyboardType={keyBoardType}
+          
         />
         {!!RightIcon && <RightIcon />}
         {!!isSecure && (
           <TouchableOpacity onPress={onPressSecureIcon}>
             {!isSecurepass ? (
-              <Image source={images.Eye} style={localstyle.securetextStyle} />
-            ) : (
               <Image source={images.Eye1} style={localstyle.securetextStyle} />
+            ) : (
+              <Image source={images.Eye} style={localstyle.securetextStyle} />
             )}
           </TouchableOpacity>
         )}
@@ -82,6 +82,7 @@ const localstyle = StyleSheet.create({
     ...styles.ph10,
     ...styles.flex,
     height: moderateScale(52),
+    color:colors.black
   },
   securetextStyle: {
     ...styles.center,

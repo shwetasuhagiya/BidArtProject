@@ -21,22 +21,10 @@ import {StackNav} from '../../navigation/NavigationKeys';
 import {StoreLoginData} from '../../utils/asyncstorage';
 
 const BudgetScreen = ({navigation}) => {
-  const [select, setSelect] = useState(BudgetList);
+  const [select, setSelect] = useState(false);
 
   const MovetoNextBtn = () => {
     StoreLoginData(true), navigation.navigate(StackNav.TabNavigation);
-  };
-
-  const handleOnpress = item => {
-    setSelect(newItem);
-    const newItem = select.map(value => {
-      if (value.id === item.id) {
-        return {...value, selected: !value.selected};
-      } else {
-        return value;
-      }
-    });
-    setSelect(newItem);
   };
 
   const ListHeaderComponent = () => {
@@ -53,8 +41,8 @@ const BudgetScreen = ({navigation}) => {
     return (
       <View style={localstyle.itemStyle}>
         <CText type={'M16'}>{item.price}</CText>
-        <TouchableOpacity onPress={() => handleOnpress(item)}>
-          {item.selected ? (
+        <TouchableOpacity onPress={()=>setSelect(item.id)}>
+          {select === item.id ? (
             <Image source={images.rounded} />
           ) : (
             <Image source={images.circle} style={localstyle.circlestyle} />
@@ -67,7 +55,7 @@ const BudgetScreen = ({navigation}) => {
     <SafeAreaView style={localstyle.mainContainer}>
       <View style={localstyle.Container}>
         <FlatList
-          data={select}
+          data={BudgetList}
           ListHeaderComponent={ListHeaderComponent}
           renderItem={renderItem}
         />
