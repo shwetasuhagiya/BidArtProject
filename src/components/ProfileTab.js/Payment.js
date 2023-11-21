@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
-//local import
+//custom import
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import {colors, styles} from '../../themes';
 import CText from '../common/CText';

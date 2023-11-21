@@ -2,21 +2,31 @@ import {
   FlatList,
   Image,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
+
+//custom import
 import React from 'react';
 import {BidArtEventList} from '../../api/constant';
 import CText from '../common/CText';
 import images from '../../assets/images';
 import {moderateScale} from '../../common/constants';
 import {colors, styles} from '../../themes';
+import {StackNav} from '../../navigation/NavigationKeys';
 
-export default function ShowDetail() {
+export default function ShowDetail({navigation}) {
   const renderItemEvent = ({item}) => {
     return (
-      <TouchableOpacity style={localStyle.maineventStyle}>
+      <TouchableOpacity
+        style={localStyle.maineventStyle}
+        onPress={() =>
+          navigation.navigate(StackNav.DetailEvent, {
+            image: item.mainImage,
+            date: item.date,
+            auction: item.auction,
+          })
+        }>
         <View style={localStyle.childImgStyle}>
           <Image source={item.mainImage} style={localStyle.imgStyle} />
           <View>

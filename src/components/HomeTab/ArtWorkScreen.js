@@ -60,9 +60,9 @@ const ArtWorkScreen = ({navigation}) => {
 
   const renderArtListItem = ({item, index}) => {
     return isHorizontalView ? (
-      <CHorizontalView item={item} index={index} />
+      <CHorizontalView item={item} index={index} navigation={navigation} />
     ) : (
-      <CVerticalView item={item} index={index} />
+      <CVerticalView item={item} index={index} navigation={navigation} />
     );
   };
   return (
@@ -107,11 +107,11 @@ const localStyle = StyleSheet.create({
     borderRadius: moderateScale(20),
     borderWidth: moderateScale(1.5),
     borderColor: colors.lightGray,
-    ...styles.p4,
     ...styles.justifyCenter,
     ...styles.flexRow,
-    gap: 10,
     ...styles.aligncenter,
+    ...styles.ph10,
+    backgroundColor: colors.white,
   },
   activeImgStyle: {
     width: moderateScale(32),

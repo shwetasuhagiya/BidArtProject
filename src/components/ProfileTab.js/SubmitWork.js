@@ -56,18 +56,12 @@ export default function SubmitWork({navigation}) {
   const MovetoBackScreen = () => {
     navigation.navigate(TabNav.Profile);
   };
-  const RenderItems = ({title, text, style, value, onChangeText}) => {
+  const RenderItems = ({title}) => {
     return (
       <View style={localStyle.textInputStyle}>
         <CText type={'M14'} numberOfLines={1}>
           {title}
         </CText>
-        <CTextInput
-          placeholderText={text}
-          changeViewStyle={style}
-          value={value}
-          onChangeText={onChangeText}
-        />
       </View>
     );
   };
@@ -82,6 +76,7 @@ export default function SubmitWork({navigation}) {
           value={value}
           onValueChange={onValueChange}
           trackColor={{true: colors.black, false: colors.grey}}
+          thumbColor={colors.white}
         />
       </View>
     );
@@ -119,9 +114,9 @@ export default function SubmitWork({navigation}) {
             </CText>
           </View>
         </View>
-        <RenderItems
-          title={strings.Title}
-          text={strings.AddTitleyourwork}
+        <RenderItems title={strings.Title} />
+        <CTextInput
+          placeholderText={strings.AddTitleyourwork}
           value={title}
           onChangeText={onchangeTitle}
         />
@@ -141,10 +136,8 @@ export default function SubmitWork({navigation}) {
           placeholder={strings.Pickoption}
           onChange={onChangeCategory}
         />
-        <RenderItems
-          title={strings.Description}
-          text={strings.AddTitleyourwork}
-        />
+        <RenderItems title={strings.Description} />
+        <CTextInput placeholderText={strings.AddTitleyourwork} />
         <CText type={'B16'} numberOfLines={1} style={localStyle.textInputStyle}>
           {strings.EditionAuthenticity}
         </CText>
@@ -154,20 +147,24 @@ export default function SubmitWork({navigation}) {
           onValueChange={onValueSwitch1}
         />
         <View style={localStyle.containerStyle}>
-          <RenderItems
-            title={strings.EditionSize}
-            text={strings.Size}
-            style={localStyle.changeTextStyle}
-            value={size}
-            onChangeText={onchangeSize}
-          />
-          <RenderItems
-            title={strings.EditionNumber}
-            text={strings.Number}
-            style={localStyle.changeTextStyle}
-            value={number}
-            onChangeText={onchangeNumber}
-          />
+          <View>
+            <RenderItems title={strings.EditionSize} />
+            <CTextInput
+              placeholderText={strings.Size}
+              changeViewStyle={localStyle.changeTextStyle}
+              value={size}
+              onChangeText={onchangeSize}
+            />
+          </View>
+          <View>
+            <RenderItems title={strings.EditionNumber} />
+            <CTextInput
+              placeholderText={strings.Number}
+              changeViewStyle={localStyle.changeTextStyle}
+              value={number}
+              onChangeText={onchangeNumber}
+            />
+          </View>
         </View>
         <RenderSwitch
           text={strings.Isworksigned}

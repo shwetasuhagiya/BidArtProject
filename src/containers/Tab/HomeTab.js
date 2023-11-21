@@ -10,7 +10,6 @@ import {
 import React, {useState} from 'react';
 
 //custom imports
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import {colors, styles} from '../../themes';
 import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper';
 import images from '../../assets/images';
@@ -37,6 +36,10 @@ const HomeTab = ({navigation}) => {
     navigation.navigate(StackNav.BidArtEvent);
   };
 
+  const onpressRegister = () => {
+    navigation.navigate(StackNav.RegisterBid);
+  };
+
   const ViewAllArtist = () => {
     navigation.navigate(StackNav.TrendingArtist);
   };
@@ -57,7 +60,15 @@ const HomeTab = ({navigation}) => {
 
   const renderItem = ({item}) => {
     return (
-      <View style={localstyles.mainArtContaineStyle}>
+      <TouchableOpacity
+        style={localstyles.mainArtContaineStyle}
+        onPress={() =>
+          navigation.navigate(StackNav.DetailArt, {
+            image: item.image,
+            title: item.title,
+            Creator: item.creatorImage,
+          })
+        }>
         <Image source={item.image} style={localstyles.artImgesStyles} />
         <Image source={item.timeImage} style={localstyles.absoluteImage} />
         <View style={localstyles.contentStyle}>
@@ -92,15 +103,24 @@ const HomeTab = ({navigation}) => {
             Title={strings.PlaceBid}
             ChangeBtnStyle={localstyles.btnStyle}
             type={'B14'}
+            onPress={onpressRegister}
           />
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
 
   const BidArtEvent = () => {
     return (
-      <View style={localstyles.maineventStyle}>
+      <TouchableOpacity
+        style={localstyles.maineventStyle}
+        onPress={() =>
+          navigation.navigate(StackNav.DetailEvent, {
+            image: images.event,
+            date: strings.Eventdate,
+            auction: strings.Auction,
+          })
+        }>
         <View style={localstyles.childImgStyle}>
           <Image source={images.event} style={localstyles.imgStyle} />
           <View>
@@ -122,12 +142,22 @@ const HomeTab = ({navigation}) => {
           </View>
           <Image source={images.arrowRight} />
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
   const renderItemArtist = ({item}) => {
     return (
-      <View style={localstyles.mainArtistStyle}>
+      <TouchableOpacity
+        style={localstyles.mainArtistStyle}
+        onPress={() =>
+          navigation.navigate(StackNav.DetailArtist, {
+            name: item.name,
+            userImage: item.image,
+            image1: images.userImage1,
+            image2: images.userImage2,
+            image3: images.userImage3,
+          })
+        }>
         <Image source={item.image} style={localstyles.imageArtist} />
         <View>
           <CText type={'S16'} numberOfLines={1} style={localstyles.artistStyle}>
@@ -137,7 +167,7 @@ const HomeTab = ({navigation}) => {
             {item.followers}
           </CText>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
 
@@ -167,7 +197,7 @@ const HomeTab = ({navigation}) => {
             onChangeText={onChangeTextCom}
           />
 
-          {/* ------------------- categories ---------------------- */}
+          {/* ------------------- Popular Artwork ---------------------- */}
           <CategoriesHeader
             name={strings.PopularArtwork}
             onPress={ViewAllCategories}

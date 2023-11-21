@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 
 //custom import
 import Feather from 'react-native-vector-icons/Feather';
@@ -16,29 +16,31 @@ import images from '../../assets/images';
 import strings from '../../i18n/strings';
 import {moderateScale} from '../../common/constants';
 import CButton from '../common/CButton';
-import {StackNav, TabNav} from '../../navigation/NavigationKeys';
+import {StackNav} from '../../navigation/NavigationKeys';
 
 export default function RegisterBid({navigation}) {
   const MoveToNextScreen = () => {
     navigation.navigate(StackNav.AddCreditCard);
   };
   const MovetoBackScreen = () => {
-    navigation.navigate(TabNav.Discover);
+    navigation.goBack();
   };
   const MovetoBillingScreen = () => {
     navigation.navigate(StackNav.AddBillingAddress);
   };
-  const DetailsCard = ({img, text, onPress}) => {
+  const DetailsCard = ({img, text, onPress, data}) => {
     return (
-      <View style={localStyle.creditStyle}>
+      <TouchableOpacity style={localStyle.creditStyle} onPress={onPress}>
         <View style={localStyle.maincontent}>
           <Image source={img} style={styles.mr10} />
-          <CText>{text}</CText>
+          <View>
+            <CText>{text}</CText>
+          </View>
         </View>
         <TouchableOpacity onPress={onPress}>
           <Image source={images.addCircle} />
         </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
     );
   };
   return (

@@ -1,4 +1,10 @@
-import {View, SafeAreaView, StyleSheet, Image} from 'react-native';
+import {
+  View,
+  SafeAreaView,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import React, {useState} from 'react';
 
 //custom imports
@@ -14,17 +20,21 @@ import StepIndicator from '../../components/StepIndicator';
 import {validateFullName} from '../../utils/Validation';
 
 const FullNameScreen = ({navigation}) => {
-
   const [name, Setname] = useState('');
   const [FullName, SetFullName] = useState('');
+  const [agreeBtn, setAgreeBtn] = useState(false);
 
   const onChangeName = item => {
     const {msg} = validateFullName(item);
-     Setname(item);
-    SetFullName(msg)
+    Setname(item);
+    SetFullName(msg);
   };
   const onpressNextbtn = () => {
     navigation.navigate(AuthNav.FollowArtistScreen);
+  };
+
+  const onPressCheckbtn = () => {
+    setAgreeBtn(!agreeBtn);
   };
   return (
     <SafeAreaView style={styles.mainContainerSurface}>
@@ -70,10 +80,15 @@ const FullNameScreen = ({navigation}) => {
             </CText>
             <CText numberOfLines={1}>{strings.otherdes}</CText>
           </CText>
-          <View style={localstyle.agreeStyle}>
-            <Image source={images.Check} style={localstyle.CheckbtnStyle} />
+          <TouchableOpacity
+            style={localstyle.agreeStyle}
+            onPress={onPressCheckbtn}>
+            <Image
+              source={agreeBtn ? images.Check : images.circle}
+              style={localstyle.CheckbtnStyle}
+            />
             <CText numberOfLines={1}>{strings.Agree}</CText>
-          </View>
+          </TouchableOpacity>
           <CButton
             Title={strings.Next}
             ChangeBtnStyle={localstyle.btnStyle}

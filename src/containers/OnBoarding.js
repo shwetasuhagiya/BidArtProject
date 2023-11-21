@@ -7,7 +7,9 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback,useRef, useState} from 'react';
+
+//custom import
 import {OnBoardingSlideData} from '../api/constant';
 import {colors, styles} from '../themes';
 import typography from '../themes/typography';

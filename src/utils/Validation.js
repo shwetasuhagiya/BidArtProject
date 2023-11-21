@@ -9,6 +9,9 @@ let checkRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
 //regex for fullName
 let FullNamRegex = /^[a-zA-Z ]{2,40}$/;
 
+//regex for city
+let cityRegex = /^[a-zA-Z ]{2,40}$/;
+
 // card regex
 const CardNumberRegex = /^[0-9]{16}$/;
 
@@ -17,6 +20,9 @@ const expriredDate = /^(0[1-9]|1[0-2])\/?-([0-9]{4}|[0-9]{2})$/;
 
 //expried cvv
 const cvvRegex = /^[0-9]{3}$/;
+
+//refex for phone number
+const phonenumRegex = /^\+?[1-9][0-9]{7,14}$/;
 
 const validateEmail = email => {
   if (!email) {
@@ -46,6 +52,38 @@ const validateFullName = fullname => {
       : {
           status: false,
           msg: strings.FullNameRegex,
+        };
+  }
+};
+
+const validateCityName = cityname => {
+  if (!cityname) {
+    return {
+      status: false,
+      msg: strings.entercity,
+    };
+  } else {
+    return cityRegex.test(cityname)
+      ? {status: true, msg: strings.blank}
+      : {
+          status: false,
+          msg: strings.validateCityname,
+        };
+  }
+};
+
+const validatephoneNum = phoneNum => {
+  if (!phoneNum) {
+    return {
+      status: false,
+      msg: strings.enterNumber,
+    };
+  } else {
+    return phonenumRegex.test(phoneNum)
+      ? {status: true, msg: strings.blank}
+      : {
+          status: false,
+          msg: strings.validateNumber,
         };
   }
 };
@@ -119,4 +157,6 @@ export {
   validateCardNumber,
   validateDate,
   validateCVV,
+  validateCityName,
+  validatephoneNum,
 };

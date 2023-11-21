@@ -1,5 +1,5 @@
 import {View, StyleSheet, Image} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 //custom imports
 import {colors, styles} from '../../themes';

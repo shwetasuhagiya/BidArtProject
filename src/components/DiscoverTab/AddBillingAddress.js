@@ -12,9 +12,14 @@ import CDropdownInput from '../common/CDropdownInput';
 import {countryList} from '../../api/constant';
 import CButton from '../common/CButton';
 import {StackNav} from '../../navigation/NavigationKeys';
-import {validateFullName} from '../../utils/Validation';
+import {
+  validateCityName,
+  validateFullName,
+  validatephoneNum,
+} from '../../utils/Validation';
 
-export default function AddBillingAddress({navigation}) {
+export default function AddBillingAddress({route, navigation}) {
+  const {CardNumber} = route.params;
   const [country, setCountry] = useState('');
   const [name, Setname] = useState('');
   const [fullName, setFullName] = useState('');
@@ -22,6 +27,9 @@ export default function AddBillingAddress({navigation}) {
   const [data, setData] = useState('');
   const [postal, setPostal] = useState('');
   const [phonenum, setPhoneNum] = useState('');
+  const [cityError, SetCityError] = useState('');
+  const [NumberError, SetNumberError] = useState('');
+
   const onChangeCountryFied = ({value}) => {
     setCountry(value);
   };
@@ -31,7 +39,9 @@ export default function AddBillingAddress({navigation}) {
     setFullName(msg);
   };
   const onChangeCity = item => {
+    const {msg} = validateCityName(item);
     setCity(item);
+    SetCityError(msg);
   };
   const onChangeData = item => {
     setData(item);
@@ -40,7 +50,9 @@ export default function AddBillingAddress({navigation}) {
     setPostal(item);
   };
   const onChangePhonenumber = item => {
+    const {msg} = validatephoneNum(item);
     setPhoneNum(item);
+    SetNumberError(msg);
   };
   const MoveToBack = () => {
     navigation.navigate(StackNav.RegisterBid);
@@ -82,6 +94,8 @@ export default function AddBillingAddress({navigation}) {
               placeholderText={strings.cityName}
               value={city}
               onChangeText={onChangeCity}
+              keyBoardType={'defalut'}
+              errorText={cityError}
             />
             <CText
               style={localStyle.contentStyle}
@@ -93,6 +107,7 @@ export default function AddBillingAddress({navigation}) {
               placeholderText={strings.dataplaceholderText}
               value={data}
               onChangeText={onChangeData}
+              keyBoardType={'defalut'}
             />
             <CText
               style={localStyle.contentStyle}
@@ -104,6 +119,7 @@ export default function AddBillingAddress({navigation}) {
               placeholderText={strings.postalTextInput}
               value={postal}
               onChangeText={onChangePostal}
+              keyBoardType={'numeric'}
             />
             <CText
               style={localStyle.contentStyle}
@@ -115,6 +131,8 @@ export default function AddBillingAddress({navigation}) {
               placeholderText={strings.phonePlaceHolder}
               value={phonenum}
               onChangeText={onChangePhonenumber}
+              keyBoardType={'numeric'}
+              errorText={NumberError}
             />
             <CDropdownInput
               label={strings.Country}
@@ -130,7 +148,12 @@ export default function AddBillingAddress({navigation}) {
             type={'B16'}
             ChangeBtnStyle={localStyle.btnStyle}
             ChangeTxtStyle={localStyle.ChangeTxtStyle}
-            onPress={MoveToNextScreen}
+            onPress={() => {
+              navigation.navigate(StackNav.RegisterBidData, {
+                CardNumber: CardNumber,
+                data: data,
+              });
+            }}
           />
         </ScrollView>
       </KeyBoardAvoidWrapper>

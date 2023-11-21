@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import React from 'react';
@@ -12,11 +13,23 @@ import {moderateScale} from '../../common/constants';
 import {colors, styles} from '../../themes';
 import CText from '../common/CText';
 import CButton from '../common/CButton';
+import {StackNav} from '../../navigation/NavigationKeys';
 
-export default function WorksDetail() {
+export default function WorksDetail({navigation}) {
+  const onpressRegister = () => {
+    navigation.navigate(StackNav.RegisterBid);
+  };
   const renderItem = ({item}) => {
     return (
-      <View style={localStyle.mainBoxContainer}>
+      <TouchableOpacity
+        style={localStyle.mainBoxContainer}
+        onPress={() =>
+          navigation.navigate(StackNav.DetailArt, {
+            image: item.image,
+            title: item.title,
+            Creator: item.creatorImage,
+          })
+        }>
         <Image source={item.image} style={localStyle.imageStyle} />
         <View style={localStyle.mainContentStyle}>
           <CText type={'B14'} numberOfLines={1}>
@@ -40,9 +53,10 @@ export default function WorksDetail() {
           <CButton
             Title={strings.PlaceBid}
             ChangeBtnStyle={localStyle.ChangeBtnStyle}
+            onPress={onpressRegister}
           />
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
   return (

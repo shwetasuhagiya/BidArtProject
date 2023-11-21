@@ -1,5 +1,7 @@
-import {View, Text, Image, StyleSheet, SafeAreaView} from 'react-native';
+import {View, Image, StyleSheet, SafeAreaView} from 'react-native';
 import React, {useEffect} from 'react';
+
+//custom import
 import {styles} from '../themes';
 import images from '../assets/images';
 import {StorageGetValue} from '../utils/asyncstorage';
@@ -7,10 +9,6 @@ import {moderateScale} from '../common/constants';
 import {StackNav} from '../navigation/NavigationKeys';
 
 const Splash = ({navigation}) => {
-  // setTimeout(() => {
-  //   // props.navigation.replace('Onboarding');
-  // }, 3000);
-
   useEffect(() => {
     setTimeout(() => {
       asyncProcess();

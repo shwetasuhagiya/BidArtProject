@@ -1,4 +1,10 @@
-import {View, SafeAreaView, Image, StyleSheet} from 'react-native';
+import {
+  View,
+  SafeAreaView,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 
 //custom import
@@ -7,11 +13,23 @@ import {moderateScale} from '../common/constants';
 import CText from './common/CText';
 import strings from '../i18n/strings';
 import CButton from './common/CButton';
+import {StackNav} from '../navigation/NavigationKeys';
 
-const CHorizontalView = ({item}) => {
+const CHorizontalView = ({item, navigation}) => {
+  const onpressRegister = () => {
+    navigation.navigate(StackNav.RegisterBid);
+  };
   return (
     <SafeAreaView>
-      <View style={localStyle.container}>
+      <TouchableOpacity
+        style={localStyle.container}
+        onPress={() =>
+          navigation.navigate(StackNav.DetailArt, {
+            image: item.image,
+            title: item.title,
+            Creator: item.creatorImage,
+          })
+        }>
         <Image source={item.image} style={localStyle.imageStyle} />
         <Image source={item.timeImage} style={localStyle.absoluteImage} />
         <View style={localStyle.contentStyle}>
@@ -30,9 +48,10 @@ const CHorizontalView = ({item}) => {
             Title={strings.PlaceBid}
             ChangeBtnStyle={localStyle.btnStyle}
             type={'S12'}
+            onPress={onpressRegister}
           />
         </View>
-      </View>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };

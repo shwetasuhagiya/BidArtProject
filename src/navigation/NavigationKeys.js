@@ -23,16 +23,16 @@ export const StackNav = {
   SettingAccount: 'SettingAccount',
   Payment: 'Payment',
   Setting: 'Setting',
-  SearchArtist:'SearchArtist'
+  SearchArtist: 'SearchArtist',
 };
 
 export const AuthNav = {
   LoginScreen: 'LoginScreen',
   CreatePasswordScreen: 'CreatePasswordScreen',
-  FullNameScreen:'FullNameScreen',
-  FollowArtistScreen:'FollowArtistScreen',
-  FollowCategoriesScreen:'FollowCategoriesScreen',
-  BudgetScreen:'BudgetScreen'
+  FullNameScreen: 'FullNameScreen',
+  FollowArtistScreen: 'FollowArtistScreen',
+  FollowCategoriesScreen: 'FollowCategoriesScreen',
+  BudgetScreen: 'BudgetScreen',
 };
 
 export const TabNav = {

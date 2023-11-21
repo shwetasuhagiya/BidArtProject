@@ -211,5 +211,9 @@ export default {
   thisFieldIsMandatory: 'This field is mandatory',
   validCvv: 'Enter valid cvv',
   validDate: 'Enter valid Date',
-  blank:' '
+  blank: ' ',
+  validateCityname: 'Enter a Valid city name',
+  entercity: 'Please Enter Your city',
+  validateNumber: 'Enter a Valid Mobile Number',
+  enterNumber: 'Please Enter Your Mobile Number',
 };

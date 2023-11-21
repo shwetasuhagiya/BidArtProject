@@ -2,11 +2,12 @@ import {
   FlatList,
   SafeAreaView,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
 import React, {useState} from 'react';
+
+//custom import
 import CText from '../common/CText';
 import strings from '../../i18n/strings';
 import images from '../../assets/images';
@@ -49,9 +50,9 @@ export default function WhisList({navigation}) {
   const RenderFiled = () => {
     switch (SelectedItem) {
       case strings.Works:
-        return <WorksDetail />;
+        return <WorksDetail navigation={navigation} />;
       case strings.Show:
-        return <ShowDetail />;
+        return <ShowDetail navigation={navigation} />;
       default:
         return <WorksDetail />;
     }

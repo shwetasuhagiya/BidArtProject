@@ -4,16 +4,27 @@ import React from 'react';
 //custom import
 import {Dropdown} from 'react-native-element-dropdown';
 import CText from './CText';
-import {colors, styles} from '../../themes';
+import {colors} from '../../themes';
 import {moderateScale} from '../../common/constants';
 import typography from '../../themes/typography';
 
 export default function CminDropdown(props) {
-  const {label, data, placeholder, value, onChange,style,Style,itemStyle,selectStyle,type} = props;
+  const {
+    label,
+    data,
+    placeholder,
+    value,
+    onChange,
+    style,
+    Style,
+    itemStyle,
+    selectStyle,
+    type,
+  } = props;
 
   return (
-    <View style={localStyles.genderContainer}>
-      <View style={localStyles.labelContainer}>
+    <View>
+      <View>
         <CText type={type}>{label}</CText>
       </View>
       <Dropdown
@@ -37,9 +48,9 @@ export default function CminDropdown(props) {
 
 const localStyles = StyleSheet.create({
   dropdownStyle: {
-    ...styles.justifyCenter,
     color: colors.textColor,
     width: moderateScale(140),
+    height: moderateScale(32),
   },
   dropdownPlaceholder: {
     color: colors.black,
@@ -54,9 +65,5 @@ const localStyles = StyleSheet.create({
     color: colors.grayText,
     ...typography.fontWeights.Bold,
     ...typography.fontSizes.f18,
-  },
-  labelContainer: {
-    ...styles.mb15,
-    ...styles.mt15
   },
 });

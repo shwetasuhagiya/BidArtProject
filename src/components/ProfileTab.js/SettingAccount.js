@@ -1,7 +1,7 @@
 import {StyleSheet, View, SafeAreaView, Image} from 'react-native';
 import React, {useState} from 'react';
 
-//local import
+//custom import
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import {colors, styles} from '../../themes';
 import CHeader from '../common/CHeader';
@@ -37,11 +37,11 @@ export default function SettingAccount({navigation}) {
     setErrorUserName(msg);
   };
 
-   const onchangeEmail = item => {
-     Setemail(item);
-     const {msg} = validateEmail(item);
-     setErrorEmail(msg);
-   };
+  const onchangeEmail = item => {
+    Setemail(item);
+    const {msg} = validateEmail(item);
+    setErrorEmail(msg);
+  };
 
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>

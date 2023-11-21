@@ -1,6 +1,5 @@
 import {
   View,
-  Text,
   SafeAreaView,
   StyleSheet,
   Image,
@@ -21,6 +20,8 @@ import {StackNav} from '../navigation/NavigationKeys';
 
 const FilterResult = ({navigation}) => {
   const [isHorizontalView, isSetHorizontalView] = useState(true);
+  const [data, setData] = useState(true);
+  const [search, setSearch] = useState(true);
 
   const onPressHorizontalView = () => {
     isSetHorizontalView(true);
@@ -33,6 +34,12 @@ const FilterResult = ({navigation}) => {
     navigation.replace(StackNav.TabNavigation);
   };
 
+  const onPressClear = () => {
+    setData(false);
+  };
+  const onPressClearData = () => {
+    setSearch(false);
+  };
   const HeaderBtn = () => {
     return (
       <View style={localStyle.iconStyle}>
@@ -55,9 +62,9 @@ const FilterResult = ({navigation}) => {
   };
   const renderArtListItem = ({item, index}) => {
     return isHorizontalView ? (
-      <CHorizontalView item={item} index={index} />
+      <CHorizontalView item={item} index={index} navigation={navigation} />
     ) : (
-      <CVerticalView item={item} index={index} />
+      <CVerticalView item={item} index={index} navigation={navigation} />
     );
   };
   return (
@@ -73,18 +80,26 @@ const FilterResult = ({navigation}) => {
         </CText>
         <HeaderBtn />
       </View>
-      <View style={localStyle.searchStyle}>
-        <CText type={'M16'} numberOfLines={1}>
-          {strings.SortbyLotNumberAscending}
-        </CText>
-        <Image source={images.close} />
-      </View>
-      <View style={[localStyle.searchStyle, localStyle.searchBottom]}>
-        <CText type={'M16'} numberOfLines={1}>
-          {strings.MediumWorkonPaper}
-        </CText>
-        <Image source={images.close} />
-      </View>
+      {data ? (
+        <View style={localStyle.searchStyle}>
+          <CText type={'M16'} numberOfLines={1}>
+            {strings.SortbyLotNumberAscending}
+          </CText>
+          <TouchableOpacity onPress={onPressClear}>
+            <Image source={images.close} />
+          </TouchableOpacity>
+        </View>
+      ) : null}
+      {search ? (
+        <View style={[localStyle.searchStyle, localStyle.searchBottom]}>
+          <CText type={'M16'} numberOfLines={1}>
+            {strings.MediumWorkonPaper}
+          </CText>
+          <TouchableOpacity onPress={onPressClearData}>
+            <Image source={images.close} />
+          </TouchableOpacity>
+        </View>
+      ) : null}
       <FlatList
         data={[...ArtWorkList, ...ArtWorkList]}
         key={isHorizontalView ? 'one' : 'two'}
@@ -112,11 +127,11 @@ const localStyle = StyleSheet.create({
     borderRadius: moderateScale(20),
     borderWidth: moderateScale(1.5),
     borderColor: colors.lightGray,
-    ...styles.p4,
     ...styles.justifyCenter,
     ...styles.flexRow,
-    gap: 10,
     ...styles.aligncenter,
+    ...styles.ph10,
+    backgroundColor: colors.white,
   },
   searchStyle: {
     width: moderateScale(275),

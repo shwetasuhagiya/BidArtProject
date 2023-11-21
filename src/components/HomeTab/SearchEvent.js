@@ -1,4 +1,3 @@
-import {View, Text} from 'react-native';
 import React from 'react';
 import Search from '../Search';
 import {StackNav} from '../../navigation/NavigationKeys';

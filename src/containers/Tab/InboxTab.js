@@ -18,7 +18,7 @@ import InboxDetail from '../../components/InboxTab/InboxDetail';
 import ArchiveDetail from '../../components/InboxTab/ArchiveDetail';
 import {Home} from '../../assets/svg';
 
-export default function InboxTab() {
+export default function InboxTab({navigation}) {
   const [SelectedItem, SetSelectedItem] = useState(strings.Bids);
   const onPressSelect = item => {
     SetSelectedItem(item);
@@ -47,7 +47,7 @@ export default function InboxTab() {
   const RenderInboxFiled = () => {
     switch (SelectedItem) {
       case strings.Bids:
-        return <BidsDetail />;
+        return <BidsDetail navigation={navigation} />;
       case strings.Inbox:
         return <InboxDetail />;
       case strings.Archive:

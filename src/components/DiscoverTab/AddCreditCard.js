@@ -1,4 +1,4 @@
-import {SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 
 //custom import
@@ -54,9 +54,6 @@ export default function AddCreditCard({navigation}) {
   const MovetoBackscreen = () => {
     navigation.navigate(StackNav.RegisterBid);
   };
-  const MovetoNextScreen = () => {
-    navigation.navigate(StackNav.AddBillingAddress);
-  };
 
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
@@ -77,7 +74,7 @@ export default function AddCreditCard({navigation}) {
             value={CardNumber}
             onChangeText={onChangeCardnumber}
             errorText={cardNumberCheck}
-            keyBoardType={'"numeric"'}
+            keyBoardType={'numeric'}
           />
           <View style={localStyle.flexInput}>
             <View>
@@ -93,7 +90,7 @@ export default function AddCreditCard({navigation}) {
                 value={date}
                 onChangeText={onChangeDate}
                 errorText={dateError}
-                keyBoardType={'"numeric"'}
+                keyBoardType={'numeric'}
               />
             </View>
             <View>
@@ -109,7 +106,7 @@ export default function AddCreditCard({navigation}) {
                 value={cvc}
                 onChangeText={onChangeCVC}
                 errorText={cvcError}
-                keyBoardType={'"numeric"'}
+                keyBoardType={'numeric'}
               />
             </View>
           </View>
@@ -120,7 +117,11 @@ export default function AddCreditCard({navigation}) {
         type={'B16'}
         ChangeBtnStyle={localStyle.btnStyle}
         ChangeTxtStyle={localStyle.ChangeTxtStyle}
-        onPress={MovetoNextScreen}
+        onPress={() => {
+          navigation.navigate(StackNav.AddBillingAddress, {
+            CardNumber: CardNumber,
+          });
+        }}
       />
     </SafeAreaView>
   );

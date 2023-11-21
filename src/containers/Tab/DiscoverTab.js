@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 
 //custom import
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -21,11 +21,13 @@ import CText from '../../components/common/CText';
 import CVerticalView from '../../components/CVerticalView';
 import {StackNav} from '../../navigation/NavigationKeys';
 import CminDropdown from '../../components/common/CminDropdown';
+import FilterArtWork from '../../components/modals/FilterArtWork';
 
 export default function DiscoverTab({navigation}) {
   const [SelectedItem, SetSelectedItem] = useState(0);
   const [data, setData] = useState('');
   const [search, setSearch] = useState('');
+  const FilterRef = useRef(null);
 
   const Array = [
     {id: 0, name: 'All Art'},
@@ -42,6 +44,7 @@ export default function DiscoverTab({navigation}) {
   const onChangeText = text => {
     setSearch(text);
   };
+  const onPressFilter = () => FilterRef.current.show();
   const LeftIconSearch = () => {
     return (
       <Ionicons
@@ -80,7 +83,7 @@ export default function DiscoverTab({navigation}) {
             title: item.title,
           })
         }>
-        <CVerticalView item={item} />
+        <CVerticalView item={item} navigation={navigation} />
       </TouchableOpacity>
     );
   };
@@ -93,9 +96,10 @@ export default function DiscoverTab({navigation}) {
             placeholder={strings.following}
             value={data}
             onChange={onChangeDataFiled}
-            style={localStyle.dropdownStyle}
           />
-          <Image source={images.discoverFilter} />
+          <TouchableOpacity onPress={onPressFilter}>
+            <Image source={images.filter} style={localStyle.imageStyle} />
+          </TouchableOpacity>
         </View>
         <TouchableOpacity onPress={MovetoSearchScreen}>
           <CTextInput
@@ -112,6 +116,7 @@ export default function DiscoverTab({navigation}) {
           showsHorizontalScrollIndicator={false}
         />
         <FlatList data={ArtWorkList} renderItem={onpressrenderItem} />
+        <FilterArtWork sheetRef={FilterRef} />
       </KeyBoardAvoidWrapper>
     </SafeAreaView>
   );
@@ -124,7 +129,8 @@ const localStyle = StyleSheet.create({
   },
   changeStyle: {
     ...styles.rowSpaceBetween,
-    ...styles.mt10,
+    ...styles.mb15,
+    height: moderateScale(44),
   },
   LeftIconStyle: {
     ...styles.ml10,
@@ -143,5 +149,9 @@ const localStyle = StyleSheet.create({
   FontStyle: {
     ...styles.mv15,
     ...styles.mh10,
+  },
+  imageStyle: {
+    width: moderateScale(24),
+    height: moderateScale(24),
   },
 });

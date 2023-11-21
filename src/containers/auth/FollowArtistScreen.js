@@ -31,8 +31,8 @@ const FollowArtistScreen = ({navigation}) => {
   const MovetoNextBtn = () => {
     navigation.navigate(AuthNav.FollowCategoriesScreen);
   };
-  const OnChangeTextInput = text => {
-    setSearchQuery(text);
+  const OnChangeTextInput = item => {
+    setSearchQuery(item);
   };
   useEffect(() => {
     OnChangeSearch();
@@ -63,7 +63,9 @@ const FollowArtistScreen = ({navigation}) => {
 
   const renderItem = ({item}) => {
     return (
-      <View style={localstyle.maincontantStyle}>
+      <TouchableOpacity
+        style={localstyle.maincontantStyle}
+        onPress={() => handleOnpress(item)}>
         <View style={localstyle.contentStyle}>
           <Image source={item.image} style={localstyle.artistimageStyle} />
           <View style={[styles.ml20, styles.flex]}>
@@ -82,35 +84,33 @@ const FollowArtistScreen = ({navigation}) => {
             <Image source={images.circle} style={localstyle.circlestyle} />
           )}
         </TouchableOpacity>
-      </View>
-    );
-  };
-
-  const ListHeaderComponent = () => {
-    return (
-      <View>
-        <StepIndicator step={3} style={styles.mh0} />
-        <CText type={'B24'} numberOfLines={2}>
-          {strings.FollowArtistTitle}
-        </CText>
-        <CTextInput
-          LeftIcon={LeftIconButton}
-          placeholderText={strings.FollowArtistPlaceholderText}
-          value={searchQuery}
-          onChangeText={OnChangeTextInput}
-        />
-        <CText type={'M16'} style={localstyle.topArtistStyle} numberOfLines={1}>
-          {strings.TopArtistonBidart}
-        </CText>
-      </View>
+      </TouchableOpacity>
     );
   };
 
   return (
     <SafeAreaView style={localstyle.container}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
+        <View>
+          <StepIndicator step={3} style={styles.mh0} />
+          <CText type={'B24'} numberOfLines={2}>
+            {strings.FollowArtistTitle}
+          </CText>
+          <CTextInput
+            LeftIcon={LeftIconButton}
+            placeholderText={strings.FollowArtistPlaceholderText}
+            value={searchQuery}
+            onChangeText={item => setSearchQuery(item)}
+            keyBoardType={'default'}
+          />
+          <CText
+            type={'M16'}
+            style={localstyle.topArtistStyle}
+            numberOfLines={1}>
+            {strings.TopArtistonBidart}
+          </CText>
+        </View>
         <FlatList
-          ListHeaderComponent={ListHeaderComponent}
           keyExtractor={item => item.id}
           data={select}
           renderItem={renderItem}

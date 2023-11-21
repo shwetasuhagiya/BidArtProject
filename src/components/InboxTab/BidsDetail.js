@@ -1,4 +1,11 @@
-import {FlatList, Image, SafeAreaView, StyleSheet, View} from 'react-native';
+import {
+  FlatList,
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 
 //custom import
@@ -7,11 +14,19 @@ import strings from '../../i18n/strings';
 import {ActiveBidFiled} from '../../api/constant';
 import {colors, styles} from '../../themes';
 import {moderateScale} from '../../common/constants';
+import {StackNav} from '../../navigation/NavigationKeys';
 
-export default function BidsDetail() {
+export default function BidsDetail({navigation}) {
   const renderItem = ({item}) => {
     return (
-      <View style={localStyle.container}>
+      <TouchableOpacity
+        style={localStyle.container}
+        onPress={() =>
+          navigation.navigate(StackNav.DetailArt, {
+            image: item.image,
+            title: item.title,
+          })
+        }>
         <Image source={item.image} style={localStyle.imageStyle} />
         <View style={localStyle.bottomContainer}>
           <CText numberOfLines={1} type={'B14'} style={localStyle.contentStyle}>
@@ -28,7 +43,7 @@ export default function BidsDetail() {
             {item.discription}
           </CText>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
   return (

@@ -1,15 +1,35 @@
-import {View, Text, SafeAreaView, StyleSheet, Image} from 'react-native';
+import {
+  View,
+  SafeAreaView,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
+
+//custom import
 import {colors, styles} from '../themes';
 import CText from './common/CText';
 import CButton from './common/CButton';
 import {moderateScale} from '../common/constants';
 import strings from '../i18n/strings';
+import {StackNav} from '../navigation/NavigationKeys';
 
-const CVerticalView = ({item}) => {
+const CVerticalView = ({item, navigation}) => {
+  const onpressRegister = () => {
+    navigation.navigate(StackNav.RegisterBid);
+  };
   return (
     <SafeAreaView>
-      <View style={localStyle.containerStyle}>
+      <TouchableOpacity
+        style={localStyle.containerStyle}
+        onPress={() =>
+          navigation.navigate(StackNav.DetailArt, {
+            image: item.image,
+            title: item.title,
+            Creator: item.creatorImage,
+          })
+        }>
         <View>
           <Image source={item.image} style={localStyle.imageStyle} />
           <Image source={item.timeImage} style={localStyle.timeImageStyle} />
@@ -35,9 +55,10 @@ const CVerticalView = ({item}) => {
             Title={strings.PlaceBid}
             ChangeBtnStyle={localStyle.btnStyle}
             type={'S12'}
+            onPress={onpressRegister}
           />
         </View>
-      </View>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };

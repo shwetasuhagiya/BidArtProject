@@ -1,8 +1,13 @@
-import {Image, SafeAreaView, StyleSheet, View} from 'react-native';
-import React from 'react';
+import {
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import React, {useState} from 'react';
 
 //custom import
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import {colors, styles} from '../../themes';
 import CText from '../common/CText';
 import CHeader from '../common/CHeader';
@@ -11,15 +16,21 @@ import strings from '../../i18n/strings';
 import {moderateScale} from '../../common/constants';
 import CButton from '../common/CButton';
 import {TabNav} from '../../navigation/NavigationKeys';
+import {CheckCircle, Circle} from '../../assets/svg';
 
-export default function RegisterBidData({navigation}) {
+export default function RegisterBidData({route, navigation}) {
+  const {CardNumber, data} = route.params;
+  const [agreeBtn, setAgreeBtn] = useState(false);
   const MoveToNextScreen = () => {
-    navigation.navigate(TabNav.Discover);
+    navigation.navigate(TabNav.Home);
+  };
+  const onPressCheckbtn = () => {
+    setAgreeBtn(!agreeBtn);
   };
   const MoveToGoBack = () => {
-    navigation.navigate(TabNav.Discover);
+    navigation.goBack(TabNav.Discover);
   };
-  const DetailsCard = ({img, text, placeHolder}) => {
+  const DetailsCard = ({img, text, detail}) => {
     return (
       <View style={localStyle.creditStyle}>
         <View style={localStyle.maincontent}>
@@ -32,9 +43,7 @@ export default function RegisterBidData({navigation}) {
               style={localStyle.addressStyle}>
               {text}
             </CText>
-            <CText type={'M12'} numberOfLines={1}>
-              {placeHolder}
-            </CText>
+            <CText>{detail}</CText>
           </View>
         </View>
       </View>
@@ -79,16 +88,20 @@ export default function RegisterBidData({navigation}) {
           img={images.credit}
           text={strings.CreditCard}
           placeHolder={strings.PlaceholderCard}
+          detail={CardNumber ? <CText>{CardNumber}</CText> : null}
         />
         <DetailsCard
           img={images.location}
           text={strings.BillingAddress}
           placeHolder={strings.billingAdd}
+          detail={data ? <CText>{data}</CText> : null}
         />
       </View>
       <View>
-        <View style={[localStyle.maincontent, styles.center]}>
-          <AntDesign name={'checkcircle'} size={moderateScale(24)} />
+        <TouchableOpacity
+          style={[localStyle.maincontent, styles.center]}
+          onPress={onPressCheckbtn}>
+          {agreeBtn ? <CheckCircle /> : <Circle />}
           <CText type={'R12'} numberOfLines={1} color={colors.grayText}>
             {' '}
             {strings.Agreeto}
@@ -96,7 +109,7 @@ export default function RegisterBidData({navigation}) {
               {strings.ConditionSale}
             </CText>
           </CText>
-        </View>
+        </TouchableOpacity>
         <CButton
           Title={strings.CompleteRegistration}
           type={'B16'}
@@ -107,7 +120,6 @@ export default function RegisterBidData({navigation}) {
     </SafeAreaView>
   );
 }
-
 const localStyle = StyleSheet.create({
   mainContainer: {
     ...styles.mainContainerSurface,

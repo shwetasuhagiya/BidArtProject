@@ -102,7 +102,7 @@ export default function SearchResult({route, navigation}) {
 const localStyle = StyleSheet.create({
   mainContainer: {
     ...styles.mainContainerSurface,
-    ...styles.mh10
+    ...styles.mh10,
   },
   containerStyle: {
     ...styles.flexRow,

@@ -18,35 +18,33 @@ import CButton from '../../components/common/CButton';
 import {AuthNav} from '../../navigation/NavigationKeys';
 import StepIndicator from '../../components/StepIndicator';
 import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper';
-import { passwordStrength } from '../../utils/Validation';
-
+import {passwordStrength} from '../../utils/Validation';
 
 const CreatePasswordScreen = ({navigation}) => {
   const [password, SetPassword] = useState('');
   const [ConfirmPassword, SetConfirmPassword] = useState('');
   const [isError, SetIsError] = useState('');
   const [passworkChk, SetPasswordChk] = useState('');
+  const [agreeBtn, setAgreeBtn] = useState(false);
 
   const GoBackBtnHandle = () => {
     navigation.replace(AuthNav.LoginScreen);
   };
   const onChangePassword = item => {
     SetPassword(item);
-    const {msg} = passwordStrength(item)
-    SetPasswordChk(msg)
+    const {msg} = passwordStrength(item);
+    SetPasswordChk(msg);
   };
   const onConfirmPassword = item => {
     SetConfirmPassword(item);
-    SetIsError('')
+    SetIsError('');
   };
   const onpressNextbtn = () => {
     if (password !== ConfirmPassword) {
       SetIsError(strings.passwordNotMatch);
-    }
-    else if(password === "" && ConfirmPassword === ""){
-        SetIsError(strings.enterPassword)
-    }
-    else {
+    } else if (password === '' && ConfirmPassword === '') {
+      SetIsError(strings.enterPassword);
+    } else {
       SetIsError('');
       navigation.navigate(AuthNav.FullNameScreen);
     }
@@ -54,16 +52,35 @@ const CreatePasswordScreen = ({navigation}) => {
   const RightIcon = () => {
     return (
       <View style={localstyle.btnhandle}>
-        <TouchableOpacity>
-          <Image
-            source={images.Check}
-            style={localstyle.inputRightIconCheckStyle}
-          />
-        </TouchableOpacity>
+        {passworkChk === strings.StrongPassword ? (
+          <TouchableOpacity>
+            <Image
+              source={images.Check}
+              style={localstyle.inputRightIconCheckStyle}
+            />
+          </TouchableOpacity>
+        ) : null}
       </View>
     );
   };
 
+  const RightconfirmIcon = () => {
+    return (
+      <View style={localstyle.btnhandle}>
+        {password !== '' && password === ConfirmPassword ? (
+          <TouchableOpacity>
+            <Image
+              source={images.Check}
+              style={localstyle.inputRightIconCheckStyle}
+            />
+          </TouchableOpacity>
+        ) : null}
+      </View>
+    );
+  };
+  const onPressCheckbtn = () => {
+    setAgreeBtn(!agreeBtn);
+  };
   return (
     <SafeAreaView style={styles.mainContainerSurface}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
@@ -108,12 +125,10 @@ const CreatePasswordScreen = ({navigation}) => {
               value={ConfirmPassword}
               onChangeText={onConfirmPassword}
               isSecure
-              RightIcon={RightIcon}
+              RightIcon={RightconfirmIcon}
               keyBoardType={'default'}
+              errorText={isError}
             />
-            {/* <CText numberOfLines={1} style={localstyle.textStyle}>
-              {isError}
-            </CText> */}
             <CText numberOfLines={2} style={localstyle.termsStyle} type={'R14'}>
               {strings.temrsAndCondition}
               <CText numberOfLines={1} type={'B14'}>
@@ -125,10 +140,15 @@ const CreatePasswordScreen = ({navigation}) => {
               </CText>
               <CText numberOfLines={1}>{strings.otherdes}</CText>
             </CText>
-            <View style={localstyle.agreeStyle}>
-              <Image source={images.Check} style={localstyle.CheckbtnStyle} />
+            <TouchableOpacity
+              style={localstyle.agreeStyle}
+              onPress={onPressCheckbtn}>
+              <Image
+                source={agreeBtn ? images.Check : images.circle}
+                style={localstyle.CheckbtnStyle}
+              />
               <CText numberOfLines={1}>{strings.Agree}</CText>
-            </View>
+            </TouchableOpacity>
             <CButton
               Title={strings.Next}
               ChangeBtnStyle={localstyle.btnStyle}
@@ -173,7 +193,7 @@ const localstyle = StyleSheet.create({
     ...styles.mt20,
   },
   PasswordConfirmTitle: {
-    ...styles.mt10,
+    ...styles.mt20,
   },
   inputRightIconCheckStyle: {
     ...styles.mr10,
@@ -209,7 +229,7 @@ const localstyle = StyleSheet.create({
   accountdetailStyle: {
     ...styles.flex,
     ...styles.center,
-    ...styles.flexRow
+    ...styles.flexRow,
   },
   securetextStyle: {
     ...styles.center,

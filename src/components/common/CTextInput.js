@@ -6,6 +6,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React, {useState} from 'react';
+
+//custom import
 import {colors, styles} from '../../themes';
 import {moderateScale} from '../../common/constants';
 import typography from '../../themes/typography';
@@ -42,7 +44,6 @@ const CTextInput = props => {
           onChangeText={onChangeText}
           secureTextEntry={isSecurepass}
           keyboardType={keyBoardType}
-          
         />
         {!!RightIcon && <RightIcon />}
         {!!isSecure && (
@@ -60,7 +61,7 @@ const CTextInput = props => {
           style={{
             ...localstyle.errorText,
             ...errorStyle,
-            color: colors.alertColor,
+            color: colors.grayText,
           }}>
           {errorText}
         </CText>
@@ -82,7 +83,7 @@ const localstyle = StyleSheet.create({
     ...styles.ph10,
     ...styles.flex,
     height: moderateScale(52),
-    color:colors.black
+    color: colors.black,
   },
   securetextStyle: {
     ...styles.center,

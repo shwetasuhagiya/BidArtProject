@@ -22,7 +22,7 @@ import {StackNav} from '../../navigation/NavigationKeys';
 const FilterArtWork = props => {
   let {sheetRef} = props;
   const navigation = useNavigation();
-  const [SelectedItem, SetSelectedItem] = useState(false);
+  const [SelectedItem, SetSelectedItem] = useState(0);
   const [select, setSelect] = useState(sortby);
   const Array = [
     {id: 0, name: 'Sort By'},

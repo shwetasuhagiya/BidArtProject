@@ -18,6 +18,7 @@ import CText from '../common/CText';
 import strings from '../../i18n/strings';
 import {ExhibitorsData, ExhibitorsList} from '../../api/constant';
 import CButton from '../common/CButton';
+import {StackNav} from '../../navigation/NavigationKeys';
 
 export default function DetailEvent({route, navigation}) {
   const [SelectedItem, SetSelectedItem] = useState(0);
@@ -29,6 +30,10 @@ export default function DetailEvent({route, navigation}) {
   const MoveToBackScreen = () => {
     navigation.goBack();
   };
+  const onpressRegister = () => {
+    navigation.navigate(StackNav.RegisterBid);
+  };
+
   const RenderMainItems = ({item}) => {
     return (
       <TouchableOpacity
@@ -50,7 +55,14 @@ export default function DetailEvent({route, navigation}) {
   };
   const renderItemExhibitors = ({item}) => {
     return (
-      <View style={localStyle.imageContiner}>
+      <TouchableOpacity
+        style={localStyle.imageContiner}
+        onPress={() =>
+          navigation.navigate(StackNav.DetailArt, {
+            image: item.image,
+            title: item.title,
+          })
+        }>
         <Image source={item.image} style={localStyle.imgcontainer} />
         <View style={localStyle.contentManagestyle}>
           <CText type={'B164'} numberOfLines={1}>
@@ -66,9 +78,10 @@ export default function DetailEvent({route, navigation}) {
           <CButton
             Title={strings.PlaceBid}
             ChangeBtnStyle={localStyle.ChangeBtnStyle}
+            onPress={onpressRegister}
           />
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
   return (

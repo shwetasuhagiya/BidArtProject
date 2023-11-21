@@ -5,7 +5,6 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  Alert,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 
@@ -65,7 +64,9 @@ const FollowCategoriesScreen = ({navigation}) => {
 
   const renderItem = ({item}) => {
     return (
-      <View style={localstyle.maincontantStyle}>
+      <TouchableOpacity
+        style={localstyle.maincontantStyle}
+        onPress={() => handleOnpress(item)}>
         <View style={localstyle.contentStyle}>
           <Image source={item.image} style={localstyle.artistimageStyle} />
           <View style={[styles.ml20, styles.flex]}>
@@ -84,34 +85,31 @@ const FollowCategoriesScreen = ({navigation}) => {
             <Image source={images.circle} style={localstyle.circlestyle} />
           )}
         </TouchableOpacity>
-      </View>
-    );
-  };
-
-  const ListHeaderComponent = () => {
-    return (
-      <View>
-        <StepIndicator step={4} style={styles.mh0} />
-        <CText type={'B24'} numberOfLines={2}>
-          {strings.categoriesTitle}
-        </CText>
-        <CTextInput
-          LeftIcon={LeftIconButton}
-          placeholderText={strings.categoriesPlaceholderText}
-          value={searchitem}
-          onChangeText={onChangeSearch}
-        />
-        <CText style={localstyle.topArtistStyle} type={'M16'} numberOfLines={1}>
-          {strings.PopularCategories}
-        </CText>
-      </View>
+      </TouchableOpacity>
     );
   };
   return (
     <SafeAreaView style={localstyle.container}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
+        <View>
+          <StepIndicator step={4} style={styles.mh0} />
+          <CText type={'B24'} numberOfLines={2}>
+            {strings.categoriesTitle}
+          </CText>
+          <CTextInput
+            LeftIcon={LeftIconButton}
+            placeholderText={strings.categoriesPlaceholderText}
+            value={searchitem}
+            onChangeText={onChangeSearch}
+          />
+          <CText
+            style={localstyle.topArtistStyle}
+            type={'M16'}
+            numberOfLines={1}>
+            {strings.PopularCategories}
+          </CText>
+        </View>
         <FlatList
-          ListHeaderComponent={ListHeaderComponent}
           data={select}
           renderItem={renderItem}
           showsVerticalScrollIndicator={false}
@@ -160,7 +158,7 @@ const localstyle = StyleSheet.create({
   },
   contentViewStyle: {
     ...styles.ml20,
-    ...styles.flex
+    ...styles.flex,
   },
   nextbtnStyle: {
     ...styles.mt30,

@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 
-//local import
+//custom import
 import CHeader from '../common/CHeader';
 import images from '../../assets/images';
 import strings from '../../i18n/strings';
@@ -32,7 +32,7 @@ export default function TrendingArtist({navigation}) {
     return <Image source={images.search} style={localStyle.searchBtn} />;
   };
   const MoveToBackScreen = () => {
-    navigation.navigate(TabNav.Home)
+    navigation.navigate(TabNav.Home);
   };
   const MoveToSearchPage = () => {
     navigation.navigate(StackNav.SearchPage);
@@ -155,7 +155,7 @@ const localStyle = StyleSheet.create({
     borderRadius: moderateScale(10),
     overflow: 'hidden',
     ...styles.mr10,
-    textAlign:'center',
+    textAlign: 'center',
   },
   nameStyle: {
     ...styles.mb5,

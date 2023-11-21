@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   ScrollView,
   StyleSheet,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import React from 'react';
@@ -48,12 +49,23 @@ export default function DetailArtist({route, navigation}) {
   ];
 
   const moveToNextScreen = () => {
-    navigation.navigate(StackNav.TrendingArtist);
+    navigation.goBack();
+  };
+  const onpressRegister = () => {
+    navigation.navigate(StackNav.RegisterBid);
   };
 
   const renderItem = ({item}) => {
     return (
-      <View style={localStyle.mainImageStyle}>
+      <TouchableOpacity
+        style={localStyle.mainImageStyle}
+        onPress={() =>
+          navigation.navigate(StackNav.DetailArt, {
+            image: item.image,
+            title: item.title,
+            Creator: item.creatorImage,
+          })
+        }>
         <Image source={item.image} style={localStyle.imageStyle} />
         <View style={localStyle.contentmainStyle}>
           <CText type={'B14'} numberOfLines={1}>
@@ -70,9 +82,10 @@ export default function DetailArtist({route, navigation}) {
           <CButton
             Title={strings.PlaceBid}
             ChangeBtnStyle={localStyle.ChangeBtnStyle}
+            onPress={onpressRegister}
           />
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
   return (
