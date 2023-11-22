@@ -19,16 +19,19 @@ export default function WorksDetail({navigation}) {
   const onpressRegister = () => {
     navigation.navigate(StackNav.RegisterBid);
   };
+
+  const onpressWorkdetail=(item)=>{
+    navigation.navigate(StackNav.DetailArt, {
+      image: item.image,
+      title: item.title,
+      Creator: item.creatorImage,
+    });
+  }
   const renderItem = ({item}) => {
     return (
       <TouchableOpacity
         style={localStyle.mainBoxContainer}
-        onPress={() =>
-          navigation.navigate(StackNav.DetailArt, {
-            image: item.image,
-            title: item.title,
-            Creator: item.creatorImage,
-          })
+        onPress={() =>onpressWorkdetail(item)
         }>
         <Image source={item.image} style={localStyle.imageStyle} />
         <View style={localStyle.mainContentStyle}>

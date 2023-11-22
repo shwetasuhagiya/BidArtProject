@@ -17,7 +17,6 @@ export const StackNav = {
   RegisterBid: 'RegisterBid',
   AddCreditCard: 'AddCreditCard',
   AddBillingAddress: 'AddBillingAddress',
-  RegisterBidData: 'RegisterBidData',
   SubmitWork: 'SubmitWork',
   WhisList: 'WhisList',
   SettingAccount: 'SettingAccount',

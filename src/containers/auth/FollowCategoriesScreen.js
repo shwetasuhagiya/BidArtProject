@@ -25,6 +25,10 @@ const FollowCategoriesScreen = ({navigation}) => {
   const [select, setSelect] = useState(CategoriesList);
   const [searchitem, SetSearchItem] = useState('');
 
+  useEffect(() => {
+    OnChangeSearch();
+  }, [searchitem]);
+
   const onChangeSearch = item => {
     SetSearchItem(item);
   };
@@ -32,14 +36,6 @@ const FollowCategoriesScreen = ({navigation}) => {
   const MovetoNextScreen = () => {
     navigation.navigate(AuthNav.BudgetScreen);
   };
-
-  const LeftIconButton = () => {
-    return <Image source={images.search} style={localstyle.searchbtn} />;
-  };
-
-  useEffect(() => {
-    OnChangeSearch();
-  }, [searchitem]);
 
   const OnChangeSearch = () => {
     if (searchitem) {
@@ -79,15 +75,19 @@ const FollowCategoriesScreen = ({navigation}) => {
           </View>
         </View>
         <TouchableOpacity onPress={() => handleOnpress(item)}>
-          {item.selected ? (
-            <Image source={images.rounded} />
-          ) : (
-            <Image source={images.circle} style={localstyle.circlestyle} />
-          )}
+          <Image
+            source={item.selected ? images.rounded : images.circle}
+            style={localstyle.circlestyle}
+          />
         </TouchableOpacity>
       </TouchableOpacity>
     );
   };
+
+  const LeftIconButton = () => {
+    return <Image source={images.search} style={localstyle.searchbtn} />;
+  };
+
   return (
     <SafeAreaView style={localstyle.container}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
@@ -116,13 +116,13 @@ const FollowCategoriesScreen = ({navigation}) => {
           scrollEnabled={false}
           keyExtractor={item => item.id}
         />
-        <CButton
-          Title={strings.Next}
-          ChangeBtnStyle={localstyle.nextbtnStyle}
-          onPress={MovetoNextScreen}
-          type={'B16'}
-        />
       </KeyBoardAvoidWrapper>
+      <CButton
+        Title={strings.Next}
+        ChangeBtnStyle={localstyle.nextbtnStyle}
+        onPress={MovetoNextScreen}
+        type={'B16'}
+      />
     </SafeAreaView>
   );
 };

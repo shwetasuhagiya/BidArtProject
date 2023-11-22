@@ -23,9 +23,7 @@ import CButton from '../../components/common/CButton';
 
 const HomeTab = ({navigation}) => {
   const [search, SetSearch] = useState('');
-  const LeftIconBtn = () => {
-    return <Image source={images.search} style={localstyles.searchStyle} />;
-  };
+
   const onChangeTextCom = item => {
     SetSearch(item);
   };
@@ -43,6 +41,23 @@ const HomeTab = ({navigation}) => {
   const ViewAllArtist = () => {
     navigation.navigate(StackNav.TrendingArtist);
   };
+
+  const onPressDetailArt = item => {
+    navigation.navigate(StackNav.DetailArt, {
+      image: item.image,
+      title: item.title,
+      Creator: item.creatorImage,
+    });
+  };
+
+  const onPressDetailEvent = item => {
+    navigation.navigate(StackNav.DetailEvent, {
+      image: images.event,
+      date: strings.Eventdate,
+      auction: strings.Auction,
+    });
+  };
+
   const CategoriesHeader = ({name, onPress, Style}) => {
     return (
       <View style={[localstyles.HeaderTitleStyle, Style]}>
@@ -58,17 +73,15 @@ const HomeTab = ({navigation}) => {
     );
   };
 
+  const LeftIconBtn = () => {
+    return <Image source={images.search} style={localstyles.searchStyle} />;
+  };
+
   const renderItem = ({item}) => {
     return (
       <TouchableOpacity
         style={localstyles.mainArtContaineStyle}
-        onPress={() =>
-          navigation.navigate(StackNav.DetailArt, {
-            image: item.image,
-            title: item.title,
-            Creator: item.creatorImage,
-          })
-        }>
+        onPress={() => onPressDetailArt(item)}>
         <Image source={item.image} style={localstyles.artImgesStyles} />
         <Image source={item.timeImage} style={localstyles.absoluteImage} />
         <View style={localstyles.contentStyle}>
@@ -114,13 +127,7 @@ const HomeTab = ({navigation}) => {
     return (
       <TouchableOpacity
         style={localstyles.maineventStyle}
-        onPress={() =>
-          navigation.navigate(StackNav.DetailEvent, {
-            image: images.event,
-            date: strings.Eventdate,
-            auction: strings.Auction,
-          })
-        }>
+        onPress={() => onPressDetailEvent()}>
         <View style={localstyles.childImgStyle}>
           <Image source={images.event} style={localstyles.imgStyle} />
           <View>
@@ -189,48 +196,47 @@ const HomeTab = ({navigation}) => {
           </View>
           <Image source={images.notificaation} />
         </View>
-        <ScrollView>
-          <CTextInput
-            LeftIcon={LeftIconBtn}
-            placeholderText={strings.searchItems}
-            vale={search}
-            onChangeText={onChangeTextCom}
-          />
+        <CTextInput
+          LeftIcon={LeftIconBtn}
+          placeholderText={strings.searchItems}
+          vale={search}
+          onChangeText={onChangeTextCom}
+        />
 
-          {/* ------------------- Popular Artwork ---------------------- */}
-          <CategoriesHeader
-            name={strings.PopularArtwork}
-            onPress={ViewAllCategories}
-          />
-          <FlatList
-            data={ArtWorkList}
-            renderItem={renderItem}
-            horizontal
-            scrollEnabled
-            showsHorizontalScrollIndicator={false}
-          />
+        {/* ------------------- Popular Artwork ---------------------- */}
+        <CategoriesHeader
+          name={strings.PopularArtwork}
+          onPress={ViewAllCategories}
+        />
+        <FlatList
+          data={ArtWorkList}
+          renderItem={renderItem}
+          horizontal
+          scrollEnabled
+          showsHorizontalScrollIndicator={false}
+        />
 
-          {/* --------------------Trending Artist ------------------ */}
-          <CategoriesHeader
-            name={strings.TrendingArtist}
-            Style={localstyles.artisrHeaderStyle}
-            onPress={ViewAllArtist}
-          />
-          <FlatList
-            data={TreadingArtistList}
-            renderItem={renderItemArtist}
-            horizontal
-            scrollEnabled
-            showsHorizontalScrollIndicator={false}
-          />
-          {/* --------------------BidArt Event ------------------ */}
-          <CategoriesHeader
-            name={strings.BidArtEvent}
-            Style={localstyles.artisrHeaderStyle}
-            onPress={ViewAllBidArtEvent}
-          />
-          <BidArtEvent />
-        </ScrollView>
+        {/* --------------------Trending Artist ------------------ */}
+        <CategoriesHeader
+          name={strings.TrendingArtist}
+          Style={localstyles.artisrHeaderStyle}
+          onPress={ViewAllArtist}
+        />
+        <FlatList
+          data={[...TreadingArtistList, ...TreadingArtistList]}
+          renderItem={renderItemArtist}
+          horizontal
+          scrollEnabled
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.pr30}
+        />
+        {/* --------------------BidArt Event ------------------ */}
+        <CategoriesHeader
+          name={strings.BidArtEvent}
+          Style={localstyles.artisrHeaderStyle}
+          onPress={ViewAllBidArtEvent}
+        />
+        <BidArtEvent />
       </KeyBoardAvoidWrapper>
     </SafeAreaView>
   );

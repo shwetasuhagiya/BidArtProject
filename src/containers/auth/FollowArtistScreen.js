@@ -25,18 +25,13 @@ const FollowArtistScreen = ({navigation}) => {
   const [select, setSelect] = useState(TopArtistList);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const LeftIconButton = () => {
-    return <Image source={images.search} style={localstyle.searchbtn} />;
-  };
-  const MovetoNextBtn = () => {
-    navigation.navigate(AuthNav.FollowCategoriesScreen);
-  };
-  const OnChangeTextInput = item => {
-    setSearchQuery(item);
-  };
   useEffect(() => {
     OnChangeSearch();
   }, [searchQuery]);
+
+  const MovetoNextBtn = () => {
+    navigation.navigate(AuthNav.FollowCategoriesScreen);
+  };
 
   const OnChangeSearch = () => {
     if (searchQuery) {
@@ -78,14 +73,17 @@ const FollowArtistScreen = ({navigation}) => {
           </View>
         </View>
         <TouchableOpacity onPress={() => handleOnpress(item)}>
-          {item.selected ? (
-            <Image source={images.rounded} />
-          ) : (
-            <Image source={images.circle} style={localstyle.circlestyle} />
-          )}
+          <Image
+            source={item.selected ? images.rounded : images.circle}
+            style={localstyle.circlestyle}
+          />
         </TouchableOpacity>
       </TouchableOpacity>
     );
+  };
+
+  const LeftIconButton = () => {
+    return <Image source={images.search} style={localstyle.searchbtn} />;
   };
 
   return (
@@ -111,19 +109,19 @@ const FollowArtistScreen = ({navigation}) => {
           </CText>
         </View>
         <FlatList
-          keyExtractor={item => item.id}
-          data={select}
+          data={[...select, ...select]}
           renderItem={renderItem}
+          keyExtractor={item => item.id}
           scrollEnabled={false}
           showsVerticalScrollIndicator={false}
         />
-        <CButton
-          Title={strings.Next}
-          ChangeBtnStyle={localstyle.nextbtnStyle}
-          onPress={MovetoNextBtn}
-          type={'B16'}
-        />
       </KeyBoardAvoidWrapper>
+      <CButton
+        Title={strings.Next}
+        ChangeBtnStyle={localstyle.nextbtnStyle}
+        onPress={MovetoNextBtn}
+        type={'B16'}
+      />
     </SafeAreaView>
   );
 };

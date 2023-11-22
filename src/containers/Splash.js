@@ -19,7 +19,6 @@ const Splash = ({navigation}) => {
     try {
       let asyncData = await StorageGetValue();
       if (asyncData) {
-        // cl
         let {onBoardingValue, Loginvalue} = asyncData;
         if (!!Loginvalue) {
           navigation.replace(StackNav.TabNavigation);
@@ -35,9 +34,7 @@ const Splash = ({navigation}) => {
   };
   return (
     <SafeAreaView style={localstyles.imagestyle}>
-      <View>
-        <Image source={images.logo} />
-      </View>
+      <Image source={images.logo} />
       <Image source={images.loader} style={localstyles.loaderStyle} />
     </SafeAreaView>
   );
@@ -48,7 +45,8 @@ const localstyles = StyleSheet.create({
     ...styles.center,
   },
   loaderStyle: {
-    top: moderateScale(300),
+    position: 'absolute',
+    bottom: moderateScale(100),
   },
 });
 export default Splash;

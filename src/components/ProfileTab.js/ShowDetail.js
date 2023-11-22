@@ -16,17 +16,18 @@ import {colors, styles} from '../../themes';
 import {StackNav} from '../../navigation/NavigationKeys';
 
 export default function ShowDetail({navigation}) {
+  const onpressEvent = (item) => {
+    navigation.navigate(StackNav.DetailEvent, {
+      image: item.mainImage,
+      date: item.date,
+      auction: item.auction,
+    });
+  };
   const renderItemEvent = ({item}) => {
     return (
       <TouchableOpacity
         style={localStyle.maineventStyle}
-        onPress={() =>
-          navigation.navigate(StackNav.DetailEvent, {
-            image: item.mainImage,
-            date: item.date,
-            auction: item.auction,
-          })
-        }>
+        onPress={() => onpressEvent(item)}>
         <View style={localStyle.childImgStyle}>
           <Image source={item.mainImage} style={localStyle.imgStyle} />
           <View>

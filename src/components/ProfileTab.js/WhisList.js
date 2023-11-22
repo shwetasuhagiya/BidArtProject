@@ -74,6 +74,7 @@ export default function WhisList({navigation}) {
           showsHorizontalScrollIndicator={false}
           estimatedItemSize={3}
           keyExtractor={(item, index) => index.toString()}
+          scrollEnabled={false}
         />
       </View>
       <View style={localStyle.bottomContainer}>
@@ -111,5 +112,6 @@ const localStyle = StyleSheet.create({
   },
   bottomContainer: {
     ...styles.pv15,
+    ...styles.flex,
   },
 });

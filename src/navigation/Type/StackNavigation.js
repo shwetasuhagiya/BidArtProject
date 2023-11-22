@@ -82,10 +82,6 @@ export default function StackNavigation() {
         component={StackRoute.AddBillingAddress}
       />
       <Stack.Screen
-        name={StackNav.RegisterBidData}
-        component={StackRoute.RegisterBidData}
-      />
-      <Stack.Screen
         name={StackNav.SubmitWork}
         component={StackRoute.SubmitWork}
       />

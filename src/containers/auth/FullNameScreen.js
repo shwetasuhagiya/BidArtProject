@@ -37,7 +37,7 @@ const FullNameScreen = ({navigation}) => {
     setAgreeBtn(!agreeBtn);
   };
   return (
-    <SafeAreaView style={styles.mainContainerSurface}>
+    <SafeAreaView>
       <KeyBoardAvoidWrapper
         contentContainerStyle={styles.flexG1}></KeyBoardAvoidWrapper>
       <StepIndicator step={2} />
@@ -68,8 +68,8 @@ const FullNameScreen = ({navigation}) => {
             errorText={FullName}
           />
         </View>
-        <View style={styles.mh15}>
-          <CText numberOfLines={2} style={localstyle.termsStyle} type={'R14'}>
+        <View>
+          <CText numberOfLines={2} type={'R14'}>
             {strings.temrsAndCondition}
             <CText numberOfLines={1} type={'B14'}>
               {strings.TermofUse}
@@ -118,9 +118,6 @@ const localstyle = StyleSheet.create({
   PasswordTitle: {
     ...styles.mt20,
   },
-  termsStyle: {
-    width: moderateScale(300),
-  },
   CheckbtnStyle: {
     height: moderateScale(24),
     width: moderateScale(24),
@@ -133,10 +130,6 @@ const localstyle = StyleSheet.create({
   },
   btnStyle: {
     ...styles.mt40,
-  },
-  textStyle: {
-    color: colors.red,
-    ...styles.mv10,
   },
 });
 export default FullNameScreen;

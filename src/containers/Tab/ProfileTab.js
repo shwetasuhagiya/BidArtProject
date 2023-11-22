@@ -6,9 +6,11 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-//custom import
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+//custom import
 import CText from '../../components/common/CText';
 import strings from '../../i18n/strings';
 import {colors, styles} from '../../themes';
@@ -16,8 +18,8 @@ import {moderateScale} from '../../common/constants';
 import images from '../../assets/images';
 import CButton from '../../components/common/CButton';
 import {StackNav} from '../../navigation/NavigationKeys';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {LOGIN_TOKEN} from '../../utils/keys';
+import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper';
 
 export default function ProfileTab({navigation}) {
   const SubmitWorkScreen = () => {
@@ -55,7 +57,7 @@ export default function ProfileTab({navigation}) {
   };
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
-      <View>
+      <KeyBoardAvoidWrapper>
         <View style={localStyle.containerStyle}>
           <CText type={'B24'} numberOfLines={1}>
             {strings.Profile}
@@ -128,7 +130,7 @@ export default function ProfileTab({navigation}) {
           icon={'arrow-right'}
           onPress={MoveToPaymentScreen}
         />
-      </View>
+      </KeyBoardAvoidWrapper>
       <CButton
         Title={strings.LogOut}
         type={'B16'}
@@ -205,6 +207,6 @@ const localStyle = StyleSheet.create({
     backgroundColor: colors.white,
     borderWidth: moderateScale(1),
     borderColor: colors.black,
-    ...styles.mb40,
+    ...styles.mb20,
   },
 });

@@ -54,17 +54,20 @@ export default function DetailArtist({route, navigation}) {
   const onpressRegister = () => {
     navigation.navigate(StackNav.RegisterBid);
   };
+  
+  const onpressDetailArtist=(item)=>{
+     navigation.navigate(StackNav.DetailArt, {
+       image: item.image,
+       title: item.title,
+       Creator: item.creatorImage,
+     });
+  }
 
   const renderItem = ({item}) => {
     return (
       <TouchableOpacity
         style={localStyle.mainImageStyle}
-        onPress={() =>
-          navigation.navigate(StackNav.DetailArt, {
-            image: item.image,
-            title: item.title,
-            Creator: item.creatorImage,
-          })
+        onPress={() =>onpressDetailArtist(item)
         }>
         <Image source={item.image} style={localStyle.imageStyle} />
         <View style={localStyle.contentmainStyle}>

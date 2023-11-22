@@ -37,6 +37,7 @@ const BudgetScreen = ({navigation}) => {
       </View>
     );
   };
+
   const renderItem = ({item}) => {
     return (
       <TouchableOpacity
@@ -44,11 +45,10 @@ const BudgetScreen = ({navigation}) => {
         onPress={() => setSelect(item)}>
         <CText type={'M16'}>{item.price}</CText>
         <TouchableOpacity onPress={() => setSelect(item)}>
-          {select.id === item.id ? (
-            <Image source={images.rounded} />
-          ) : (
-            <Image source={images.circle} style={localstyle.circlestyle} />
-          )}
+          <Image
+            source={select.id === item.id ? images.rounded : images.circle}
+            style={localstyle.circlestyle}
+          />
         </TouchableOpacity>
       </TouchableOpacity>
     );

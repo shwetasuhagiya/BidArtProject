@@ -5,10 +5,9 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 //custom import
-import Feather from 'react-native-vector-icons/Feather';
 import {colors, styles} from '../../themes';
 import CText from '../common/CText';
 import CHeader from '../common/CHeader';
@@ -16,9 +15,11 @@ import images from '../../assets/images';
 import strings from '../../i18n/strings';
 import {moderateScale} from '../../common/constants';
 import CButton from '../common/CButton';
-import {StackNav} from '../../navigation/NavigationKeys';
+import {StackNav, TabNav} from '../../navigation/NavigationKeys';
+import { CheckCircle, Circle } from '../../assets/svg';
 
 export default function RegisterBid({navigation}) {
+   const [agreeBtn, setAgreeBtn] = useState(false);
   const MoveToNextScreen = () => {
     navigation.navigate(StackNav.AddCreditCard);
   };
@@ -27,6 +28,12 @@ export default function RegisterBid({navigation}) {
   };
   const MovetoBillingScreen = () => {
     navigation.navigate(StackNav.AddBillingAddress);
+  };
+  const MoveToNext = () => {
+    navigation.navigate(TabNav.Home);
+  };
+  const onPressCheckbtn = () => {
+    setAgreeBtn(!agreeBtn);
   };
   const DetailsCard = ({img, text, onPress, data}) => {
     return (
@@ -90,23 +97,24 @@ export default function RegisterBid({navigation}) {
         />
       </View>
       <View>
-        <View style={[localStyle.maincontent, styles.center]}>
-          <Feather
-            name={'circle'}
-            size={moderateScale(24)}
-            style={localStyle.colorStyle}
-          />
+        <TouchableOpacity
+          style={[localStyle.maincontent, styles.center]}
+          onPress={onPressCheckbtn}>
+          {agreeBtn ? <CheckCircle /> : <Circle />}
           <CText type={'R12'} numberOfLines={1} color={colors.grayText}>
-            {strings.Agreeto}{' '}
+            {' '}
+            {strings.Agreeto}
             <CText type={'S12'} numberOfLines={1}>
+              {' '}
               {strings.ConditionSale}
             </CText>
           </CText>
-        </View>
+        </TouchableOpacity>
         <CButton
           Title={strings.CompleteRegistration}
           type={'B16'}
           ChangeBtnStyle={localStyle.btnStyle}
+          onPress={MoveToNext}
         />
       </View>
     </SafeAreaView>
@@ -174,7 +182,7 @@ const localStyle = StyleSheet.create({
     ...styles.mr5,
   },
   btnStyle: {
-    backgroundColor: colors.lightGray,
+    backgroundColor: colors.black,
     ...styles.mb10,
     ...styles.mt30,
   },

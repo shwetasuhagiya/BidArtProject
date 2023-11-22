@@ -49,6 +49,11 @@ const CreatePasswordScreen = ({navigation}) => {
       navigation.navigate(AuthNav.FullNameScreen);
     }
   };
+
+  const onPressCheckbtn = () => {
+    setAgreeBtn(!agreeBtn);
+  };
+
   const RightIcon = () => {
     return (
       <View style={localstyle.btnhandle}>
@@ -78,9 +83,7 @@ const CreatePasswordScreen = ({navigation}) => {
       </View>
     );
   };
-  const onPressCheckbtn = () => {
-    setAgreeBtn(!agreeBtn);
-  };
+
   return (
     <SafeAreaView style={styles.mainContainerSurface}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
@@ -156,7 +159,6 @@ const CreatePasswordScreen = ({navigation}) => {
               type={'B16'}
             />
           </View>
-
           <View style={localstyle.accountdetailStyle}>
             <CText
               numberOfLines={1}
@@ -204,9 +206,6 @@ const localstyle = StyleSheet.create({
     ...styles.flexRow,
     ...styles.center,
   },
-  TextinputStyle: {
-    ...styles.mb15,
-  },
   termsStyle: {
     ...styles.mt20,
   },
@@ -230,20 +229,6 @@ const localstyle = StyleSheet.create({
     ...styles.flex,
     ...styles.center,
     ...styles.flexRow,
-  },
-  securetextStyle: {
-    ...styles.center,
-    ...styles.mr10,
-    height: moderateScale(24),
-    width: moderateScale(24),
-  },
-  textStyle: {
-    color: colors.red,
-    ...styles.mv10,
-  },
-  emailStyle: {
-    color: colors.green,
-    ...styles.mv10,
   },
 });
 export default CreatePasswordScreen;

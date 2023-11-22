@@ -2,7 +2,6 @@ import AddBillingAddress from '../components/DiscoverTab/AddBillingAddress';
 import AddCreditCard from '../components/DiscoverTab/AddCreditCard';
 import DetailArt from '../components/DiscoverTab/DetailArt';
 import RegisterBid from '../components/DiscoverTab/RegisterBid';
-import RegisterBidData from '../components/DiscoverTab/RegisterBidData';
 import SearchDiscover from '../components/DiscoverTab/SearchDiscover';
 import ArtWorkScreen from '../components/HomeTab/ArtWorkScreen';
 import BidArtEvent from '../components/HomeTab/BidArtEvent';
@@ -53,7 +52,6 @@ export const StackRoute = {
   RegisterBid,
   AddCreditCard,
   AddBillingAddress,
-  RegisterBidData,
   SubmitWork,
   WhisList,
   SettingAccount,

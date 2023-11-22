@@ -52,9 +52,12 @@ export default function AddCreditCard({navigation}) {
     SetcvvError(msg);
   };
   const MovetoBackscreen = () => {
-    navigation.navigate(StackNav.RegisterBid);
+    navigation.goBack();
   };
 
+  const onPressRegister=()=>{
+     navigation.navigate(StackNav.RegisterBid);
+  }
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
@@ -75,6 +78,7 @@ export default function AddCreditCard({navigation}) {
             onChangeText={onChangeCardnumber}
             errorText={cardNumberCheck}
             keyBoardType={'numeric'}
+            maxLength={16}
           />
           <View style={localStyle.flexInput}>
             <View>
@@ -82,7 +86,7 @@ export default function AddCreditCard({navigation}) {
                 style={localStyle.contentStyle}
                 type={'M14'}
                 numberOfLines={1}>
-                {strings.CardNumber}
+                {strings.ExpiredDate}
               </CText>
               <CTextInput
                 placeholderText={strings.MMYY}
@@ -91,6 +95,7 @@ export default function AddCreditCard({navigation}) {
                 onChangeText={onChangeDate}
                 errorText={dateError}
                 keyBoardType={'numeric'}
+                maxLength={5}
               />
             </View>
             <View>
@@ -107,6 +112,7 @@ export default function AddCreditCard({navigation}) {
                 onChangeText={onChangeCVC}
                 errorText={cvcError}
                 keyBoardType={'numeric'}
+                maxLength={5}
               />
             </View>
           </View>
@@ -117,11 +123,7 @@ export default function AddCreditCard({navigation}) {
         type={'B16'}
         ChangeBtnStyle={localStyle.btnStyle}
         ChangeTxtStyle={localStyle.ChangeTxtStyle}
-        onPress={() => {
-          navigation.navigate(StackNav.AddBillingAddress, {
-            CardNumber: CardNumber,
-          });
-        }}
+        onPress={onPressRegister}
       />
     </SafeAreaView>
   );
@@ -141,19 +143,18 @@ const localStyle = StyleSheet.create({
     ...styles.mb5,
   },
   contentStyle: {
-    ...styles.mt25,
+    ...styles.mt5,
   },
   textInputstyle: {
     width: moderateScale(156),
   },
   flexInput: {
-    ...styles.rowSpaceBetween,
-    ...styles.aligncenter,
-    ...styles.flex,
+    ...styles.flexRow,
+    ...styles.justifyBetween,
+    ...styles.mt10
   },
   btnStyle: {
     ...styles.mb10,
-    ...styles.mt30,
     backgroundColor: colors.lightGray,
   },
   ChangeTxtStyle: {

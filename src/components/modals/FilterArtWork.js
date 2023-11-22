@@ -12,7 +12,7 @@ import React, {useState} from 'react';
 import CText from '../common/CText';
 import strings from '../../i18n/strings';
 import {colors, styles} from '../../themes';
-import {sortby} from '../../api/constant';
+import {filterData, sortby} from '../../api/constant';
 import {moderateScale} from '../../common/constants';
 import images from '../../assets/images';
 import CButton from '../common/CButton';
@@ -24,11 +24,6 @@ const FilterArtWork = props => {
   const navigation = useNavigation();
   const [SelectedItem, SetSelectedItem] = useState(0);
   const [select, setSelect] = useState(sortby);
-  const Array = [
-    {id: 0, name: 'Sort By'},
-    {id: 1, name: 'Medium'},
-    {id: 2, name: 'Price'},
-  ];
 
   const MovetoScreen = () => {
     sheetRef.current?.hide();
@@ -67,18 +62,17 @@ const FilterArtWork = props => {
 
   const renderItem = ({item}) => {
     return (
-      <View style={localstyle.mainRenderStyle}>
-        <TouchableOpacity style={localstyle.clickItemStyle}>
-          <CText type={'M16'}>{item.data}</CText>
-        </TouchableOpacity>
+      <TouchableOpacity
+        style={localstyle.mainRenderStyle}
+        onPress={() => handleOnpress(item)}>
+        <CText type={'M16'}>{item.data}</CText>
         <TouchableOpacity onPress={() => handleOnpress(item)}>
-          {item.selected ? (
-            <Image source={images.rounded} />
-          ) : (
-            <Image source={images.circle} style={localstyle.circlestyle} />
-          )}
+          <Image
+            source={item.selected ? images.rounded : images.circle}
+            style={localstyle.circlestyle}
+          />
         </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
     );
   };
   return (
@@ -88,8 +82,8 @@ const FilterArtWork = props => {
           {strings.FilterArtwork}
         </CText>
         <View style={localstyle.contentStyle}>
-          {Array.map(item => {
-            return <RenderMainItems item={item} />;
+          {filterData.map(item => {
+            return <RenderMainItems item={item} />
           })}
         </View>
         <FlatList data={select} renderItem={renderItem} />

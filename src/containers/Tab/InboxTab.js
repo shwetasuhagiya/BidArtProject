@@ -23,6 +23,7 @@ export default function InboxTab({navigation}) {
   const onPressSelect = item => {
     SetSelectedItem(item);
   };
+
   const RenderItems = ({item}) => {
     return (
       <TouchableOpacity
@@ -69,6 +70,7 @@ export default function InboxTab({navigation}) {
           data={InboxFiled}
           renderItem={RenderItems}
           horizontal
+          scrollEnabled={false}
           showsHorizontalScrollIndicator={false}
           estimatedItemSize={3}
           keyExtractor={(item, index) => index.toString()}
@@ -108,6 +110,6 @@ const localStyle = StyleSheet.create({
     ...styles.mh10,
   },
   bottomContainer: {
-    ...styles.pv15,
+    ...styles.flex,
   },
 });

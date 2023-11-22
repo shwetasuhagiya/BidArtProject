@@ -7,7 +7,7 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import React, {useCallback,useRef, useState} from 'react';
+import React, {useCallback, useRef, useState} from 'react';
 
 //custom import
 import {OnBoardingSlideData} from '../api/constant';
@@ -16,6 +16,8 @@ import typography from '../themes/typography';
 import images from '../assets/images';
 import {deviceHeight, deviceWidth, moderateScale} from '../common/constants';
 import {StoreOnbardingData} from '../utils/asyncstorage';
+import {StackNav} from '../navigation/NavigationKeys';
+import CText from '../components/common/CText';
 
 const OnBoarding = props => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,7 +30,7 @@ const OnBoarding = props => {
   const onPressRightArrow = () => {
     if (currentIndex === 2) {
       StoreOnbardingData(true);
-      props.navigation.replace('AuthNavigation');
+      props.navigation.replace(StackNav.AuthNavigation);
     } else {
       slideRef.current._listRef._scrollRef.scrollTo({
         x: deviceWidth * (currentIndex + 1),
@@ -40,11 +42,10 @@ const OnBoarding = props => {
       return (
         <View style={localstyle.renderItemcontainer}>
           <Image source={item.image} style={localstyle.OnBoardingImageStyle} />
-
-          <Text style={localstyle.titleTextStyle}>{item.titleText}</Text>
-          <Text style={localstyle.descriptionTextStyle}>
+          <CText style={localstyle.titleTextStyle}>{item.titleText}</CText>
+          <CText style={localstyle.descriptionTextStyle}>
             {item.descriptionText}
-          </Text>
+          </CText>
         </View>
       );
     },

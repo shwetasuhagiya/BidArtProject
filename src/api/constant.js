@@ -483,3 +483,21 @@ export const WorkList = [
     price: '$4,600',
   },
 ];
+
+export const filterData = [
+  {id: 0, name: 'Sort By'},
+  {id: 1, name: 'Medium'},
+  {id: 2, name: 'Price'},
+];
+
+export const DiscoverData = [
+  {id: 0, name: 'All Art'},
+  {id: 1, name: 'Photography'},
+  {id: 2, name: 'Emerging Artists'},
+  {id: 3, name: 'Pop Art'},
+];
+
+export const EventData = [
+  {id: 0, name: 'Exhibitors'},
+  {id: 1, name: 'Artworks'},
+];

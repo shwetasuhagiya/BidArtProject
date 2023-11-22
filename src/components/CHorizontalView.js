@@ -19,17 +19,19 @@ const CHorizontalView = ({item, navigation}) => {
   const onpressRegister = () => {
     navigation.navigate(StackNav.RegisterBid);
   };
+
+  const onpressDetail = item => {
+    navigation.navigate(StackNav.DetailArt, {
+      image: item.image,
+      title: item.title,
+      Creator: item.creatorImage,
+    });
+  };
   return (
     <SafeAreaView>
       <TouchableOpacity
         style={localStyle.container}
-        onPress={() =>
-          navigation.navigate(StackNav.DetailArt, {
-            image: item.image,
-            title: item.title,
-            Creator: item.creatorImage,
-          })
-        }>
+        onPress={() => onpressDetail(item)}>
         <Image source={item.image} style={localStyle.imageStyle} />
         <Image source={item.timeImage} style={localStyle.absoluteImage} />
         <View style={localStyle.contentStyle}>

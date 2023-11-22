@@ -37,18 +37,21 @@ export default function TrendingArtist({navigation}) {
   const MoveToSearchPage = () => {
     navigation.navigate(StackNav.SearchPage);
   };
+
+  const onPressDetailArtist=(item)=>{
+     navigation.navigate(StackNav.DetailArtist, {
+       name: item.name,
+       userImage: item.userImage,
+       image1: item.image1,
+       image2: item.image2,
+       image3: item.image3,
+     });
+  }
   const renderItemUser = ({item}) => {
     return (
       <TouchableOpacity
         style={localStyle.mainContentStyle}
-        onPress={() =>
-          navigation.navigate(StackNav.DetailArtist, {
-            name: item.name,
-            userImage: item.userImage,
-            image1: item.image1,
-            image2: item.image2,
-            image3: item.image3,
-          })
+        onPress={() =>onPressDetailArtist(item)
         }>
         <View style={localStyle.flexImagestyle}>
           <Image source={item.image1} style={localStyle.imageStyle} />

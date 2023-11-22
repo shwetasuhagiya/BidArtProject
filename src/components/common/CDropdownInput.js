@@ -6,7 +6,7 @@ import {colors, styles} from '../../themes';
 import {moderateScale} from '../../common/constants';
 
 export default function CDropdownInput(props) {
-  const {label, data, placeholder, value, onChange} = props;
+  const {label, data, placeholder, value, onChange, position = 'auto'} = props;
 
   return (
     <View style={localStyles.genderContainer}>
@@ -23,6 +23,7 @@ export default function CDropdownInput(props) {
         placeholder={placeholder}
         placeholderStyle={localStyles.dropdownPlaceholder}
         onChange={onChange}
+        dropdownPosition={position}
       />
     </View>
   );

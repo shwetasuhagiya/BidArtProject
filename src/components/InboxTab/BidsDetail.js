@@ -17,16 +17,17 @@ import {moderateScale} from '../../common/constants';
 import {StackNav} from '../../navigation/NavigationKeys';
 
 export default function BidsDetail({navigation}) {
+  const onpressDetail = (item) => {
+    navigation.navigate(StackNav.DetailArt, {
+      image: item.image,
+      title: item.title,
+    });
+  };
   const renderItem = ({item}) => {
     return (
       <TouchableOpacity
         style={localStyle.container}
-        onPress={() =>
-          navigation.navigate(StackNav.DetailArt, {
-            image: item.image,
-            title: item.title,
-          })
-        }>
+        onPress={() => onpressDetail(item)}>
         <Image source={item.image} style={localStyle.imageStyle} />
         <View style={localStyle.bottomContainer}>
           <CText numberOfLines={1} type={'B14'} style={localStyle.contentStyle}>
@@ -48,7 +49,7 @@ export default function BidsDetail({navigation}) {
   };
   return (
     <SafeAreaView>
-      <CText type={'S12'} numberOfLines={1}>
+      <CText type={'S12'} style={styles.mt10} numberOfLines={1}>
         {strings.ActiveBid}
       </CText>
       <FlatList data={ActiveBidFiled} renderItem={renderItem} />

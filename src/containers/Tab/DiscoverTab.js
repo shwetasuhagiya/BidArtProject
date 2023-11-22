@@ -7,12 +7,12 @@ import {
   View,
 } from 'react-native';
 import React, {useRef, useState} from 'react';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 //custom import
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper';
 import {colors, styles} from '../../themes';
-import {ArtWorkList, DiscoveList} from '../../api/constant';
+import {ArtWorkList, DiscoveList, DiscoverData} from '../../api/constant';
 import strings from '../../i18n/strings';
 import images from '../../assets/images';
 import CTextInput from '../../components/common/CTextInput';
@@ -29,12 +29,6 @@ export default function DiscoverTab({navigation}) {
   const [search, setSearch] = useState('');
   const FilterRef = useRef(null);
 
-  const Array = [
-    {id: 0, name: 'All Art'},
-    {id: 1, name: 'Photography'},
-    {id: 2, name: 'Emerging Artists'},
-    {id: 3, name: 'Pop Art'},
-  ];
   const MovetoSearchScreen = () => {
     navigation.navigate(StackNav.SearchDiscover);
   };
@@ -75,17 +69,7 @@ export default function DiscoverTab({navigation}) {
     );
   };
   const onpressrenderItem = ({item}) => {
-    return (
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate(StackNav.DetailArt, {
-            image: item.image,
-            title: item.title,
-          })
-        }>
-        <CVerticalView item={item} navigation={navigation} />
-      </TouchableOpacity>
-    );
+    return <CVerticalView item={item} navigation={navigation} />;
   };
   return (
     <SafeAreaView style={localStyle.mainContainer}>
@@ -110,7 +94,7 @@ export default function DiscoverTab({navigation}) {
           />
         </TouchableOpacity>
         <FlatList
-          data={Array}
+          data={DiscoverData}
           renderItem={RenderMainItems}
           horizontal
           showsHorizontalScrollIndicator={false}

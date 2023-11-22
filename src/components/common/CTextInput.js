@@ -27,6 +27,7 @@ const CTextInput = props => {
     isSecure,
     changeViewStyle,
     keyBoardType,
+    maxLength,
   } = props;
   const [isSecurepass, SetisSecurePass] = useState(isSecure);
   const onPressSecureIcon = () => {
@@ -44,6 +45,7 @@ const CTextInput = props => {
           onChangeText={onChangeText}
           secureTextEntry={isSecurepass}
           keyboardType={keyBoardType}
+          maxLength={maxLength}
         />
         {!!RightIcon && <RightIcon />}
         {!!isSecure && (

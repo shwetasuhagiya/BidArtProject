@@ -16,17 +16,15 @@ import {colors, styles} from '../../themes';
 import {moderateScale} from '../../common/constants';
 import CText from '../common/CText';
 import strings from '../../i18n/strings';
-import {ExhibitorsData, ExhibitorsList} from '../../api/constant';
+import {EventData, ExhibitorsData, ExhibitorsList} from '../../api/constant';
 import CButton from '../common/CButton';
 import {StackNav} from '../../navigation/NavigationKeys';
+import KeyBoardAvoidWrapper from '../common/KeyBoardAvoidWrapper';
 
 export default function DetailEvent({route, navigation}) {
   const [SelectedItem, SetSelectedItem] = useState(0);
   const {image, date, auction} = route.params;
-  const Array = [
-    {id: 0, name: 'Exhibitors'},
-    {id: 1, name: 'Artworks'},
-  ];
+
   const MoveToBackScreen = () => {
     navigation.goBack();
   };
@@ -86,7 +84,7 @@ export default function DetailEvent({route, navigation}) {
   };
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
-      <ScrollView>
+      <KeyBoardAvoidWrapper >
         <CHeader
           img={images.arrowLeft}
           icon={images.share}
@@ -114,7 +112,7 @@ export default function DetailEvent({route, navigation}) {
             </CText>
           </CText>
           <View style={localStyle.contentStyle}>
-            {Array.map(item => {
+            {EventData.map(item => {
               return <RenderMainItems item={item} />;
             })}
           </View>
@@ -169,7 +167,7 @@ export default function DetailEvent({route, navigation}) {
             showsHorizontalScrollIndicator={false}
           />
         </View>
-      </ScrollView>
+      </KeyBoardAvoidWrapper>
     </SafeAreaView>
   );
 }

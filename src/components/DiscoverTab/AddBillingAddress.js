@@ -18,8 +18,7 @@ import {
   validatephoneNum,
 } from '../../utils/Validation';
 
-export default function AddBillingAddress({route, navigation}) {
-  const {CardNumber} = route.params;
+export default function AddBillingAddress({navigation}) {
   const [country, setCountry] = useState('');
   const [name, Setname] = useState('');
   const [fullName, setFullName] = useState('');
@@ -57,9 +56,11 @@ export default function AddBillingAddress({route, navigation}) {
   const MoveToBack = () => {
     navigation.navigate(StackNav.RegisterBid);
   };
-  const MoveToNextScreen = () => {
-    navigation.navigate(StackNav.RegisterBidData);
-  };
+
+  const onPressRegister=()=>{
+     navigation.navigate(StackNav.RegisterBid);
+  }
+
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
@@ -141,6 +142,7 @@ export default function AddBillingAddress({route, navigation}) {
               value={country}
               placeholder={strings.SelectCountry}
               onChange={onChangeCountryFied}
+              position="top"
             />
           </View>
           <CButton
@@ -148,12 +150,7 @@ export default function AddBillingAddress({route, navigation}) {
             type={'B16'}
             ChangeBtnStyle={localStyle.btnStyle}
             ChangeTxtStyle={localStyle.ChangeTxtStyle}
-            onPress={() => {
-              navigation.navigate(StackNav.RegisterBidData, {
-                CardNumber: CardNumber,
-                data: data,
-              });
-            }}
+            onPress={onPressRegister}
           />
         </ScrollView>
       </KeyBoardAvoidWrapper>

@@ -10,18 +10,22 @@ import CText from '../common/CText';
 import strings from '../../i18n/strings';
 import CButton from '../common/CButton';
 import {StackNav} from '../../navigation/NavigationKeys';
+import KeyBoardAvoidWrapper from '../common/KeyBoardAvoidWrapper';
 
 export default function DetailArt({route, navigation}) {
   const {image, title, Creator} = route.params;
+
   const MoveToBackScreen = () => {
     navigation.goBack();
   };
+
   const MoveToRegister = () => {
     navigation.navigate(StackNav.RegisterBid);
   };
+
   return (
     <SafeAreaView style={localStyle.mainContainer}>
-      <View>
+      <KeyBoardAvoidWrapper>
         <View style={localStyle.containerStyle}>
           <CHeader img={images.arrowLeft} onPress={MoveToBackScreen} />
           <View style={localStyle.bookmarkStyle}>
@@ -29,7 +33,10 @@ export default function DetailArt({route, navigation}) {
             <Image source={images.BookMark} />
           </View>
         </View>
-        <Image source={image} style={localStyle.imgStyle} />
+        <View>
+          <Image source={image} style={localStyle.imgStyle} />
+          <Image source={images.time1} style={localStyle.absoluteImage} />
+        </View>
         <CText type={'B18'} numberOfLines={1}>
           {title}
         </CText>
@@ -62,7 +69,7 @@ export default function DetailArt({route, navigation}) {
             {strings.learnmore}
           </CText>
         </CText>
-      </View>
+      </KeyBoardAvoidWrapper>
       <View>
         <CButton
           Title={strings.RegistertoBid}
@@ -101,6 +108,7 @@ const localStyle = StyleSheet.create({
     height: moderateScale(327),
     width: deviceWidth - 35,
     ...styles.mv15,
+    position:'relative'
   },
   contentStyle: {
     ...styles.rowSpaceBetween,
@@ -123,9 +131,15 @@ const localStyle = StyleSheet.create({
     backgroundColor: colors.white,
     borderWidth: moderateScale(1),
     borderColor: colors.black,
-    // ...styles.mb20
   },
   ChangeButtonStyle: {
     ...styles.mv15,
+  },
+  absoluteImage: {
+    height: moderateScale(36),
+    width: moderateScale(112),
+    position: 'absolute',
+    bottom: moderateScale(30),
+    left: '35%',
   },
 });

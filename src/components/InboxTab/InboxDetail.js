@@ -32,12 +32,12 @@ export default function InboxDetail() {
     );
   };
   return (
-    <SafeAreaView style={localStyle.MainStyle}>
+    <SafeAreaView style={styles.flexG1}>
       <FlatList
         data={[...InboxChatFiled, ...InboxChatFiled]}
         renderItem={renderItem}
-        scrollEnabled
         showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.pv15}
       />
     </SafeAreaView>
   );
@@ -46,7 +46,6 @@ export default function InboxDetail() {
 const localStyle = StyleSheet.create({
   mainContainer: {
     ...styles.flexRow,
-    width: moderateScale(347),
   },
   contentStyle: {
     ...styles.flexRow,
@@ -55,7 +54,7 @@ const localStyle = StyleSheet.create({
     ...styles.mb10,
   },
   Container: {
-    width: moderateScale(300),
+    ...styles.flex,
   },
   msgStyle: {
     ...styles.ml10,
@@ -64,8 +63,5 @@ const localStyle = StyleSheet.create({
     height: moderateScale(1),
     backgroundColor: colors.GrayPrimary,
     ...styles.mv15,
-  },
-  MainStyle: {
-    ...styles.mt10,
   },
 });
