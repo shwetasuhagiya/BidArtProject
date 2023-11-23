@@ -33,13 +33,13 @@ export default function BidArtEvent({navigation}) {
     navigation.navigate(StackNav.SearchEvent);
   };
 
-  const onpressDetailEvent=(item)=>{
-       navigation.navigate(StackNav.DetailEvent, {
-         image: item.mainImage,
-         date: item.date,
-         auction: item.auction,
-       });
-  }
+  const onpressDetailEvent = item => {
+    navigation.navigate(StackNav.DetailEvent, {
+      image: item.mainImage,
+      date: item.date,
+      auction: item.auction,
+    });
+  };
   const LeftIconTextinput = () => {
     return (
       <Ionicons
@@ -53,8 +53,7 @@ export default function BidArtEvent({navigation}) {
     return (
       <TouchableOpacity
         style={localStyle.maineventStyle}
-        onPress={() => onpressDetailEvent(item)
-        }>
+        onPress={() => onpressDetailEvent(item)}>
         <View style={localStyle.childImgStyle}>
           <Image source={item.mainImage} style={localStyle.imgStyle} />
           <View>

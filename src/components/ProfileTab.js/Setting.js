@@ -1,5 +1,6 @@
 import {StyleSheet, SafeAreaView, View, TouchableOpacity} from 'react-native';
 import React from 'react';
+
 //custom import
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import CText from '../common/CText';

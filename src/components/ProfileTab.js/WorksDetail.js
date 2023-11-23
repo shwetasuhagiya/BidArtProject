@@ -3,11 +3,12 @@ import {
   Image,
   SafeAreaView,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
 import React from 'react';
+
+//custom import
 import {WorkList} from '../../api/constant';
 import {moderateScale} from '../../common/constants';
 import {colors, styles} from '../../themes';
@@ -20,19 +21,18 @@ export default function WorksDetail({navigation}) {
     navigation.navigate(StackNav.RegisterBid);
   };
 
-  const onpressWorkdetail=(item)=>{
+  const onpressWorkdetail = item => {
     navigation.navigate(StackNav.DetailArt, {
       image: item.image,
       title: item.title,
       Creator: item.creatorImage,
     });
-  }
+  };
   const renderItem = ({item}) => {
     return (
       <TouchableOpacity
         style={localStyle.mainBoxContainer}
-        onPress={() =>onpressWorkdetail(item)
-        }>
+        onPress={() => onpressWorkdetail(item)}>
         <Image source={item.image} style={localStyle.imageStyle} />
         <View style={localStyle.mainContentStyle}>
           <CText type={'B14'} numberOfLines={1}>

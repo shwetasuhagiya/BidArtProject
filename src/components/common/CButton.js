@@ -1,5 +1,7 @@
 import {TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
+
+//custom import
 import {colors, styles} from '../../themes';
 import {moderateScale} from '../../common/constants';
 import CText from './CText';

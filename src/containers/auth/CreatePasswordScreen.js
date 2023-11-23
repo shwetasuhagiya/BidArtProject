@@ -28,7 +28,7 @@ const CreatePasswordScreen = ({navigation}) => {
   const [agreeBtn, setAgreeBtn] = useState(false);
 
   const GoBackBtnHandle = () => {
-    navigation.replace(AuthNav.LoginScreen);
+    navigation.goBack();
   };
   const onChangePassword = item => {
     SetPassword(item);
@@ -37,17 +37,14 @@ const CreatePasswordScreen = ({navigation}) => {
   };
   const onConfirmPassword = item => {
     SetConfirmPassword(item);
-    SetIsError('');
-  };
-  const onpressNextbtn = () => {
     if (password !== ConfirmPassword) {
       SetIsError(strings.passwordNotMatch);
-    } else if (password === '' && ConfirmPassword === '') {
-      SetIsError(strings.enterPassword);
     } else {
       SetIsError('');
-      navigation.navigate(AuthNav.FullNameScreen);
     }
+  };
+  const onpressNextbtn = () => {
+    navigation.navigate(AuthNav.FullNameScreen);
   };
 
   const onPressCheckbtn = () => {
@@ -85,7 +82,7 @@ const CreatePasswordScreen = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView style={styles.mainContainerSurface}>
+    <SafeAreaView style={localstyle.maincontainer}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
         <StepIndicator step={2} />
         <View style={localstyle.container}>
@@ -163,7 +160,8 @@ const CreatePasswordScreen = ({navigation}) => {
             <CText
               numberOfLines={1}
               type={'R14'}
-              style={localstyle.AccountStyle}>
+              // style={localstyle.AccountStyle}
+            >
               {strings.AlreadyAccount}
             </CText>
             <TouchableOpacity onPress={GoBackBtnHandle}>
@@ -178,6 +176,9 @@ const CreatePasswordScreen = ({navigation}) => {
   );
 };
 const localstyle = StyleSheet.create({
+  maincontainer: {
+    ...styles.mainContainerSurface,
+  },
   container: {
     ...styles.mh15,
     ...styles.justifyBetween,
@@ -226,9 +227,10 @@ const localstyle = StyleSheet.create({
     textAlign: 'center',
   },
   accountdetailStyle: {
-    ...styles.flex,
     ...styles.center,
     ...styles.flexRow,
+    ...styles.flex,
+    ...styles.mb30,
   },
 });
 export default CreatePasswordScreen;

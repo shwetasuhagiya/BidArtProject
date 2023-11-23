@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
+
 //custom import
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import {colors, styles} from '../../themes';

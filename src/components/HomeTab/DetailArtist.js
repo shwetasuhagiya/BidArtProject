@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 
 //custom import
 import {colors, styles} from '../../themes';
@@ -21,6 +21,7 @@ import {StackNav} from '../../navigation/NavigationKeys';
 
 export default function DetailArtist({route, navigation}) {
   const {name, userImage, image1, image2, image3} = route.params;
+  const [follow, SetFollow] = useState(false);
   const array = [
     {
       image: image1,
@@ -54,21 +55,27 @@ export default function DetailArtist({route, navigation}) {
   const onpressRegister = () => {
     navigation.navigate(StackNav.RegisterBid);
   };
-  
-  const onpressDetailArtist=(item)=>{
-     navigation.navigate(StackNav.DetailArt, {
-       image: item.image,
-       title: item.title,
-       Creator: item.creatorImage,
-     });
-  }
+
+  const onpressMessage = () => {
+    navigation.navigate(StackNav.Chat, {userImage: userImage, name: name});
+  };
+  const onpressFollow = () => {
+    SetFollow(!follow);
+  };
+
+  const onpressDetailArtist = item => {
+    navigation.navigate(StackNav.DetailArt, {
+      image: item.image,
+      title: item.title,
+      Creator: item.creatorImage,
+    });
+  };
 
   const renderItem = ({item}) => {
     return (
       <TouchableOpacity
         style={localStyle.mainImageStyle}
-        onPress={() =>onpressDetailArtist(item)
-        }>
+        onPress={() => onpressDetailArtist(item)}>
         <Image source={item.image} style={localStyle.imageStyle} />
         <View style={localStyle.contentmainStyle}>
           <CText type={'B14'} numberOfLines={1}>
@@ -150,13 +157,20 @@ export default function DetailArtist({route, navigation}) {
         </CText>
         <View style={localStyle.contentStyle}>
           <CButton
-            Title={strings.followed}
-            ChangeBtnStyle={localStyle.btnStyle}
+            Title={follow ? strings.follow : strings.followed}
+            ChangeBtnStyle={
+              follow ? localStyle.ChangeBtnColorStyle : localStyle.btnStyle
+            }
+            ChangeTxtStyle={follow ? localStyle.ChangeTxtStyle : null}
+            onPress={onpressFollow}
           />
           <CButton
             Title={strings.message}
             ChangeBtnStyle={localStyle.ChangeBtnStyles}
             ChangeTxtStyle={localStyle.ChangeTxtStyle}
+            onPress={() => {
+              onpressMessage();
+            }}
           />
         </View>
         <View style={[localStyle.contentsStyle, styles.mt0]}>
@@ -210,6 +224,13 @@ const localStyle = StyleSheet.create({
   btnStyle: {
     width: moderateScale(156),
     height: moderateScale(48),
+  },
+  ChangeBtnColorStyle: {
+    width: moderateScale(156),
+    height: moderateScale(48),
+    backgroundColor: colors.white,
+    borderColor: colors.black,
+    borderWidth: moderateScale(1.5),
   },
   ChangeBtnStyles: {
     width: moderateScale(156),

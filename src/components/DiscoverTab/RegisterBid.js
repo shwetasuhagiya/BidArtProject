@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 //custom import
 import {colors, styles} from '../../themes';
@@ -16,10 +16,10 @@ import strings from '../../i18n/strings';
 import {moderateScale} from '../../common/constants';
 import CButton from '../common/CButton';
 import {StackNav, TabNav} from '../../navigation/NavigationKeys';
-import { CheckCircle, Circle } from '../../assets/svg';
+import {CheckCircle, Circle} from '../../assets/svg';
 
 export default function RegisterBid({navigation}) {
-   const [agreeBtn, setAgreeBtn] = useState(false);
+  const [agreeBtn, setAgreeBtn] = useState(false);
   const MoveToNextScreen = () => {
     navigation.navigate(StackNav.AddCreditCard);
   };

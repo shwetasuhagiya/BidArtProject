@@ -5,6 +5,7 @@ import RegisterBid from '../components/DiscoverTab/RegisterBid';
 import SearchDiscover from '../components/DiscoverTab/SearchDiscover';
 import ArtWorkScreen from '../components/HomeTab/ArtWorkScreen';
 import BidArtEvent from '../components/HomeTab/BidArtEvent';
+import Chat from '../components/HomeTab/Chat';
 import DetailArtist from '../components/HomeTab/DetailArtist';
 import DetailEvent from '../components/HomeTab/DetailEvent';
 import SearchArtist from '../components/HomeTab/SearchArtist';
@@ -12,6 +13,7 @@ import SearchEvent from '../components/HomeTab/SearchEvent';
 import SearchPage from '../components/HomeTab/SearchPage';
 import SearchResult from '../components/HomeTab/SearchResult';
 import TrendingArtist from '../components/HomeTab/TrendingArtist';
+import VoiceCall from '../components/HomeTab/VoiceCall';
 import Payment from '../components/ProfileTab.js/Payment';
 import Setting from '../components/ProfileTab.js/Setting';
 import SettingAccount from '../components/ProfileTab.js/SettingAccount';
@@ -58,6 +60,8 @@ export const StackRoute = {
   Payment,
   Setting,
   SearchArtist,
+  Chat,
+  VoiceCall
 };
 
 export const AuthRoute = {

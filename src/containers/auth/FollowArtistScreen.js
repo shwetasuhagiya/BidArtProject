@@ -109,7 +109,7 @@ const FollowArtistScreen = ({navigation}) => {
           </CText>
         </View>
         <FlatList
-          data={[...select, ...select]}
+          data={select}
           renderItem={renderItem}
           keyExtractor={item => item.id}
           scrollEnabled={false}

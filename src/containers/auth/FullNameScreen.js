@@ -37,67 +37,67 @@ const FullNameScreen = ({navigation}) => {
     setAgreeBtn(!agreeBtn);
   };
   return (
-    <SafeAreaView>
-      <KeyBoardAvoidWrapper
-        contentContainerStyle={styles.flexG1}></KeyBoardAvoidWrapper>
-      <StepIndicator step={2} />
-      <View style={localstyle.container}>
-        <View>
-          <CText
-            numberOfLines={1}
-            style={localstyle.PasswordTitleStyle}
-            type={'B24'}>
-            {strings.FullNameTitle}
-          </CText>
-          <CText
-            numberOfLines={2}
-            style={localstyle.PasswordDesStyle}
-            type={'M16'}>
-            {strings.FullNameDes}
-          </CText>
-          <CText
-            numberOfLines={1}
-            type={'M14'}
-            style={localstyle.PasswordTitle}>
-            {strings.FullName}
-          </CText>
-          <CTextInput
-            placeholderText={strings.FullNamePlaceHolderText}
-            value={name}
-            onChangeText={onChangeName}
-            errorText={FullName}
-          />
-        </View>
-        <View>
-          <CText numberOfLines={2} type={'R14'}>
-            {strings.temrsAndCondition}
-            <CText numberOfLines={1} type={'B14'}>
-              {strings.TermofUse}
+    <SafeAreaView style={styles.mainContainerSurface}>
+      <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
+        <StepIndicator step={2} />
+        <View style={localstyle.container}>
+          <View>
+            <CText
+              numberOfLines={1}
+              style={localstyle.PasswordTitleStyle}
+              type={'B24'}>
+              {strings.FullNameTitle}
             </CText>
-            <CText numberOfLines={1}>{strings.and}</CText>
-            <CText numberOfLines={1} type={'B14'}>
-              {strings.PrivacyPolicy}
+            <CText
+              numberOfLines={2}
+              style={localstyle.PasswordDesStyle}
+              type={'M16'}>
+              {strings.FullNameDes}
             </CText>
-            <CText numberOfLines={1}>{strings.otherdes}</CText>
-          </CText>
-          <TouchableOpacity
-            style={localstyle.agreeStyle}
-            onPress={onPressCheckbtn}>
-            <Image
-              source={agreeBtn ? images.Check : images.circle}
-              style={localstyle.CheckbtnStyle}
+            <CText
+              numberOfLines={1}
+              type={'M14'}
+              style={localstyle.PasswordTitle}>
+              {strings.FullName}
+            </CText>
+            <CTextInput
+              placeholderText={strings.FullNamePlaceHolderText}
+              value={name}
+              onChangeText={onChangeName}
+              errorText={FullName}
             />
-            <CText numberOfLines={1}>{strings.Agree}</CText>
-          </TouchableOpacity>
-          <CButton
-            Title={strings.Next}
-            ChangeBtnStyle={localstyle.btnStyle}
-            onPress={onpressNextbtn}
-            type={'B16'}
-          />
+          </View>
+          <View>
+            <CText numberOfLines={2} type={'R14'}>
+              {strings.temrsAndCondition}
+              <CText numberOfLines={1} type={'B14'}>
+                {strings.TermofUse}
+              </CText>
+              <CText numberOfLines={1}>{strings.and}</CText>
+              <CText numberOfLines={1} type={'B14'}>
+                {strings.PrivacyPolicy}
+              </CText>
+              <CText numberOfLines={1}>{strings.otherdes}</CText>
+            </CText>
+            <TouchableOpacity
+              style={localstyle.agreeStyle}
+              onPress={onPressCheckbtn}>
+              <Image
+                source={agreeBtn ? images.Check : images.circle}
+                style={localstyle.CheckbtnStyle}
+              />
+              <CText numberOfLines={1}>{strings.Agree}</CText>
+            </TouchableOpacity>
+            <CButton
+              Title={strings.Next}
+              ChangeBtnStyle={localstyle.btnStyle}
+              onPress={onpressNextbtn}
+              type={'B16'}
+            />
+          </View>
+          <View />
         </View>
-        <View />
-      </View>
+      </KeyBoardAvoidWrapper>
     </SafeAreaView>
   );
 };

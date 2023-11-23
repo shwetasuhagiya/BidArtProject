@@ -16,7 +16,7 @@ import images from '../../assets/images';
 import CText from '../../components/common/CText';
 import strings from '../../i18n/strings';
 import CTextInput from '../../components/common/CTextInput';
-import {StackNav} from '../../navigation/NavigationKeys';
+import {StackNav, TabNav} from '../../navigation/NavigationKeys';
 import {ArtWorkList, TreadingArtistList} from '../../api/constant';
 import {moderateScale} from '../../common/constants';
 import CButton from '../../components/common/CButton';
@@ -56,6 +56,20 @@ const HomeTab = ({navigation}) => {
       date: strings.Eventdate,
       auction: strings.Auction,
     });
+  };
+
+  const onPressDetailArtist = item => {
+    navigation.navigate(StackNav.DetailArtist, {
+      name: item.name,
+      userImage: item.image,
+      image1: images.userImage1,
+      image2: images.userImage2,
+      image3: images.userImage3,
+    });
+  };
+
+  const onPressHeader = () => {
+    navigation.navigate(TabNav.Profile);
   };
 
   const CategoriesHeader = ({name, onPress, Style}) => {
@@ -156,15 +170,7 @@ const HomeTab = ({navigation}) => {
     return (
       <TouchableOpacity
         style={localstyles.mainArtistStyle}
-        onPress={() =>
-          navigation.navigate(StackNav.DetailArtist, {
-            name: item.name,
-            userImage: item.image,
-            image1: images.userImage1,
-            image2: images.userImage2,
-            image3: images.userImage3,
-          })
-        }>
+        onPress={() => onPressDetailArtist(item)}>
         <Image source={item.image} style={localstyles.imageArtist} />
         <View>
           <CText type={'S16'} numberOfLines={1} style={localstyles.artistStyle}>
@@ -184,7 +190,9 @@ const HomeTab = ({navigation}) => {
         {/* -------------------Header ---------------------- */}
         <View style={localstyles.mainHeaderStyle}>
           <View style={localstyles.headerStyle}>
-            <Image source={images.header} />
+            <TouchableOpacity onPress={onPressHeader}>
+              <Image source={images.header} />
+            </TouchableOpacity>
             <View style={localstyles.TitleStyle}>
               <CText type={'S16'} numberOfLines={1}>
                 {strings.userName}

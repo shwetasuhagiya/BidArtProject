@@ -55,9 +55,9 @@ export default function AddCreditCard({navigation}) {
     navigation.goBack();
   };
 
-  const onPressRegister=()=>{
-     navigation.navigate(StackNav.RegisterBid);
-  }
+  const onPressRegister = () => {
+    navigation.navigate(StackNav.RegisterBid);
+  };
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
@@ -151,7 +151,7 @@ const localStyle = StyleSheet.create({
   flexInput: {
     ...styles.flexRow,
     ...styles.justifyBetween,
-    ...styles.mt10
+    ...styles.mt10,
   },
   btnStyle: {
     ...styles.mb10,

@@ -1,4 +1,5 @@
 import {
+  Alert,
   Image,
   SafeAreaView,
   StyleSheet,
@@ -38,16 +39,30 @@ export default function ProfileTab({navigation}) {
     navigation.navigate(StackNav.Setting);
   };
   const onpressLogOut = () => {
-    AsyncStorage.removeItem(LOGIN_TOKEN).then(
-      navigation.reset({
-        index: 0,
-        routes: [{name: StackNav.AuthNavigation}],
-      }),
-    );
+    Alert.alert('Logout', 'Are you sure you want to logout?', [
+      {
+        text: 'Cancel',
+        onPress: () => {},
+        style: 'cancel',
+      },
+      {
+        text: 'OK',
+        onPress: async () => {
+          AsyncStorage.removeItem(LOGIN_TOKEN).then(
+            navigation.reset({
+              index: 0,
+              routes: [{name: StackNav.AuthNavigation}],
+            }),
+          );
+        },
+      },
+    ]);
   };
-  const RenderItems = ({title, icon, onPress}) => {
+  const RenderItems = ({title, icon, onPress, style}) => {
     return (
-      <TouchableOpacity style={localStyle.containerStyle} onPress={onPress}>
+      <TouchableOpacity
+        style={[localStyle.containerStyle, style]}
+        onPress={onPress}>
         <CText type={'B16'} numberOfLines={1}>
           {title}
         </CText>
@@ -57,7 +72,7 @@ export default function ProfileTab({navigation}) {
   };
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
-      <KeyBoardAvoidWrapper>
+      <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
         <View style={localStyle.containerStyle}>
           <CText type={'B24'} numberOfLines={1}>
             {strings.Profile}
@@ -129,6 +144,7 @@ export default function ProfileTab({navigation}) {
           title={strings.Payment}
           icon={'arrow-right'}
           onPress={MoveToPaymentScreen}
+          style={localStyle.paymentStyle}
         />
       </KeyBoardAvoidWrapper>
       <CButton
@@ -207,6 +223,9 @@ const localStyle = StyleSheet.create({
     backgroundColor: colors.white,
     borderWidth: moderateScale(1),
     borderColor: colors.black,
+    ...styles.mb20,
+  },
+  paymentStyle: {
     ...styles.mb20,
   },
 });

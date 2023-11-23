@@ -28,7 +28,7 @@ export default function SubmitWork({navigation}) {
   const [title, SetTitle] = useState('');
   const [size, setSize] = useState('');
   const [number, SetNumber] = useState('');
-  const [medium,setMidium] = useState('')
+  const [medium, setMidium] = useState('');
   const [switchOn, setSwitch] = useState(false);
   const [switchOn1, setSwitch1] = useState(false);
   const [switchOn2, setSwitch2] = useState(false);
@@ -36,9 +36,9 @@ export default function SubmitWork({navigation}) {
   const onChangeCategory = value => {
     SetCategory(value);
   };
-   const onChangeMidium = value => {
-     setMidium(value);
-   };
+  const onChangeMidium = value => {
+    setMidium(value);
+  };
   const onchangeTitle = item => {
     SetTitle(item);
   };

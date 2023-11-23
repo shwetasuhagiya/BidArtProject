@@ -50,11 +50,10 @@ const CTextInput = props => {
         {!!RightIcon && <RightIcon />}
         {!!isSecure && (
           <TouchableOpacity onPress={onPressSecureIcon}>
-            {!isSecurepass ? (
-              <Image source={images.Eye1} style={localstyle.securetextStyle} />
-            ) : (
-              <Image source={images.Eye} style={localstyle.securetextStyle} />
-            )}
+            <Image
+              source={!isSecurepass ? images.Eye : images.Eye1}
+              style={localstyle.securetextStyle}
+            />
           </TouchableOpacity>
         )}
       </View>

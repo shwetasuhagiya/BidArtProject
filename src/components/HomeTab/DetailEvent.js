@@ -84,7 +84,7 @@ export default function DetailEvent({route, navigation}) {
   };
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
-      <KeyBoardAvoidWrapper >
+      <KeyBoardAvoidWrapper>
         <CHeader
           img={images.arrowLeft}
           icon={images.share}

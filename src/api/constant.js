@@ -501,3 +501,73 @@ export const EventData = [
   {id: 0, name: 'Exhibitors'},
   {id: 1, name: 'Artworks'},
 ];
+
+export const chatData = [
+  {
+    id: 1,
+    message: 'Hi Theresa, good morning 😄',
+    time: '12:00',
+    type: 'sender',
+  },
+  {
+    id: 2,
+    message: 'Hi there, good morning! How are you?',
+    time: '12:01',
+    type: 'receiver',
+  },
+  {
+    id: 3,
+    message: 'I am doing well, thanks for asking 😊',
+    time: '12:02',
+    type: 'sender',
+  },
+  {
+    id: 4,
+    message: "That's great to hear! What are your plans for the day?",
+    time: '12:03',
+    type: 'receiver',
+  },
+  {
+    id: 5,
+    message:
+      'I have a few meetings scheduled, but otherwise just working from home. How about you?',
+    time: '12:04',
+    type: 'sender',
+  },
+  {
+    id: 1,
+    message: 'Hi Theresa, good morning 😄',
+    time: '12:00',
+    type: 'sender',
+  },
+  {
+    id: 2,
+    message: 'Hi there, good morning! How are you?',
+    time: '12:01',
+    type: 'receiver',
+  },
+  {
+    id: 3,
+    message: 'I am doing well, thanks for asking 😊',
+    time: '12:02',
+    type: 'sender',
+  },
+  {
+    id: 4,
+    message: "That's great to hear! What are your plans for the day?",
+    time: '12:03',
+    type: 'receiver',
+  },
+  {
+    id: 5,
+    message:
+      'I have a few meetings scheduled, but otherwise just working from home. How about you?',
+    time: '12:04',
+    type: 'sender',
+  },
+];
+
+export  const searchData = [
+  {id: 0, name: 'ArtWork'},
+  {id: 1, name: 'Artist'},
+];

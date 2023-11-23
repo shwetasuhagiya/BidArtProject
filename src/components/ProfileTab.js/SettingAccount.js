@@ -1,8 +1,15 @@
-import {StyleSheet, View, SafeAreaView, Image} from 'react-native';
-import React, {useState} from 'react';
+import {
+  StyleSheet,
+  View,
+  SafeAreaView,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+import React, {createRef, useEffect, useState} from 'react';
+import ImagePicker from 'react-native-image-crop-picker';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
 //custom import
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import {colors, styles} from '../../themes';
 import CHeader from '../common/CHeader';
 import strings from '../../i18n/strings';
@@ -14,6 +21,7 @@ import {Google, Trash} from '../../assets/svg';
 import CButton from '../common/CButton';
 import {TabNav} from '../../navigation/NavigationKeys';
 import {validateEmail, validateFullName} from '../../utils/Validation';
+import ChoosePictureModal from '../modals/ChoosePictureModal';
 
 export default function SettingAccount({navigation}) {
   const [name, setName] = useState();
@@ -21,8 +29,14 @@ export default function SettingAccount({navigation}) {
   const [username, SetuserName] = useState();
   const [email, Setemail] = useState();
   const [errorEmail, setErrorEmail] = useState();
-
+  const [selectImage, setSelectImage] = useState();
+  const sheetRef = createRef(null);
   const [errorUserName, setErrorUserName] = useState();
+
+  useEffect(() => {
+    sheetRef?.current?.hide();
+  }, [selectImage]);
+
   const MoveToBackScreen = () => {
     navigation.navigate(TabNav.Profile);
   };
@@ -43,6 +57,29 @@ export default function SettingAccount({navigation}) {
     setErrorEmail(msg);
   };
 
+  const onPressImageGallary = () => {
+    sheetRef?.current.show();
+  };
+
+  const onPressCamera = () => {
+    ImagePicker.openCamera({
+      mediaType: 'photo',
+      includeBase64: true,
+    }).then(image => {
+      setSelectImage(image);
+    });
+  };
+
+  const onPressGallery = () => {
+    ImagePicker.openPicker({
+      mediaType: 'photo',
+      includeBase64: true,
+    }).then(image => {
+      console.warn(image);
+      setSelectImage(image);
+    });
+  };
+
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
@@ -53,14 +90,23 @@ export default function SettingAccount({navigation}) {
           </CText>
           <View />
         </View>
-        <View style={localStyle.parentStyle}>
-          <Image source={images.profileUser} style={localStyle.imageStyle} />
+        <TouchableOpacity
+          style={localStyle.parentStyle}
+          onPress={onPressImageGallary}>
+          <Image
+            source={
+              !!selectImage?.path
+                ? {uri: selectImage?.path}
+                : images.profileUser
+            }
+            style={localStyle.imageStyle}
+          />
           <SimpleLineIcons
             name={'camera'}
             size={moderateScale(24)}
             style={localStyle.iconStyle}
           />
-        </View>
+        </TouchableOpacity>
         <View style={localStyle.textInputStyle}>
           <CText type={'M14'} numberOfLines={1}>
             {strings.FullName}
@@ -128,6 +174,11 @@ export default function SettingAccount({navigation}) {
           ChangeTxtStyle={localStyle.ChangeTxtStyle}
           onPress={MoveToBackScreen}
         />
+        <ChoosePictureModal
+          sheetRef={sheetRef}
+          onPressCamera={onPressCamera}
+          onPressGallery={onPressGallery}
+        />
       </KeyBoardAvoidWrapper>
     </SafeAreaView>
   );
@@ -147,6 +198,7 @@ const localStyle = StyleSheet.create({
   imageStyle: {
     width: moderateScale(100),
     height: moderateScale(100),
+    borderRadius: moderateScale(50),
   },
   parentStyle: {
     ...styles.center,

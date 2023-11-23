@@ -1,4 +1,4 @@
-import {StyleSheet, View, SafeAreaView, ScrollView} from 'react-native';
+import {StyleSheet, View, SafeAreaView} from 'react-native';
 import React, {useState} from 'react';
 
 //custom import
@@ -57,102 +57,85 @@ export default function AddBillingAddress({navigation}) {
     navigation.navigate(StackNav.RegisterBid);
   };
 
-  const onPressRegister=()=>{
-     navigation.navigate(StackNav.RegisterBid);
-  }
+  const onPressRegister = () => {
+    navigation.navigate(StackNav.RegisterBid);
+  };
 
   return (
     <SafeAreaView style={localStyle.mainContainerStyle}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
-        <ScrollView>
-          <View>
-            <View style={localStyle.containerStyle}>
-              <CHeader img={images.arrowLeft} onPress={MoveToBack} />
-              <CText type={'B16'} numberOfLines={1}>
-                {strings.AddBillingAddress}
-              </CText>
-              <View />
-            </View>
-            <CText
-              style={localStyle.contentStyle}
-              type={'M14'}
-              numberOfLines={1}>
-              {strings.FullName}
+        <View>
+          <View style={localStyle.containerStyle}>
+            <CHeader img={images.arrowLeft} onPress={MoveToBack} />
+            <CText type={'B16'} numberOfLines={1}>
+              {strings.AddBillingAddress}
             </CText>
-            <CTextInput
-              placeholderText={strings.FullNamePlaceHolder}
-              value={name}
-              onChangeText={onChangefullName}
-              errorText={fullName}
-            />
-            <CText
-              style={localStyle.contentStyle}
-              type={'M14'}
-              numberOfLines={1}>
-              {strings.City}
-            </CText>
-            <CTextInput
-              placeholderText={strings.cityName}
-              value={city}
-              onChangeText={onChangeCity}
-              keyBoardType={'defalut'}
-              errorText={cityError}
-            />
-            <CText
-              style={localStyle.contentStyle}
-              type={'M14'}
-              numberOfLines={1}>
-              {strings.otherdata}
-            </CText>
-            <CTextInput
-              placeholderText={strings.dataplaceholderText}
-              value={data}
-              onChangeText={onChangeData}
-              keyBoardType={'defalut'}
-            />
-            <CText
-              style={localStyle.contentStyle}
-              type={'M14'}
-              numberOfLines={1}>
-              {strings.PostalCode}
-            </CText>
-            <CTextInput
-              placeholderText={strings.postalTextInput}
-              value={postal}
-              onChangeText={onChangePostal}
-              keyBoardType={'numeric'}
-            />
-            <CText
-              style={localStyle.contentStyle}
-              type={'M14'}
-              numberOfLines={1}>
-              {strings.PhoneNumber}
-            </CText>
-            <CTextInput
-              placeholderText={strings.phonePlaceHolder}
-              value={phonenum}
-              onChangeText={onChangePhonenumber}
-              keyBoardType={'numeric'}
-              errorText={NumberError}
-            />
-            <CDropdownInput
-              label={strings.Country}
-              type={'M14'}
-              data={countryList}
-              value={country}
-              placeholder={strings.SelectCountry}
-              onChange={onChangeCountryFied}
-              position="top"
-            />
+            <View />
           </View>
-          <CButton
-            Title={strings.AddBillingAddress}
-            type={'B16'}
-            ChangeBtnStyle={localStyle.btnStyle}
-            ChangeTxtStyle={localStyle.ChangeTxtStyle}
-            onPress={onPressRegister}
+          <CText style={localStyle.contentStyle} type={'M14'} numberOfLines={1}>
+            {strings.FullName}
+          </CText>
+          <CTextInput
+            placeholderText={strings.FullNamePlaceHolder}
+            value={name}
+            onChangeText={onChangefullName}
+            errorText={fullName}
           />
-        </ScrollView>
+          <CText style={localStyle.contentStyle} type={'M14'} numberOfLines={1}>
+            {strings.City}
+          </CText>
+          <CTextInput
+            placeholderText={strings.cityName}
+            value={city}
+            onChangeText={onChangeCity}
+            keyBoardType={'defalut'}
+            errorText={cityError}
+          />
+          <CText style={localStyle.contentStyle} type={'M14'} numberOfLines={1}>
+            {strings.otherdata}
+          </CText>
+          <CTextInput
+            placeholderText={strings.dataplaceholderText}
+            value={data}
+            onChangeText={onChangeData}
+            keyBoardType={'defalut'}
+          />
+          <CText style={localStyle.contentStyle} type={'M14'} numberOfLines={1}>
+            {strings.PostalCode}
+          </CText>
+          <CTextInput
+            placeholderText={strings.postalTextInput}
+            value={postal}
+            onChangeText={onChangePostal}
+            keyBoardType={'numeric'}
+          />
+          <CText style={localStyle.contentStyle} type={'M14'} numberOfLines={1}>
+            {strings.PhoneNumber}
+          </CText>
+          <CTextInput
+            placeholderText={strings.phonePlaceHolder}
+            value={phonenum}
+            onChangeText={onChangePhonenumber}
+            keyBoardType={'numeric'}
+            errorText={NumberError}
+          />
+          <CDropdownInput
+            label={strings.Country}
+            type={'M14'}
+            data={countryList}
+            value={country}
+            placeholder={strings.SelectCountry}
+            onChange={onChangeCountryFied}
+            position="top"
+          />
+        </View>
+        <CButton
+          Title={strings.AddBillingAddress}
+          type={'B16'}
+          ChangeBtnStyle={localStyle.btnStyle}
+          ChangeTxtStyle={localStyle.ChangeTxtStyle}
+          onPress={onPressRegister}
+        />
       </KeyBoardAvoidWrapper>
     </SafeAreaView>
   );

@@ -23,6 +23,8 @@ export const StackNav = {
   Payment: 'Payment',
   Setting: 'Setting',
   SearchArtist: 'SearchArtist',
+  Chat: 'Chat',
+  VoiceCall: 'VoiceCall',
 };
 
 export const AuthNav = {

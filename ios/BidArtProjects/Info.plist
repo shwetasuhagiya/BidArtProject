@@ -29,8 +29,14 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>User has to access Camera to take user profile</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>User Need to Acess Gellary for Upload Image</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>User has to access photo library for make profile in app</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>fonts/Urbanist-Bold.ttf</string>

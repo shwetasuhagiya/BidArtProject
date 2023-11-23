@@ -216,4 +216,9 @@ export default {
   entercity: 'Please Enter Your city',
   validateNumber: 'Enter a Valid Mobile Number',
   enterNumber: 'Please Enter Your Mobile Number',
+  takeAPicture: 'Take a picture',
+  chooseFromGallery: 'Choose from gallery',
+  messages: 'Enter a message',
+  uploadProfilePicture: 'Upload Profile Picture',
+  voiceCall: 'Voice Call',
 };

@@ -19,13 +19,13 @@ const CVerticalView = ({item, navigation}) => {
   const onpressRegister = () => {
     navigation.navigate(StackNav.RegisterBid);
   };
-    const onpressDetail = item => {
-      navigation.navigate(StackNav.DetailArt, {
-        image: item.image,
-        title: item.title,
-        Creator: item.creatorImage,
-      });
-    };
+  const onpressDetail = item => {
+    navigation.navigate(StackNav.DetailArt, {
+      image: item.image,
+      title: item.title,
+      Creator: item.creatorImage,
+    });
+  };
   return (
     <SafeAreaView>
       <TouchableOpacity

@@ -1,5 +1,12 @@
-import {Image, SafeAreaView, StyleSheet, View} from 'react-native';
-import React from 'react';
+import {
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import React, {useState} from 'react';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 //custom import
 import CHeader from '../common/CHeader';
@@ -14,6 +21,8 @@ import KeyBoardAvoidWrapper from '../common/KeyBoardAvoidWrapper';
 
 export default function DetailArt({route, navigation}) {
   const {image, title, Creator} = route.params;
+  const [follow, SetFollow] = useState(false);
+  const [bookMark, SetBookMark] = useState(false);
 
   const MoveToBackScreen = () => {
     navigation.goBack();
@@ -22,15 +31,27 @@ export default function DetailArt({route, navigation}) {
   const MoveToRegister = () => {
     navigation.navigate(StackNav.RegisterBid);
   };
+  const onpressFollow = () => {
+    SetFollow(!follow);
+  };
+
+  const onPressBookmark = () => {
+    SetBookMark(!bookMark);
+  };
 
   return (
     <SafeAreaView style={localStyle.mainContainer}>
-      <KeyBoardAvoidWrapper>
+      <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
         <View style={localStyle.containerStyle}>
           <CHeader img={images.arrowLeft} onPress={MoveToBackScreen} />
           <View style={localStyle.bookmarkStyle}>
             <Image source={images.share} style={styles.mr10} />
-            <Image source={images.BookMark} />
+            <TouchableOpacity onPress={onPressBookmark}>
+              <Ionicons
+                name={bookMark ? 'bookmark' : 'bookmark-outline'}
+                size={moderateScale(26)}
+              />
+            </TouchableOpacity>
           </View>
         </View>
         <View>
@@ -56,11 +77,12 @@ export default function DetailArt({route, navigation}) {
             </View>
           </View>
           <CButton
-            type={'M14'}
-            numberOfLines={1}
-            Title={strings.follow}
-            ChangeBtnStyle={localStyle.btnStyle}
-            ChangeTxtStyle={localStyle.ChangeTextStyle}
+            Title={follow ? strings.follow : strings.followed}
+            ChangeBtnStyle={
+              follow ? localStyle.ChangeBtnColorStyle : localStyle.btnStyle
+            }
+            ChangeTxtStyle={follow ? localStyle.ChangeTxtStyle : null}
+            onPress={onpressFollow}
           />
         </View>
         <CText type={'M16'} numberOfLines={3} color={colors.grayText}>
@@ -69,21 +91,21 @@ export default function DetailArt({route, navigation}) {
             {strings.learnmore}
           </CText>
         </CText>
+        <View>
+          <CButton
+            Title={strings.RegistertoBid}
+            type={'B16'}
+            ChangeBtnStyle={localStyle.ChangeButtonStyle}
+            onPress={MoveToRegister}
+          />
+          <CButton
+            Title={strings.ContactGallery}
+            type={'B16'}
+            ChangeTxtStyle={localStyle.ChangeTextStyle}
+            ChangeBtnStyle={localStyle.ChangeBtnStyle}
+          />
+        </View>
       </KeyBoardAvoidWrapper>
-      <View>
-        <CButton
-          Title={strings.RegistertoBid}
-          type={'B16'}
-          ChangeBtnStyle={localStyle.ChangeButtonStyle}
-          onPress={MoveToRegister}
-        />
-        <CButton
-          Title={strings.ContactGallery}
-          type={'B16'}
-          ChangeTxtStyle={localStyle.ChangeTextStyle}
-          ChangeBtnStyle={localStyle.ChangeBtnStyle}
-        />
-      </View>
     </SafeAreaView>
   );
 }
@@ -108,7 +130,7 @@ const localStyle = StyleSheet.create({
     height: moderateScale(327),
     width: deviceWidth - 35,
     ...styles.mv15,
-    position:'relative'
+    position: 'relative',
   },
   contentStyle: {
     ...styles.rowSpaceBetween,
@@ -131,6 +153,7 @@ const localStyle = StyleSheet.create({
     backgroundColor: colors.white,
     borderWidth: moderateScale(1),
     borderColor: colors.black,
+    ...styles.mb20,
   },
   ChangeButtonStyle: {
     ...styles.mv15,
@@ -141,5 +164,19 @@ const localStyle = StyleSheet.create({
     position: 'absolute',
     bottom: moderateScale(30),
     left: '35%',
+  },
+  btnStyle: {
+    width: moderateScale(87),
+    height: moderateScale(36),
+  },
+  ChangeBtnColorStyle: {
+    width: moderateScale(87),
+    height: moderateScale(36),
+    backgroundColor: colors.white,
+    borderColor: colors.black,
+    borderWidth: moderateScale(1.5),
+  },
+  ChangeTxtStyle: {
+    color: colors.black,
   },
 });

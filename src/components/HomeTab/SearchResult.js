@@ -14,15 +14,12 @@ import {colors, styles} from '../../themes';
 import CText from '../common/CText';
 import strings from '../../i18n/strings';
 import {moderateScale} from '../../common/constants';
-import {SearchResultData} from '../../api/constant';
+import {SearchResultData, searchData} from '../../api/constant';
 import CButton from '../common/CButton';
 
-export default function SearchResult({route, navigation}) {
+export default function SearchResult() {
   const [SelectedItem, SetSelectedItem] = useState(0);
-  const Array = [
-    {id: 0, name: 'ArtWork'},
-    {id: 1, name: 'Artist'},
-  ];
+
   const RenderMainItems = ({item}) => {
     return (
       <TouchableOpacity
@@ -79,7 +76,7 @@ export default function SearchResult({route, navigation}) {
     <SafeAreaView style={localStyle.mainContainer}>
       <KeyBoardAvoidWrapper contentContainerStyle={styles.flexG1}>
         <View style={localStyle.contentStyle}>
-          {Array.map(item => {
+          {searchData.map(item => {
             return <RenderMainItems item={item} />;
           })}
         </View>

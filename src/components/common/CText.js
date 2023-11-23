@@ -1,5 +1,7 @@
 import React from 'react';
 import {Text} from 'react-native';
+
+//custom import
 import {colors} from '../../themes/colors';
 import Typography from '../../themes/typography';
 

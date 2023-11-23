@@ -96,6 +96,11 @@ export default function StackNavigation() {
         name={StackNav.SearchArtist}
         component={StackRoute.SearchArtist}
       />
+      <Stack.Screen name={StackNav.Chat} component={StackRoute.Chat} />
+      <Stack.Screen
+        name={StackNav.VoiceCall}
+        component={StackRoute.VoiceCall}
+      />
     </Stack.Navigator>
   );
 }

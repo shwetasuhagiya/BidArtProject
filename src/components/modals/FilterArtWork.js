@@ -83,7 +83,7 @@ const FilterArtWork = props => {
         </CText>
         <View style={localstyle.contentStyle}>
           {filterData.map(item => {
-            return <RenderMainItems item={item} />
+            return <RenderMainItems item={item} />;
           })}
         </View>
         <FlatList data={select} renderItem={renderItem} />

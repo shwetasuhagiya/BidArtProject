@@ -17,7 +17,7 @@ import {moderateScale} from '../../common/constants';
 import {StackNav} from '../../navigation/NavigationKeys';
 
 export default function BidsDetail({navigation}) {
-  const onpressDetail = (item) => {
+  const onpressDetail = item => {
     navigation.navigate(StackNav.DetailArt, {
       image: item.image,
       title: item.title,

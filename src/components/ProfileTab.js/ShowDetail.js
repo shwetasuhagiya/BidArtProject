@@ -16,7 +16,7 @@ import {colors, styles} from '../../themes';
 import {StackNav} from '../../navigation/NavigationKeys';
 
 export default function ShowDetail({navigation}) {
-  const onpressEvent = (item) => {
+  const onpressEvent = item => {
     navigation.navigate(StackNav.DetailEvent, {
       image: item.mainImage,
       date: item.date,

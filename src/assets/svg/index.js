@@ -4,6 +4,7 @@ import Trash from './Trash.svg';
 import Edit from './Edit.svg';
 import CheckCircle from './CheckCircle.svg';
 import Circle from './Circle.svg'
+
 export {
     Home,
     Google,
