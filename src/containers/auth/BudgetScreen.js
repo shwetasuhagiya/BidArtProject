@@ -75,6 +75,7 @@ const localstyle = StyleSheet.create({
   mainContainer: {
     ...styles.mh15,
     ...styles.mainContainerSurface,
+    
   },
   titleStyle: {
     ...styles.mb30,
@@ -83,6 +84,7 @@ const localstyle = StyleSheet.create({
     ...styles.mv15,
     ...styles.flexRow,
     ...styles.justifyBetween,
+
   },
   circlestyle: {
     height: moderateScale(20),
