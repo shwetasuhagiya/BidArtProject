@@ -4,8 +4,6 @@ on:
   pull_request:
     branches:
       - "master"
-      - "develop"
-      - "preprod"
 
 jobs:
   #First job
